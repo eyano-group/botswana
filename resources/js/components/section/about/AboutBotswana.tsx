@@ -140,7 +140,7 @@ const AboutBotswana = () => {
           </div>
         </div>
       </section> */}
-      <PageTitle title="About Botswana" backgroundImage="/assets/images/banner/banner-1.jpg" breadcrumbItems={[{ label: 'Home', href: '/' }, { label: 'About', href: '/' }, { label: 'About Botswana', href: '/about/about-botswana' }]} />
+      <PageTitle title="About Botswana" backgroundImage="/assets/images/breadcrumb/page-title-6.jpg" breadcrumbItems={[{ label: 'Home', href: '/' }, { label: 'About', href: '/' }, { label: 'About Botswana', href: '/about/about-botswana' }]} />
 
       {/* Section des statistiques du pays */}
       <section id="statistics" className="py-16 bg-gradient-to-r from-blue-50 to-indigo-50">

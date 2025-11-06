@@ -49,11 +49,11 @@ const Header = () => {
   const NAV_ITEMS = [
     {
       name: "home",
-      href: "/home",
+      href: "/",
     },
     {
       name: "services",
-      href: "/services",
+      href: "#",
     },
     {
       name: "e-services",
@@ -83,10 +83,10 @@ const Header = () => {
 
       {/* Menu mobile */}
       <MobileMenu
+        navItems={NAV_ITEMS}
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
       />
-
       {/* Header principal avec animations fluides */}
       <header
         className={`main-header relative left-0 top-0 z-[999] w-full transition-all duration-500 ${isSticky ? "fixed-header" : ""}`}
@@ -238,6 +238,12 @@ const Header = () => {
                         <Link
                           href={item.href}
                           className="text-white text-sm lg:text-base font-normal uppercase py-4 lg:py-6 px-2 lg:px-3 block hover:text-[#66d9ff] transition-all duration-300 relative"
+                          onClick={(e) => {
+                            if (item.href == "#") {
+                              e.preventDefault();
+                              // Le hover gère l'ouverture du sous-menu, donc pas besoin d'action supplémentaire
+                            }
+                          }}
                         >
                           {item.name.charAt(0).toUpperCase() +
                             item.name.slice(1)}

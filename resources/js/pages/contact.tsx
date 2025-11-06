@@ -5,7 +5,7 @@ import PageTitle from "@/components/UI/PageTitle";
 export default function Contact() {
     return (
         <AppShell>
-            <PageTitle title="Contact" backgroundImage="/assets/images/banner/banner-1.jpg" breadcrumbItems={[
+            <PageTitle title="Contact" backgroundImage="/assets/images/breadcrumb/page-title-6.jpg" breadcrumbItems={[
                 { label: "Home", href: "/" },
                 { label: "Contact" },
             ]} />

@@ -64,7 +64,7 @@ const AboutGovernment = () => {
 
   return (
     <>
-      <PageTitle title="About Government" backgroundImage="/assets/images/banner/banner-1.jpg" breadcrumbItems={[
+      <PageTitle title="About Government" backgroundImage="/assets/images/breadcrumb/page-title-6.jpg" breadcrumbItems={[
         { label: 'Home', href: '/' },
         { label: 'About', href: '/about' },
         { label: 'Government', href: '/about/about-government' },
