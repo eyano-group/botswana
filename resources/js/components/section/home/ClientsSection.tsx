@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from '@inertiajs/react';
 
 const ClientsSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -8,22 +8,22 @@ const ClientsSection = () => {
   const clients = [
     {
       id: 1,
-      logo: 'assets/images/clients/clients-logo-1.png',
+      logo: '/assets/images/clients/clients-logo-1.png',
       name: 'Client 1'
     },
     {
       id: 2,
-      logo: 'assets/images/clients/clients-logo-2.png',
+      logo: '/assets/images/clients/clients-logo-2.png',
       name: 'Client 2'
     },
     {
       id: 3,
-      logo: 'assets/images/clients/clients-logo-3.png',
+      logo: '/assets/images/clients/clients-logo-3.png',
       name: 'Client 3'
     },
     {
       id: 4,
-      logo: 'assets/images/clients/clients-logo-4.png',
+      logo: '/assets/images/clients/clients-logo-4.png',
       name: 'Client 4'
     }
   ];

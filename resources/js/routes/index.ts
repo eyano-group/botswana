@@ -1,4 +1,4 @@
-import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../wayfinder'
+import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../wayfinder'
 /**
 * @see \Laravel\Fortify\Http\Controllers\AuthenticatedSessionController::login
 * @see vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:47
@@ -290,3 +290,243 @@ homeForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 })
 
 home.form = homeForm
+
+/**
+* @see routes/web.php:11
+* @route '/contact'
+*/
+export const contact = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: contact.url(options),
+    method: 'get',
+})
+
+contact.definition = {
+    methods: ["get","head"],
+    url: '/contact',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see routes/web.php:11
+* @route '/contact'
+*/
+contact.url = (options?: RouteQueryOptions) => {
+    return contact.definition.url + queryParams(options)
+}
+
+/**
+* @see routes/web.php:11
+* @route '/contact'
+*/
+contact.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: contact.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:11
+* @route '/contact'
+*/
+contact.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: contact.url(options),
+    method: 'head',
+})
+
+/**
+* @see routes/web.php:11
+* @route '/contact'
+*/
+const contactForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: contact.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:11
+* @route '/contact'
+*/
+contactForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: contact.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:11
+* @route '/contact'
+*/
+contactForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: contact.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+contact.form = contactForm
+
+/**
+* @see routes/web.php:15
+* @route '/news'
+*/
+export const news = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: news.url(options),
+    method: 'get',
+})
+
+news.definition = {
+    methods: ["get","head"],
+    url: '/news',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see routes/web.php:15
+* @route '/news'
+*/
+news.url = (options?: RouteQueryOptions) => {
+    return news.definition.url + queryParams(options)
+}
+
+/**
+* @see routes/web.php:15
+* @route '/news'
+*/
+news.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: news.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:15
+* @route '/news'
+*/
+news.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: news.url(options),
+    method: 'head',
+})
+
+/**
+* @see routes/web.php:15
+* @route '/news'
+*/
+const newsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: news.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:15
+* @route '/news'
+*/
+newsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: news.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:15
+* @route '/news'
+*/
+newsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: news.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+news.form = newsForm
+
+/**
+* @see routes/web.php:19
+* @route '/about/{slug}'
+*/
+export const about = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: about.url(args, options),
+    method: 'get',
+})
+
+about.definition = {
+    methods: ["get","head"],
+    url: '/about/{slug}',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see routes/web.php:19
+* @route '/about/{slug}'
+*/
+about.url = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { slug: args }
+    }
+
+    if (Array.isArray(args)) {
+        args = {
+            slug: args[0],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        slug: args.slug,
+    }
+
+    return about.definition.url
+            .replace('{slug}', parsedArgs.slug.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see routes/web.php:19
+* @route '/about/{slug}'
+*/
+about.get = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: about.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:19
+* @route '/about/{slug}'
+*/
+about.head = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: about.url(args, options),
+    method: 'head',
+})
+
+/**
+* @see routes/web.php:19
+* @route '/about/{slug}'
+*/
+const aboutForm = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: about.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:19
+* @route '/about/{slug}'
+*/
+aboutForm.get = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: about.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:19
+* @route '/about/{slug}'
+*/
+aboutForm.head = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: about.url(args, {
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+about.form = aboutForm

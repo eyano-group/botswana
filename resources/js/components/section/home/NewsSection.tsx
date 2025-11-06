@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from '@inertiajs/react';
 
 const NewsSection = () => {
   const [visible, setVisible] = useState(false);

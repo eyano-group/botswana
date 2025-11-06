@@ -23,7 +23,7 @@ const Footer = () => {
                 <div className="footer-widget logo-widget relative lg:-mr-9 lg:mt-1">
                   <figure className="footer-logo relative mb-7">
                     <Link href="/index.html">
-                      <img src="assets/images/footer-logo.png" alt="Visarzo Logo" className="h-10 lg:h-12" />
+                      <img src="/assets/logo/logo.png" alt="Botswana Logo" className="h-10 lg:h-12" />
                     </Link>
                   </figure>
                   <div className="text">
