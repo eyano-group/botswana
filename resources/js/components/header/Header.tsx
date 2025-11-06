@@ -63,7 +63,7 @@ const SearchPopup = ({ isOpen, onClose }) => {
             />
             <button 
               type="submit" 
-              className="absolute right-0 top-0 w-56 h-20 bg-gradient-to-r from-blue-600 to-blue-700 text-white text-xl font-semibold transition-all duration-500 hover:from-blue-700 hover:to-blue-800 transform hover:scale-105"
+              className="absolute right-0 top-0 w-56 h-20 bg-gradient-to-r from-[#0099cc] to-[#0080b3] text-white text-xl font-semibold transition-all duration-500 hover:from-[#0080b3] hover:to-[#006699] transform hover:scale-105"
             >
               Search Now!
             </button>
@@ -80,7 +80,7 @@ const SearchPopup = ({ isOpen, onClose }) => {
               <li key={index} className="transform transition-all duration-300 hover:scale-105">
                 <Link 
                   to="/index.html" 
-                  className="block px-4 py-2 border border-white text-white rounded-md transition-all duration-300 hover:bg-white hover:text-black"
+                  className="block px-4 py-2 border border-white text-white rounded-md transition-all duration-300 hover:bg-white hover:text-[#0099cc]"
                   onClick={onClose}
                 >
                   {term}
@@ -120,8 +120,8 @@ const MobileMenu = ({ isOpen, onClose }) => {
         <div className="h-full flex flex-col">
           {/* Close Button */}
           <div className="flex justify-between items-center p-6 border-b border-gray-800">
-            <Link to="/index.html" onClick={onClose}>
-              <img src="assets/images/logo.png" alt="Logo" className="h-10" />
+            <Link href="/index.html" onClick={onClose}>
+              <img src="/assets/logo/logo.png" alt="Logo" className="h-10" />
             </Link>
             <button 
               className="text-white text-xl transition-all duration-500 hover:rotate-90"
@@ -138,7 +138,7 @@ const MobileMenu = ({ isOpen, onClose }) => {
             <ul className="py-2">
               <li className="border-t border-gray-800">
                 <div className="flex items-center justify-between">
-                  <Link to="/index.html" className="block py-3 px-6 text-white text-sm font-medium uppercase hover:bg-gray-800 transition-colors" onClick={onClose}>
+                  <Link href="/index.html" className="block py-3 px-6 text-white text-sm font-medium uppercase hover:bg-gray-800 transition-colors" onClick={onClose}>
                     Home
                   </Link>
                   <button 
@@ -152,17 +152,17 @@ const MobileMenu = ({ isOpen, onClose }) => {
                 </div>
                 <div className={`overflow-hidden transition-all duration-300 ${expandedItems.home ? 'max-h-96' : 'max-h-0'}`}>
                   <ul className="bg-gray-800">
-                    <li><Link to="/index.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Home Page 01</Link></li>
-                    <li><Link to="/index-2.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Home Page 02</Link></li>
-                    <li><Link to="/index-rtl.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Home RTL</Link></li>
-                    <li><Link to="/index-onepage.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Home OnePage</Link></li>
+                    <li><Link href="/index.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Home Page 01</Link></li>
+                    <li><Link href="/index-2.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Home Page 02</Link></li>
+                    <li><Link href="/index-rtl.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Home RTL</Link></li>
+                    <li><Link href="/index-onepage.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Home OnePage</Link></li>
                   </ul>
                 </div>
               </li>
               
               <li className="border-t border-gray-800">
                 <div className="flex items-center justify-between">
-                  <Link to="/index.html" className="block py-3 px-6 text-white text-sm font-medium uppercase hover:bg-gray-800 transition-colors" onClick={onClose}>
+                  <Link href="/index.html" className="block py-3 px-6 text-white text-sm font-medium uppercase hover:bg-gray-800 transition-colors" onClick={onClose}>
                     About
                   </Link>
                   <button 
@@ -176,17 +176,17 @@ const MobileMenu = ({ isOpen, onClose }) => {
                 </div>
                 <div className={`overflow-hidden transition-all duration-300 ${expandedItems.about ? 'max-h-96' : 'max-h-0'}`}>
                   <ul className="bg-gray-800">
-                    <li><Link to="/about.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>About Us</Link></li>
-                    <li><Link to="/team.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Our Team</Link></li>
-                    <li><Link to="/faq.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Faq's</Link></li>
-                    <li><Link to="/error.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>404</Link></li>
+                    <li><Link href="/about.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>About Us</Link></li>
+                    <li><Link href="/team.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Our Team</Link></li>
+                    <li><Link href="/faq.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Faq's</Link></li>
+                    <li><Link href="/error.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>404</Link></li>
                   </ul>
                 </div>
               </li>
               
               <li className="border-t border-gray-800">
                 <div className="flex items-center justify-between">
-                  <Link to="/index.html" className="block py-3 px-6 text-white text-sm font-medium uppercase hover:bg-gray-800 transition-colors" onClick={onClose}>
+                  <Link href="/index.html" className="block py-3 px-6 text-white text-sm font-medium uppercase hover:bg-gray-800 transition-colors" onClick={onClose}>
                     Coaching
                   </Link>
                   <button 
@@ -200,20 +200,20 @@ const MobileMenu = ({ isOpen, onClose }) => {
                 </div>
                 <div className={`overflow-hidden transition-all duration-300 ${expandedItems.coaching ? 'max-h-96' : 'max-h-0'}`}>
                   <ul className="bg-gray-800">
-                    <li><Link to="/coaching.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Our Coaching</Link></li>
-                    <li><Link to="/coaching-details.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Take IELTS</Link></li>
-                    <li><Link to="/coaching-details-2.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>PTE Coaching</Link></li>
-                    <li><Link to="/coaching-details-3.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Citizenship Test</Link></li>
-                    <li><Link to="/coaching-details-4.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>TOEFL</Link></li>
-                    <li><Link to="/coaching-details-5.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>SAT Coaching</Link></li>
-                    <li><Link to="/coaching-details-6.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Skills Exam</Link></li>
+                    <li><Link href="/coaching.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Our Coaching</Link></li>
+                    <li><Link href="/coaching-details.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Take IELTS</Link></li>
+                    <li><Link href="/coaching-details-2.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>PTE Coaching</Link></li>
+                    <li><Link href="/coaching-details-3.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Citizenship Test</Link></li>
+                    <li><Link href="/coaching-details-4.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>TOEFL</Link></li>
+                    <li><Link href="/coaching-details-5.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>SAT Coaching</Link></li>
+                    <li><Link href="/coaching-details-6.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Skills Exam</Link></li>
                   </ul>
                 </div>
               </li>
               
               <li className="border-t border-gray-800">
                 <div className="flex items-center justify-between">
-                  <Link to="/index.html" className="block py-3 px-6 text-white text-sm font-medium uppercase hover:bg-gray-800 transition-colors" onClick={onClose}>
+                  <Link href="/index.html" className="block py-3 px-6 text-white text-sm font-medium uppercase hover:bg-gray-800 transition-colors" onClick={onClose}>
                     Services
                   </Link>
                   <button 
@@ -227,21 +227,21 @@ const MobileMenu = ({ isOpen, onClose }) => {
                 </div>
                 <div className={`overflow-hidden transition-all duration-300 ${expandedItems.services ? 'max-h-96' : 'max-h-0'}`}>
                   <ul className="bg-gray-800">
-                    <li><Link to="/service.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Service Page 01</Link></li>
-                    <li><Link to="/service-2.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Service Page 02</Link></li>
-                    <li><Link to="/service-details.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Business Visa</Link></li>
-                    <li><Link to="/service-details-2.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Students Visa</Link></li>
-                    <li><Link to="/service-details-3.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Immigration Visa</Link></li>
-                    <li><Link to="/service-details-4.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Transit Visa</Link></li>
-                    <li><Link to="/service-details-5.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Tourists Visa</Link></li>
-                    <li><Link to="/service-details-6.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Diplomatic Visa</Link></li>
+                    <li><Link href="/service.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Service Page 01</Link></li>
+                    <li><Link href="/service-2.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Service Page 02</Link></li>
+                    <li><Link href="/service-details.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Business Visa</Link></li>
+                    <li><Link href="/service-details-2.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Students Visa</Link></li>
+                    <li><Link href="/service-details-3.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Immigration Visa</Link></li>
+                    <li><Link href="/service-details-4.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Transit Visa</Link></li>
+                    <li><Link href="/service-details-5.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Tourists Visa</Link></li>
+                    <li><Link href="/service-details-6.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Diplomatic Visa</Link></li>
                   </ul>
                 </div>
               </li>
               
               <li className="border-t border-gray-800">
                 <div className="flex items-center justify-between">
-                  <Link to="/index.html" className="block py-3 px-6 text-white text-sm font-medium uppercase hover:bg-gray-800 transition-colors" onClick={onClose}>
+                  <Link href="/index.html" className="block py-3 px-6 text-white text-sm font-medium uppercase hover:bg-gray-800 transition-colors" onClick={onClose}>
                     Elements
                   </Link>
                   <button 
@@ -255,21 +255,21 @@ const MobileMenu = ({ isOpen, onClose }) => {
                 </div>
                 <div className={`overflow-hidden transition-all duration-300 ${expandedItems.elements ? 'max-h-96' : 'max-h-0'}`}>
                   <ul className="bg-gray-800">
-                    <li><Link to="/about-element-1.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>About 01</Link></li>
-                    <li><Link to="/about-element-2.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>About 02</Link></li>
-                    <li><Link to="/feature-element-1.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Feature 01</Link></li>
-                    <li><Link to="/feature-element-2.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Feature 02</Link></li>
-                    <li><Link to="/feature-element-3.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Feature 03</Link></li>
-                    <li><Link to="/feature-element-4.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Feature 04</Link></li>
-                    <li><Link to="/counter-element-1.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Fun Fact 01</Link></li>
-                    <li><Link to="/counter-element-2.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Fun Fact 02</Link></li>
+                    <li><Link href="/about-element-1.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>About 01</Link></li>
+                    <li><Link href="/about-element-2.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>About 02</Link></li>
+                    <li><Link href="/feature-element-1.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Feature 01</Link></li>
+                    <li><Link href="/feature-element-2.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Feature 02</Link></li>
+                    <li><Link href="/feature-element-3.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Feature 03</Link></li>
+                    <li><Link href="/feature-element-4.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Feature 04</Link></li>
+                    <li><Link href="/counter-element-1.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Fun Fact 01</Link></li>
+                    <li><Link href="/counter-element-2.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Fun Fact 02</Link></li>
                   </ul>
                 </div>
               </li>
               
               <li className="border-t border-gray-800">
                 <div className="flex items-center justify-between">
-                  <Link to="/index.html" className="block py-3 px-6 text-white text-sm font-medium uppercase hover:bg-gray-800 transition-colors" onClick={onClose}>
+                  <Link href="/index.html" className="block py-3 px-6 text-white text-sm font-medium uppercase hover:bg-gray-800 transition-colors" onClick={onClose}>
                     Blog
                   </Link>
                   <button 
@@ -283,15 +283,15 @@ const MobileMenu = ({ isOpen, onClose }) => {
                 </div>
                 <div className={`overflow-hidden transition-all duration-300 ${expandedItems.blog ? 'max-h-96' : 'max-h-0'}`}>
                   <ul className="bg-gray-800">
-                    <li><Link to="/blog.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Blog Grid</Link></li>
-                    <li><Link to="/blog-2.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Blog List</Link></li>
-                    <li><Link to="/blog-details.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Blog Details</Link></li>
+                    <li><Link href="/blog.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Blog Grid</Link></li>
+                    <li><Link href="/blog-2.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Blog List</Link></li>
+                    <li><Link href="/blog-details.html" className="block py-2 px-6 pl-10 text-white text-sm hover:bg-gray-700 transition-colors" onClick={onClose}>Blog Details</Link></li>
                   </ul>
                 </div>
               </li>
               
               <li className="border-t border-gray-800 border-b">
-                <Link to="/contact.html" className="block py-3 px-6 text-white text-sm font-medium uppercase hover:bg-gray-800 transition-colors" onClick={onClose}>
+                <Link href="/contact.html" className="block py-3 px-6 text-white text-sm font-medium uppercase hover:bg-gray-800 transition-colors" onClick={onClose}>
                   Contact
                 </Link>
               </li>
@@ -303,16 +303,16 @@ const MobileMenu = ({ isOpen, onClose }) => {
             <h4 className="text-white text-lg font-bold mb-4">Contact Info</h4>
             <ul className="space-y-2">
               <li className="text-gray-300 text-sm flex items-start">
-                <i className="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i>
+                <i className="fas fa-map-marker-alt mt-1 mr-3 text-[#0099cc]"></i>
                 <span>Chicago 12, Melborne City, USA</span>
               </li>
               <li className="text-gray-300 text-sm flex items-center">
-                <i className="fas fa-phone mt-1 mr-3 text-blue-400"></i>
-                <Link to="tel:+8801682648101" className="hover:text-white transition-colors">+88 01682648101</Link>
+                <i className="fas fa-phone mt-1 mr-3 text-[#0099cc]"></i>
+                <Link href="tel:+8801682648101" className="hover:text-white transition-colors">+88 01682648101</Link>
               </li>
               <li className="text-gray-300 text-sm flex items-center">
-                <i className="fas fa-envelope mt-1 mr-3 text-blue-400"></i>
-                <Link to="mailto:info@example.com" className="hover:text-white transition-colors">info@example.com</Link>
+                <i className="fas fa-envelope mt-1 mr-3 text-[#0099cc]"></i>
+                <Link href="mailto:info@example.com" className="hover:text-white transition-colors">info@example.com</Link>
               </li>
             </ul>
           </div>
@@ -321,27 +321,27 @@ const MobileMenu = ({ isOpen, onClose }) => {
           <div className="p-6 border-t border-gray-800">
             <ul className="flex justify-center space-x-4">
               <li>
-                <Link to="/index.html" className="text-white text-xl hover:text-blue-400 transition-all duration-300 transform hover:scale-110">
+                <Link href="/index.html" className="text-white text-xl hover:text-[#0099cc] transition-all duration-300 transform hover:scale-110">
                   <i className="fab fa-twitter"></i>
                 </Link>
               </li>
               <li>
-                <Link to="/index.html" className="text-white text-xl hover:text-blue-600 transition-all duration-300 transform hover:scale-110">
+                <Link href="/index.html" className="text-white text-xl hover:text-[#0099cc] transition-all duration-300 transform hover:scale-110">
                   <i className="fab fa-facebook-square"></i>
                 </Link>
               </li>
               <li>
-                <Link to="/index.html" className="text-white text-xl hover:text-red-600 transition-all duration-300 transform hover:scale-110">
+                <Link href="/index.html" className="text-white text-xl hover:text-[#0099cc] transition-all duration-300 transform hover:scale-110">
                   <i className="fab fa-pinterest-p"></i>
                 </Link>
               </li>
               <li>
-                <Link to="/index.html" className="text-white text-xl hover:text-pink-600 transition-all duration-300 transform hover:scale-110">
+                <Link href="/index.html" className="text-white text-xl hover:text-[#0099cc] transition-all duration-300 transform hover:scale-110">
                   <i className="fab fa-instagram"></i>
                 </Link>
               </li>
               <li>
-                <Link to="/index.html" className="text-white text-xl hover:text-red-600 transition-all duration-300 transform hover:scale-110">
+                <Link href="/index.html" className="text-white text-xl hover:text-[#0099cc] transition-all duration-300 transform hover:scale-110">
                   <i className="fab fa-youtube"></i>
                 </Link>
               </li>
@@ -398,22 +398,22 @@ const Header = () => {
       {/* Header principal */}
       <header className={`main-header relative left-0 top-0 z-[999] w-full transition-all duration-500 ${isSticky ? 'fixed-header' : ''}`}>
         {/* Barre supérieure */}
-        <div className={`header-top bg-blue-900 transition-all duration-500 ${isScrolled ? 'py-2' : 'py-4'} px-4 lg:px-24`}>
+        <div className={`header-top bg-[#0080b3] transition-all duration-500 ${isScrolled ? 'py-1' : 'py-2'} px-4 lg:px-24 hidden md:block`}>
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col sm:flex-row justify-between items-center gap-3">
               <div className="top-left">
                 <ul className="flex flex-wrap justify-center sm:justify-start gap-3 sm:gap-6 text-white text-xs sm:text-sm">
                   <li className="flex items-center group">
-                    <i className="flaticon-home mr-2 text-base sm:text-lg group-hover:text-blue-300 transition-colors"></i>
+                    <i className="flaticon-home mr-2 text-base sm:text-lg group-hover:text-[#66d9ff] transition-colors"></i>
                     <span className="hidden xs:inline">72 Main Drive, Calibry, FL</span>
                     <span className="xs:hidden">Calibry, FL</span>
                   </li>
                   <li className="flex items-center group">
-                    <i className="flaticon-open-email-message mr-2 text-base sm:text-lg group-hover:text-blue-300 transition-colors"></i>
-                    <a href="mailto:inquiry@example.com" className="hover:text-blue-300 transition-colors">inquiry@example.com</a>
+                    <i className="flaticon-open-email-message mr-2 text-base sm:text-lg group-hover:text-[#66d9ff] transition-colors"></i>
+                    <a href="mailto:inquiry@example.com" className="hover:text-[#66d9ff] transition-colors">inquiry@example.com</a>
                   </li>
                   <li className="flex items-center group">
-                    <i className="flaticon-clock mr-2 text-base sm:text-lg group-hover:text-blue-300 transition-colors"></i>
+                    <i className="flaticon-clock mr-2 text-base sm:text-lg group-hover:text-[#66d9ff] transition-colors"></i>
                     <span className="hidden xs:inline">Mon - Fri : 0900 to 1800</span>
                     <span className="xs:hidden">0900-1800</span>
                   </li>
@@ -422,27 +422,27 @@ const Header = () => {
               <div className="top-right">
                 <ul className="social-links flex gap-3 sm:gap-4">
                   <li>
-                    <a href="/index.html" className="text-white hover:text-blue-300 transition-all duration-300 transform hover:scale-110">
+                    <a href="/index.html" className="text-white hover:text-[#66d9ff] transition-all duration-300 transform hover:scale-110">
                       <i className="fab fa-twitter text-sm sm:text-base"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="/index.html" className="text-white hover:text-blue-300 transition-all duration-300 transform hover:scale-110">
+                    <a href="/index.html" className="text-white hover:text-[#66d9ff] transition-all duration-300 transform hover:scale-110">
                       <i className="fab fa-facebook-f text-sm sm:text-base"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="/index.html" className="text-white hover:text-blue-300 transition-all duration-300 transform hover:scale-110">
+                    <a href="/index.html" className="text-white hover:text-[#66d9ff] transition-all duration-300 transform hover:scale-110">
                       <i className="fab fa-instagram text-sm sm:text-base"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="/index.html" className="text-white hover:text-blue-300 transition-all duration-300 transform hover:scale-110">
+                    <a href="/index.html" className="text-white hover:text-[#66d9ff] transition-all duration-300 transform hover:scale-110">
                       <i className="fab fa-linkedin-in text-sm sm:text-base"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="/index.html" className="text-white hover:text-blue-300 transition-all duration-300 transform hover:scale-110">
+                    <a href="/index.html" className="text-white hover:text-[#66d9ff] transition-all duration-300 transform hover:scale-110">
                       <i className="fab fa-google-plus-g text-sm sm:text-base"></i>
                     </a>
                   </li>
@@ -453,27 +453,37 @@ const Header = () => {
         </div>
         
         {/* Barre de navigation principale */}
-        <div className={`header-upper relative w-full transition-all duration-500 ${isScrolled ? 'bg-blue-900 bg-opacity-95' : 'bg-blue-800'}`}>
+        <div className={`header-upper relative w-full transition-all duration-500 ${isScrolled ? 'bg-[#0099cc] bg-opacity-95' : 'bg-[#0099cc]'}`}>
           <div className="outer-container absolute left-0 top-0 right-0 w-full px-4 lg:px-24 border-b border-white border-opacity-20">
-            <div className="flex flex-col lg:flex-row justify-between items-center py-4 lg:py-6">
-              <div className="upper-left flex items-center mb-4 lg:mb-0 w-full lg:w-auto justify-between lg:justify-start">
+            <div className="flex flex-col lg:flex-row justify-between items-center py-2 lg:py-3">
+              <div className="upper-left flex items-center mb-2 lg:mb-0 w-full lg:w-auto justify-between lg:justify-start">
                 <figure className="logo-box">
-                  <Link to="/index.html">
-                    <img src="assets/images/logo.png" alt="Logo" className="h-10 lg:h-12 transition-all duration-300 hover:scale-105" />
+                  <Link href="/index.html">
+                    <img src="/assets/logo/logo.png" alt="Logo" className="h-8 lg:h-10 transition-all duration-300 hover:scale-105" />
                   </Link>
                 </figure>
-                <div className="btn-box lg:ml-6">
-                  <Link to="/index.html" className="theme-btn-one bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg inline-flex items-center text-sm sm:text-base transition-all duration-300 transform hover:scale-105 shadow-lg">
+                <div className="btn-box lg:ml-6 hidden sm:block">
+                  <Link href="/index.html" className="theme-btn-one bg-gradient-to-r from-white to-gray-100 hover:from-gray-100 hover:to-gray-200 text-[#0099cc] px-3 sm:px-4 lg:px-6 py-1.5 sm:py-2 lg:py-3 rounded-md inline-flex items-center text-xs sm:text-sm lg:text-base font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
                     <span className="hidden sm:inline">Appointment</span>
                     <span className="sm:hidden">Book</span>
-                    <i className="flaticon-send ml-2"></i>
+                    <i className="flaticon-send ml-1 sm:ml-2"></i>
                   </Link>
                 </div>
               </div>
               
-              <div className="menu-area flex items-center">
-                {/* Bouton pour ouvrir le menu mobile */}
-                <div className="mobile-nav-toggler lg:hidden mr-4">
+              <div className="menu-area flex items-center w-full lg:w-auto justify-between lg:justify-end">
+                {/* Boutons à droite en mobile */}
+                <div className="flex items-center gap-3 lg:hidden">
+                  <button 
+                    className="text-white focus:outline-none p-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all"
+                    onClick={() => setIsSearchOpen(true)}
+                    aria-label="Search"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                  </button>
+                  
                   <button 
                     className="text-white focus:outline-none p-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all"
                     onClick={() => setIsMobileMenuOpen(true)}
@@ -491,118 +501,118 @@ const Header = () => {
                 <nav className="main-menu hidden lg:block">
                   <ul className="navigation flex">
                     <li className="relative group">
-                      <Link to="/index.html" className="text-white text-base lg:text-lg font-normal uppercase py-6 lg:py-9 px-3 lg:px-4.5 block hover:text-blue-300 transition-all duration-300 relative">
+                      <Link href="/index.html" className="text-white text-sm lg:text-base font-normal uppercase py-4 lg:py-6 px-2 lg:px-3 block hover:text-[#66d9ff] transition-all duration-300 relative">
                         Home
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-300 transition-all duration-300 group-hover:w-full"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#66d9ff] transition-all duration-300 group-hover:w-full"></span>
                       </Link>
                       <ul className="absolute left-0 top-full w-64 bg-white shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 z-50 rounded-b-lg">
-                        <li><Link to="/index.html" className="block px-6 py-3.5 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 border-b border-gray-100">Home Page 01</Link></li>
-                        <li><Link to="/index-2.html" className="block px-6 py-3.5 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 border-b border-gray-100">Home Page 02</Link></li>
-                        <li><Link to="/index-rtl.html" className="block px-6 py-3.5 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 border-b border-gray-100">Home RTL</Link></li>
-                        <li><Link to="/index-onepage.html" className="block px-6 py-3.5 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 border-b border-gray-100">Home OnePage</Link></li>
+                        <li><Link href="/index.html" className="block px-6 py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100">Home Page 01</Link></li>
+                        <li><Link href="/index-2.html" className="block px-6 py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100">Home Page 02</Link></li>
+                        <li><Link href="/index-rtl.html" className="block px-6 py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100">Home RTL</Link></li>
+                        <li><Link href="/index-onepage.html" className="block px-6 py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100">Home OnePage</Link></li>
                         <li className="relative group/submenu">
-                          <Link to="/index.html" className="block px-6 py-3.5 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300">
+                          <Link href="/index.html" className="block px-6 py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300">
                             Header Style
                             <i className="fas fa-angle-right float-right mt-1 text-xs"></i>
                           </Link>
                           <ul className="absolute left-full top-0 w-56 bg-white shadow-xl opacity-0 invisible group-hover/submenu:opacity-100 group-hover/submenu:visible transition-all duration-500 transform translate-y-4 group-hover/submenu:translate-y-0 z-50 rounded-b-lg">
-                            <li><Link to="/index.html" className="block px-6 py-3.5 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 border-b border-gray-100">Header Style 01</Link></li>
-                            <li><Link to="/index-2.html" className="block px-6 py-3.5 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300">Header Style 02</Link></li>
+                            <li><Link href="/index.html" className="block px-6 py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100">Header Style 01</Link></li>
+                            <li><Link href="/index-2.html" className="block px-6 py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300">Header Style 02</Link></li>
                           </ul>
                         </li>
                       </ul>
                     </li>
                     
                     <li className="relative group">
-                      <Link to="/index.html" className="text-white text-base lg:text-lg font-normal uppercase py-6 lg:py-9 px-3 lg:px-4.5 block hover:text-blue-300 transition-all duration-300 relative">
+                      <Link href="/index.html" className="text-white text-sm lg:text-base font-normal uppercase py-4 lg:py-6 px-2 lg:px-3 block hover:text-[#66d9ff] transition-all duration-300 relative">
                         About
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-300 transition-all duration-300 group-hover:w-full"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#66d9ff] transition-all duration-300 group-hover:w-full"></span>
                       </Link>
                       <ul className="absolute left-0 top-full w-64 bg-white shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 z-50 rounded-b-lg">
-                        <li><Link to="/about.html" className="block px-6 py-3.5 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 border-b border-gray-100">About Us</Link></li>
-                        <li><Link to="/team.html" className="block px-6 py-3.5 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 border-b border-gray-100">Our Team</Link></li>
-                        <li><Link to="/faq.html" className="block px-6 py-3.5 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 border-b border-gray-100">Faq's</Link></li>
-                        <li><Link to="/error.html" className="block px-6 py-3.5 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300">404</Link></li>
+                        <li><Link href="/about.html" className="block px-6 py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100">About Us</Link></li>
+                        <li><Link href="/team.html" className="block px-6 py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100">Our Team</Link></li>
+                        <li><Link href="/faq.html" className="block px-6 py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100">Faq's</Link></li>
+                        <li><Link href="/error.html" className="block px-6 py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300">404</Link></li>
                       </ul>
                     </li>
                     
                     <li className="relative group">
-                      <Link to="/index.html" className="text-white text-base lg:text-lg font-normal uppercase py-6 lg:py-9 px-3 lg:px-4.5 block hover:text-blue-300 transition-all duration-300 relative">
+                      <Link href="/index.html" className="text-white text-sm lg:text-base font-normal uppercase py-4 lg:py-6 px-2 lg:px-3 block hover:text-[#66d9ff] transition-all duration-300 relative">
                         Coaching
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-300 transition-all duration-300 group-hover:w-full"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#66d9ff] transition-all duration-300 group-hover:w-full"></span>
                       </Link>
                       <ul className="absolute left-0 top-full w-64 bg-white shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 z-50 rounded-b-lg">
-                        <li><Link to="/coaching.html" className="block px-6 py-3.5 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 border-b border-gray-100">Our Coaching</Link></li>
-                        <li><Link to="/coaching-details.html" className="block px-6 py-3.5 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 border-b border-gray-100">Take IELTS</Link></li>
-                        <li><Link to="/coaching-details-2.html" className="block px-6 py-3.5 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 border-b border-gray-100">PTE Coaching</Link></li>
-                        <li><Link to="/coaching-details-3.html" className="block px-6 py-3.5 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 border-b border-gray-100">Citizenship Test</Link></li>
-                        <li><Link to="/coaching-details-4.html" className="block px-6 py-3.5 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 border-b border-gray-100">TOEFL</Link></li>
-                        <li><Link to="/coaching-details-5.html" className="block px-6 py-3.5 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 border-b border-gray-100">SAT Coaching</Link></li>
-                        <li><Link to="/coaching-details-6.html" className="block px-6 py-3.5 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300">Skills Exam</Link></li>
+                        <li><Link href="/coaching.html" className="block px-6 py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100">Our Coaching</Link></li>
+                        <li><Link href="/coaching-details.html" className="block px-6 py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100">Take IELTS</Link></li>
+                        <li><Link href="/coaching-details-2.html" className="block px-6 py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100">PTE Coaching</Link></li>
+                        <li><Link href="/coaching-details-3.html" className="block px-6 py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100">Citizenship Test</Link></li>
+                        <li><Link href="/coaching-details-4.html" className="block px-6 py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100">TOEFL</Link></li>
+                        <li><Link href="/coaching-details-5.html" className="block px-6 py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100">SAT Coaching</Link></li>
+                        <li><Link href="/coaching-details-6.html" className="block px-6 py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300">Skills Exam</Link></li>
                       </ul>
                     </li>
                     
                     <li className="relative group">
-                      <Link to="/index.html" className="text-white text-base lg:text-lg font-normal uppercase py-6 lg:py-9 px-3 lg:px-4.5 block hover:text-blue-300 transition-all duration-300 relative">
+                      <Link href="/index.html" className="text-white text-sm lg:text-base font-normal uppercase py-4 lg:py-6 px-2 lg:px-3 block hover:text-[#66d9ff] transition-all duration-300 relative">
                         Services
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-300 transition-all duration-300 group-hover:w-full"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#66d9ff] transition-all duration-300 group-hover:w-full"></span>
                       </Link>
                       <ul className="absolute left-0 top-full w-64 bg-white shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 z-50 rounded-b-lg">
-                        <li><Link to="/service.html" className="block px-6 py-3.5 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 border-b border-gray-100">Service Page 01</Link></li>
-                        <li><Link to="/service-2.html" className="block px-6 py-3.5 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 border-b border-gray-100">Service Page 02</Link></li>
-                        <li><Link to="/service-details.html" className="block px-6 py-3.5 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 border-b border-gray-100">Business Visa</Link></li>
-                        <li><Link to="/service-details-2.html" className="block px-6 py-3.5 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 border-b border-gray-100">Students Visa</Link></li>
-                        <li><Link to="/service-details-3.html" className="block px-6 py-3.5 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 border-b border-gray-100">Immigration Visa</Link></li>
-                        <li><Link to="/service-details-4.html" className="block px-6 py-3.5 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 border-b border-gray-100">Transit Visa</Link></li>
-                        <li><Link to="/service-details-5.html" className="block px-6 py-3.5 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 border-b border-gray-100">Tourists Visa</Link></li>
-                        <li><Link to="/service-details-6.html" className="block px-6 py-3.5 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300">Diplomatic Visa</Link></li>
+                        <li><Link href="/service.html" className="block px-6 py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100">Service Page 01</Link></li>
+                        <li><Link href="/service-2.html" className="block px-6 py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100">Service Page 02</Link></li>
+                        <li><Link href="/service-details.html" className="block px-6 py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100">Business Visa</Link></li>
+                        <li><Link href="/service-details-2.html" className="block px-6 py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100">Students Visa</Link></li>
+                        <li><Link href="/service-details-3.html" className="block px-6 py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100">Immigration Visa</Link></li>
+                        <li><Link href="/service-details-4.html" className="block px-6 py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100">Transit Visa</Link></li>
+                        <li><Link href="/service-details-5.html" className="block px-6 py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100">Tourists Visa</Link></li>
+                        <li><Link href="/service-details-6.html" className="block px-6 py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300">Diplomatic Visa</Link></li>
                       </ul>
                     </li>
                     
                     <li className="relative group">
-                      <Link to="/index.html" className="text-white text-base lg:text-lg font-normal uppercase py-6 lg:py-9 px-3 lg:px-4.5 block hover:text-blue-300 transition-all duration-300 relative">
+                      <Link href="/index.html" className="text-white text-sm lg:text-base font-normal uppercase py-4 lg:py-6 px-2 lg:px-3 block hover:text-[#66d9ff] transition-all duration-300 relative">
                         Elements
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-300 transition-all duration-300 group-hover:w-full"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#66d9ff] transition-all duration-300 group-hover:w-full"></span>
                       </Link>
                       <div className="megamenu absolute left-1/2 top-full w-screen max-w-5xl bg-white shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 -translate-x-1/2 z-50 rounded-b-lg">
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-6 p-6">
                           <div>
                             <h4 className="text-gray-800 font-semibold mb-4 pb-2 border-b border-gray-200">Elements 1</h4>
                             <ul className="space-y-1">
-                              <li><Link to="/about-element-1.html" className="block py-2 px-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded transition-all duration-300">About 01</Link></li>
-                              <li><Link to="/about-element-2.html" className="block py-2 px-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded transition-all duration-300">About 02</Link></li>
-                              <li><Link to="/feature-element-1.html" className="block py-2 px-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded transition-all duration-300">Feature 01</Link></li>
-                              <li><Link to="/feature-element-2.html" className="block py-2 px-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded transition-all duration-300">Feature 02</Link></li>
-                              <li><Link to="/feature-element-3.html" className="block py-2 px-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded transition-all duration-300">Feature 03</Link></li>
-                              <li><Link to="/feature-element-4.html" className="block py-2 px-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded transition-all duration-300">Feature 04</Link></li>
-                              <li><Link to="/counter-element-1.html" className="block py-2 px-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded transition-all duration-300">Fun Fact 01</Link></li>
-                              <li><Link to="/counter-element-2.html" className="block py-2 px-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded transition-all duration-300">Fun Fact 02</Link></li>
+                              <li><Link href="/about-element-1.html" className="block py-2 px-3 text-gray-600 hover:text-[#0099cc] hover:bg-[#f0f9ff] rounded transition-all duration-300">About 01</Link></li>
+                              <li><Link href="/about-element-2.html" className="block py-2 px-3 text-gray-600 hover:text-[#0099cc] hover:bg-[#f0f9ff] rounded transition-all duration-300">About 02</Link></li>
+                              <li><Link href="/feature-element-1.html" className="block py-2 px-3 text-gray-600 hover:text-[#0099cc] hover:bg-[#f0f9ff] rounded transition-all duration-300">Feature 01</Link></li>
+                              <li><Link href="/feature-element-2.html" className="block py-2 px-3 text-gray-600 hover:text-[#0099cc] hover:bg-[#f0f9ff] rounded transition-all duration-300">Feature 02</Link></li>
+                              <li><Link href="/feature-element-3.html" className="block py-2 px-3 text-gray-600 hover:text-[#0099cc] hover:bg-[#f0f9ff] rounded transition-all duration-300">Feature 03</Link></li>
+                              <li><Link href="/feature-element-4.html" className="block py-2 px-3 text-gray-600 hover:text-[#0099cc] hover:bg-[#f0f9ff] rounded transition-all duration-300">Feature 04</Link></li>
+                              <li><Link href="/counter-element-1.html" className="block py-2 px-3 text-gray-600 hover:text-[#0099cc] hover:bg-[#f0f9ff] rounded transition-all duration-300">Fun Fact 01</Link></li>
+                              <li><Link href="/counter-element-2.html" className="block py-2 px-3 text-gray-600 hover:text-[#0099cc] hover:bg-[#f0f9ff] rounded transition-all duration-300">Fun Fact 02</Link></li>
                             </ul>
                           </div>
                           <div>
                             <h4 className="text-gray-800 font-semibold mb-4 pb-2 border-b border-gray-200">Elements 2</h4>
                             <ul className="space-y-1">
-                              <li><Link to="/news-element-1.html" className="block py-2 px-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded transition-all duration-300">News 01</Link></li>
-                              <li><Link to="/news-element-2.html" className="block py-2 px-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded transition-all duration-300">News 02</Link></li>
-                              <li><Link to="/apply-element.html" className="block py-2 px-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded transition-all duration-300">Apply Process</Link></li>
-                              <li><Link to="/team-element-1.html" className="block py-2 px-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded transition-all duration-300">Team 01</Link></li>
-                              <li><Link to="/team-element-2.html" className="block py-2 px-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded transition-all duration-300">Team 02</Link></li>
-                              <li><Link to="/testimonial-element-1.html" className="block py-2 px-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded transition-all duration-300">Testimonial 01</Link></li>
-                              <li><Link to="/testimonial-element-2.html" className="block py-2 px-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded transition-all duration-300">Testimonial 02</Link></li>
-                              <li><Link to="/clients-element.html" className="block py-2 px-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded transition-all duration-300">Clients</Link></li>
+                              <li><Link href="/news-element-1.html" className="block py-2 px-3 text-gray-600 hover:text-[#0099cc] hover:bg-[#f0f9ff] rounded transition-all duration-300">News 01</Link></li>
+                              <li><Link href="/news-element-2.html" className="block py-2 px-3 text-gray-600 hover:text-[#0099cc] hover:bg-[#f0f9ff] rounded transition-all duration-300">News 02</Link></li>
+                              <li><Link href="/apply-element.html" className="block py-2 px-3 text-gray-600 hover:text-[#0099cc] hover:bg-[#f0f9ff] rounded transition-all duration-300">Apply Process</Link></li>
+                              <li><Link href="/team-element-1.html" className="block py-2 px-3 text-gray-600 hover:text-[#0099cc] hover:bg-[#f0f9ff] rounded transition-all duration-300">Team 01</Link></li>
+                              <li><Link href="/team-element-2.html" className="block py-2 px-3 text-gray-600 hover:text-[#0099cc] hover:bg-[#f0f9ff] rounded transition-all duration-300">Team 02</Link></li>
+                              <li><Link href="/testimonial-element-1.html" className="block py-2 px-3 text-gray-600 hover:text-[#0099cc] hover:bg-[#f0f9ff] rounded transition-all duration-300">Testimonial 01</Link></li>
+                              <li><Link href="/testimonial-element-2.html" className="block py-2 px-3 text-gray-600 hover:text-[#0099cc] hover:bg-[#f0f9ff] rounded transition-all duration-300">Testimonial 02</Link></li>
+                              <li><Link href="/clients-element.html" className="block py-2 px-3 text-gray-600 hover:text-[#0099cc] hover:bg-[#f0f9ff] rounded transition-all duration-300">Clients</Link></li>
                             </ul>
                           </div>
                           <div>
                             <h4 className="text-gray-800 font-semibold mb-4 pb-2 border-b border-gray-200">Elements 3</h4>
                             <ul className="space-y-1">
-                              <li><Link to="/service-element-1.html" className="block py-2 px-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded transition-all duration-300">Service 01</Link></li>
-                              <li><Link to="/service-element-2.html" className="block py-2 px-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded transition-all duration-300">Service 02</Link></li>
-                              <li><Link to="/training-element.html" className="block py-2 px-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded transition-all duration-300">Training Block</Link></li>
-                              <li><Link to="/inquiry-element.html" className="block py-2 px-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded transition-all duration-300">Inquiry Block</Link></li>
-                              <li><Link to="/contact-element.html" className="block py-2 px-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded transition-all duration-300">Contact Form</Link></li>
-                              <li><Link to="/faq-element.html" className="block py-2 px-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded transition-all duration-300">Faq Block</Link></li>
-                              <li><Link to="/choose-element.html" className="block py-2 px-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded transition-all duration-300">Choose Block</Link></li>
-                              <li><Link to="/footer-element.html" className="block py-2 px-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded transition-all duration-300">Footer</Link></li>
+                              <li><Link href="/service-element-1.html" className="block py-2 px-3 text-gray-600 hover:text-[#0099cc] hover:bg-[#f0f9ff] rounded transition-all duration-300">Service 01</Link></li>
+                              <li><Link href="/service-element-2.html" className="block py-2 px-3 text-gray-600 hover:text-[#0099cc] hover:bg-[#f0f9ff] rounded transition-all duration-300">Service 02</Link></li>
+                              <li><Link href="/training-element.html" className="block py-2 px-3 text-gray-600 hover:text-[#0099cc] hover:bg-[#f0f9ff] rounded transition-all duration-300">Training Block</Link></li>
+                              <li><Link href="/inquiry-element.html" className="block py-2 px-3 text-gray-600 hover:text-[#0099cc] hover:bg-[#f0f9ff] rounded transition-all duration-300">Inquiry Block</Link></li>
+                              <li><Link href="/contact-element.html" className="block py-2 px-3 text-gray-600 hover:text-[#0099cc] hover:bg-[#f0f9ff] rounded transition-all duration-300">Contact Form</Link></li>
+                              <li><Link href="/faq-element.html" className="block py-2 px-3 text-gray-600 hover:text-[#0099cc] hover:bg-[#f0f9ff] rounded transition-all duration-300">Faq Block</Link></li>
+                              <li><Link href="/choose-element.html" className="block py-2 px-3 text-gray-600 hover:text-[#0099cc] hover:bg-[#f0f9ff] rounded transition-all duration-300">Choose Block</Link></li>
+                              <li><Link href="/footer-element.html" className="block py-2 px-3 text-gray-600 hover:text-[#0099cc] hover:bg-[#f0f9ff] rounded transition-all duration-300">Footer</Link></li>
                             </ul>
                           </div>
                         </div>
@@ -610,30 +620,30 @@ const Header = () => {
                     </li>
                     
                     <li className="relative group">
-                      <Link to="/index.html" className="text-white text-base lg:text-lg font-normal uppercase py-6 lg:py-9 px-3 lg:px-4.5 block hover:text-blue-300 transition-all duration-300 relative">
+                      <Link href="/index.html" className="text-white text-sm lg:text-base font-normal uppercase py-4 lg:py-6 px-2 lg:px-3 block hover:text-[#66d9ff] transition-all duration-300 relative">
                         Blog
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-300 transition-all duration-300 group-hover:w-full"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#66d9ff] transition-all duration-300 group-hover:w-full"></span>
                       </Link>
                       <ul className="absolute left-0 top-full w-64 bg-white shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 z-50 rounded-b-lg">
-                        <li><Link to="/blog.html" className="block px-6 py-3.5 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 border-b border-gray-100">Blog Grid</Link></li>
-                        <li><Link to="/blog-2.html" className="block px-6 py-3.5 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 border-b border-gray-100">Blog List</Link></li>
-                        <li><Link to="/blog-details.html" className="block px-6 py-3.5 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300">Blog Details</Link></li>
+                        <li><Link href="/blog.html" className="block px-6 py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100">Blog Grid</Link></li>
+                        <li><Link href="/blog-2.html" className="block px-6 py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100">Blog List</Link></li>
+                        <li><Link href="/blog-details.html" className="block px-6 py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300">Blog Details</Link></li>
                       </ul>
                     </li>
                     
                     <li className="relative group">
-                      <Link to="/contact.html" className="text-white text-base lg:text-lg font-normal uppercase py-6 lg:py-9 px-3 lg:px-4.5 block hover:text-blue-300 transition-all duration-300 relative">
+                      <Link href="/contact.html" className="text-white text-sm lg:text-base font-normal uppercase py-4 lg:py-6 px-2 lg:px-3 block hover:text-[#66d9ff] transition-all duration-300 relative">
                         Contact
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-300 transition-all duration-300 group-hover:w-full"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#66d9ff] transition-all duration-300 group-hover:w-full"></span>
                       </Link>
                     </li>
                   </ul>
                 </nav>
                 
                 <div className="menu-right-content flex items-center">
-                  <div className="search-box-outer px-3 sm:px-6 py-5 sm:py-8 border-l border-white border-opacity-20">
+                  <div className="search-box-outer px-2 sm:px-4 lg:px-6 py-3 sm:py-4 lg:py-5 border-l border-white border-opacity-20">
                     <button 
-                      className="search-toggler text-white text-xl sm:text-2xl hover:text-blue-300 transition-all duration-300 transform hover:scale-110"
+                      className="search-toggler text-white text-lg sm:text-xl lg:text-2xl hover:text-[#66d9ff] transition-all duration-300 transform hover:scale-110"
                       onClick={() => setIsSearchOpen(true)}
                       aria-label="Search"
                     >
@@ -641,11 +651,11 @@ const Header = () => {
                     </button>
                   </div>
                   
-                  <div className="support-box px-2 sm:px-4 lg:px-8 py-4 sm:py-5 lg:py-6 relative">
-                    <i className="fas fa-phone-volume absolute left-3 sm:left-6 lg:left-10 top-1/2 transform -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-white bg-opacity-20 rounded-full flex items-center justify-center text-white text-sm sm:text-base lg:text-xl"></i>
-                    <div className="ml-12 sm:ml-16 lg:ml-20">
+                  <div className="support-box px-2 sm:px-3 lg:px-6 py-3 sm:py-4 lg:py-5 relative">
+                    <i className="fas fa-phone-volume absolute left-2 sm:left-4 lg:left-8 top-1/2 transform -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center text-white text-sm sm:text-base lg:text-lg"></i>
+                    <div className="ml-10 sm:ml-12 lg:ml-16">
                       <p className="text-white text-xs sm:text-sm font-normal mb-1">Any Questions? Call us</p>
-                      <h3 className="text-white text-sm sm:text-base lg:text-xl xl:text-2xl font-bold">
+                      <h3 className="text-white text-sm sm:text-base lg:text-lg xl:text-xl font-bold">
                         <a href="tel:12463330079" className="hover:underline transition-all">+1 (246) 333 0079</a>
                       </h3>
                     </div>
@@ -657,49 +667,49 @@ const Header = () => {
         </div>
         
         {/* Header sticky */}
-        <div className={`sticky-header fixed left-0 top-0 w-full bg-blue-900 shadow-2xl transition-all duration-500 z-0 ${isSticky ? 'opacity-100 visible z-[999] translate-y-0' : 'opacity-0 invisible -translate-y-4'}`}>
+        <div className={`sticky-header fixed left-0 top-0 w-full bg-[#0099cc] shadow-2xl transition-all duration-500 z-0 ${isSticky ? 'opacity-100 visible z-[999] translate-y-0' : 'opacity-0 invisible -translate-y-4'}`}>
           <div className="container mx-auto px-4">
-            <div className="flex justify-between items-center py-3">
+            <div className="flex justify-between items-center py-2">
               <div className="logo-box">
-                <Link to="/index.html">
-                  <img src="assets/images/small-logo.png" alt="Logo" className="h-8 sm:h-10 transition-all duration-300 hover:scale-105" />
+                <Link href="/index.html">
+                  <img src="/assets/logo/logo.png" alt="Logo" className="h-7 sm:h-8 lg:h-10 transition-all duration-300 hover:scale-105" />
                 </Link>
               </div>
               <div className="menu-area">
                 <nav className="main-menu hidden lg:block">
                   <ul className="navigation flex">
                     <li className="px-2 sm:px-3">
-                      <Link to="/index.html" className="text-white text-sm sm:text-base font-normal uppercase py-4 block hover:text-blue-300 transition-all duration-300">
+                      <Link href="/index.html" className="text-white text-sm sm:text-base font-normal uppercase py-3 block hover:text-[#66d9ff] transition-all duration-300">
                         Home
                       </Link>
                     </li>
                     <li className="px-2 sm:px-3">
-                      <Link to="/index.html" className="text-white text-sm sm:text-base font-normal uppercase py-4 block hover:text-blue-300 transition-all duration-300">
+                      <Link href="/index.html" className="text-white text-sm sm:text-base font-normal uppercase py-3 block hover:text-[#66d9ff] transition-all duration-300">
                         About
                       </Link>
                     </li>
                     <li className="px-2 sm:px-3">
-                      <Link to="/index.html" className="text-white text-sm sm:text-base font-normal uppercase py-4 block hover:text-blue-300 transition-all duration-300">
+                      <Link href="/index.html" className="text-white text-sm sm:text-base font-normal uppercase py-3 block hover:text-[#66d9ff] transition-all duration-300">
                         Coaching
                       </Link>
                     </li>
                     <li className="px-2 sm:px-3">
-                      <Link to="/index.html" className="text-white text-sm sm:text-base font-normal uppercase py-4 block hover:text-blue-300 transition-all duration-300">
+                      <Link href="/index.html" className="text-white text-sm sm:text-base font-normal uppercase py-3 block hover:text-[#66d9ff] transition-all duration-300">
                         Services
                       </Link>
                     </li>
                     <li className="px-2 sm:px-3">
-                      <Link to="/index.html" className="text-white text-sm sm:text-base font-normal uppercase py-4 block hover:text-blue-300 transition-all duration-300">
+                      <Link href="/index.html" className="text-white text-sm sm:text-base font-normal uppercase py-3 block hover:text-[#66d9ff] transition-all duration-300">
                         Elements
                       </Link>
                     </li>
                     <li className="px-2 sm:px-3">
-                      <Link to="/index.html" className="text-white text-sm sm:text-base font-normal uppercase py-4 block hover:text-blue-300 transition-all duration-300">
+                      <Link href="/index.html" className="text-white text-sm sm:text-base font-normal uppercase py-3 block hover:text-[#66d9ff] transition-all duration-300">
                         Blog
                       </Link>
                     </li>
                     <li className="px-2 sm:px-3">
-                      <Link to="/contact.html" className="text-white text-sm sm:text-base font-normal uppercase py-4 block hover:text-blue-300 transition-all duration-300">
+                      <Link href="/contact.html" className="text-white text-sm sm:text-base font-normal uppercase py-3 block hover:text-[#66d9ff] transition-all duration-300">
                         Contact
                       </Link>
                     </li>
@@ -707,7 +717,16 @@ const Header = () => {
                 </nav>
                 
                 {/* Mobile menu button in sticky header */}
-                <div className="lg:hidden">
+                <div className="lg:hidden flex items-center gap-3">
+                  <button 
+                    className="text-white focus:outline-none p-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all"
+                    onClick={() => setIsSearchOpen(true)}
+                    aria-label="Search"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                  </button>
                   <button 
                     className="text-white focus:outline-none p-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all"
                     onClick={() => setIsMobileMenuOpen(true)}

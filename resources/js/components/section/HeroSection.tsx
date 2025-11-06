@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from '@inertiajs/react';
 
-const Hero = () => {
+const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const intervalRef = useRef(null);
@@ -9,21 +9,21 @@ const Hero = () => {
   const slides = [
     {
       id: 1,
-      image: 'assets/images/banner/banner-1.jpg',
+      image: '/assets/images/banner/banner-1.jpg',
       title: 'Our Simple Approach To Immigration Process',
       description: 'Mod tempor incididunt ut laboret dolore magna aliqua tenim adnim veniam quis nostrud exercitation ullamco.',
       hasDescription: true
     },
     {
       id: 2,
-      image: 'assets/images/banner/banner-2.jpg',
+      image: '/assets/images/banner/banner-2.jpg',
       topText: 'Effective Immigration Solution',
       title: 'Modern Immigration Firm With Savings',
       hasDescription: false
     },
     {
       id: 3,
-      image: 'assets/images/banner/banner-3.jpg',
+      image: '/assets/images/banner/banner-3.jpg',
       topText: 'Effective Immigration Solution',
       title: 'Empowering Peoples Immigration Confidently',
       hasDescription: false
@@ -239,4 +239,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default HeroSection;
