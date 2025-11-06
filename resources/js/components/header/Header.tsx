@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "@inertiajs/react";
 import SearchPopup from "./SearchPopup";
 import MobileMenu from "./MobileMenu";
+import { Search } from "lucide-react";
 
 // Composant pour la popup de recherche avec animations ultra-fluides
 
@@ -51,16 +52,12 @@ const Header = () => {
       href: "/home",
     },
     {
-      name: "coaching",
-      href: "/coaching",
-    },
-    {
       name: "services",
       href: "/services",
     },
     {
-      name: "elements",
-      href: "/elements",
+      name: "e-services",
+      href: "https://1gov.gov.bw/welcome",
     },
     {
       name: "about",
@@ -249,6 +246,7 @@ const Header = () => {
 
                         {/* Sous-menu */}
                         {item.name !== "contact" &&
+                          item.name !== "e-services" &&
                           item.name !== "home" &&
                           (item.name === "news & events" ? (
                             <ul className="absolute left-0 top-full w-64 bg-white shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 z-50 rounded-b-lg">
@@ -389,6 +387,478 @@ const Header = () => {
                                 </ul>
                               </li>
                             </ul>
+                          ) : item.name === "services" ? (
+                            <ul className="absolute left-[-550px] top-full w-screen max-w-6xl bg-white shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 z-50 rounded-b-lg">
+                              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0">
+                                {/* Services Column */}
+                                <div className="bg-gradient-to-b from-blue-50 to-white p-6 border-r border-gray-100">
+                                  <h3 className="text-lg font-bold text-blue-800 mb-4 flex items-center">
+                                    <i className="fa fa-bars mr-2"></i>
+                                    Services
+                                  </h3>
+                                  <div className="grid grid-cols-1 gap-2">
+                                    <Link
+                                      href="/agriculture?txterm=128"
+                                      className="flex items-center p-3 rounded-lg text-gray-700 hover:bg-white hover:text-blue-600 hover:shadow-md transition-all duration-300 group/item"
+                                    >
+                                      <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3 group-hover/item:bg-green-200 transition-colors">
+                                        <i className="fa fa-leaf text-green-600"></i>
+                                      </div>
+                                      <div>
+                                        <p className="font-semibold">
+                                          Agriculture
+                                        </p>
+                                        <p className="text-xs text-gray-500">
+                                          Farming & Resources
+                                        </p>
+                                      </div>
+                                    </Link>
+                                    <Link
+                                      href="/benefits-payments?txterm=98"
+                                      className="flex items-center p-3 rounded-lg text-gray-700 hover:bg-white hover:text-blue-600 hover:shadow-md transition-all duration-300 group/item"
+                                    >
+                                      <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mr-3 group-hover/item:bg-purple-200 transition-colors">
+                                        <i className="fa fa-money text-purple-600"></i>
+                                      </div>
+                                      <div>
+                                        <p className="font-semibold">
+                                          Benefits and Payments
+                                        </p>
+                                        <p className="text-xs text-gray-500">
+                                          Financial Support
+                                        </p>
+                                      </div>
+                                    </Link>
+                                    <Link
+                                      href="/culture-sports-tourism?txterm=107"
+                                      className="flex items-center p-3 rounded-lg text-gray-700 hover:bg-white hover:text-blue-600 hover:shadow-md transition-all duration-300 group/item"
+                                    >
+                                      <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center mr-3 group-hover/item:bg-orange-200 transition-colors">
+                                        <i className="fa fa-futbol-o text-orange-600"></i>
+                                      </div>
+                                      <div>
+                                        <p className="font-semibold">
+                                          Recreation & Leisure
+                                        </p>
+                                        <p className="text-xs text-gray-500">
+                                          Sports & Tourism
+                                        </p>
+                                      </div>
+                                    </Link>
+                                    <Link
+                                      href="/education-learning?txterm=110"
+                                      className="flex items-center p-3 rounded-lg text-gray-700 hover:bg-white hover:text-blue-600 hover:shadow-md transition-all duration-300 group/item"
+                                    >
+                                      <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3 group-hover/item:bg-blue-200 transition-colors">
+                                        <i className="fa fa-graduation-cap text-blue-600"></i>
+                                      </div>
+                                      <div>
+                                        <p className="font-semibold">
+                                          Education and Learning
+                                        </p>
+                                        <p className="text-xs text-gray-500">
+                                          Schools & Training
+                                        </p>
+                                      </div>
+                                    </Link>
+                                    <Link
+                                      href="/health-wellness?txterm=120"
+                                      className="flex items-center p-3 rounded-lg text-gray-700 hover:bg-white hover:text-blue-600 hover:shadow-md transition-all duration-300 group/item"
+                                    >
+                                      <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center mr-3 group-hover/item:bg-red-200 transition-colors">
+                                        <i className="fa fa-heartbeat text-red-600"></i>
+                                      </div>
+                                      <div>
+                                        <p className="font-semibold">
+                                          Health and Wellness
+                                        </p>
+                                        <p className="text-xs text-gray-500">
+                                          Medical Services
+                                        </p>
+                                      </div>
+                                    </Link>
+                                    <Link
+                                      href="/immigration-civil-registration?txterm=97"
+                                      className="flex items-center p-3 rounded-lg text-gray-700 hover:bg-white hover:text-blue-600 hover:shadow-md transition-all duration-300 group/item"
+                                    >
+                                      <div className="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center mr-3 group-hover/item:bg-indigo-200 transition-colors">
+                                        <i className="fa fa-passport text-indigo-600"></i>
+                                      </div>
+                                      <div>
+                                        <p className="font-semibold">
+                                          Immigration and Civil Registration
+                                        </p>
+                                        <p className="text-xs text-gray-500">
+                                          Citizenship & Visas
+                                        </p>
+                                      </div>
+                                    </Link>
+                                    <Link
+                                      href="/labor-employment?txterm=132"
+                                      className="flex items-center p-3 rounded-lg text-gray-700 hover:bg-white hover:text-blue-600 hover:shadow-md transition-all duration-300 group/item"
+                                    >
+                                      <div className="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center mr-3 group-hover/item:bg-teal-200 transition-colors">
+                                        <i className="fa fa-briefcase text-teal-600"></i>
+                                      </div>
+                                      <div>
+                                        <p className="font-semibold">
+                                          Labour and Employment
+                                        </p>
+                                        <p className="text-xs text-gray-500">
+                                          Jobs & Careers
+                                        </p>
+                                      </div>
+                                    </Link>
+                                  </div>
+                                </div>
+
+                                {/* Second Services Column */}
+                                <div className="bg-gradient-to-b from-blue-50 to-white p-6 border-r border-gray-100">
+                                  <div className="grid grid-cols-1 gap-2 mt-12">
+                                    <Link
+                                      href="/land-construction-housing?txterm=130"
+                                      className="flex items-center p-3 rounded-lg text-gray-700 hover:bg-white hover:text-blue-600 hover:shadow-md transition-all duration-300 group/item"
+                                    >
+                                      <div className="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center mr-3 group-hover/item:bg-yellow-200 transition-colors">
+                                        <i className="fa fa-home text-yellow-600"></i>
+                                      </div>
+                                      <div>
+                                        <p className="font-semibold">
+                                          Land, Construction and Housing
+                                        </p>
+                                        <p className="text-xs text-gray-500">
+                                          Property & Development
+                                        </p>
+                                      </div>
+                                    </Link>
+                                    <Link
+                                      href="/law-crime-Justice?txterm=155"
+                                      className="flex items-center p-3 rounded-lg text-gray-700 hover:bg-white hover:text-blue-600 hover:shadow-md transition-all duration-300 group/item"
+                                    >
+                                      <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mr-3 group-hover/item:bg-gray-200 transition-colors">
+                                        <i className="fa fa-gavel text-gray-600"></i>
+                                      </div>
+                                      <div>
+                                        <p className="font-semibold">
+                                          Law, Crime and Justice
+                                        </p>
+                                        <p className="text-xs text-gray-500">
+                                          Legal Services
+                                        </p>
+                                      </div>
+                                    </Link>
+                                    <Link
+                                      href="/living-botswana?txterm=148"
+                                      className="flex items-center p-3 rounded-lg text-gray-700 hover:bg-white hover:text-blue-600 hover:shadow-md transition-all duration-300 group/item"
+                                    >
+                                      <div className="w-10 h-10 bg-cyan-100 rounded-lg flex items-center justify-center mr-3 group-hover/item:bg-cyan-200 transition-colors">
+                                        <i className="fa fa-map-marker text-cyan-600"></i>
+                                      </div>
+                                      <div>
+                                        <p className="font-semibold">
+                                          Living in Botswana
+                                        </p>
+                                        <p className="text-xs text-gray-500">
+                                          Resident Information
+                                        </p>
+                                      </div>
+                                    </Link>
+                                    <Link
+                                      href="/trade-industry?txterm=140"
+                                      className="flex items-center p-3 rounded-lg text-gray-700 hover:bg-white hover:text-blue-600 hover:shadow-md transition-all duration-300 group/item"
+                                    >
+                                      <div className="w-10 h-10 bg-pink-100 rounded-lg flex items-center justify-center mr-3 group-hover/item:bg-pink-200 transition-colors">
+                                        <i className="fa fa-industry text-pink-600"></i>
+                                      </div>
+                                      <div>
+                                        <p className="font-semibold">
+                                          Industry, Trade & Investment
+                                        </p>
+                                        <p className="text-xs text-gray-500">
+                                          Business & Commerce
+                                        </p>
+                                      </div>
+                                    </Link>
+                                    <Link
+                                      href="/natural-resources-environment?txterm=113"
+                                      className="flex items-center p-3 rounded-lg text-gray-700 hover:bg-white hover:text-blue-600 hover:shadow-md transition-all duration-300 group/item"
+                                    >
+                                      <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3 group-hover/item:bg-green-200 transition-colors">
+                                        <i className="fa fa-tree text-green-600"></i>
+                                      </div>
+                                      <div>
+                                        <p className="font-semibold">
+                                          Natural Resources and Environment
+                                        </p>
+                                        <p className="text-xs text-gray-500">
+                                          Conservation
+                                        </p>
+                                      </div>
+                                    </Link>
+                                    <Link
+                                      href="/social-services?txterm=136"
+                                      className="flex items-center p-3 rounded-lg text-gray-700 hover:bg-white hover:text-blue-600 hover:shadow-md transition-all duration-300 group/item"
+                                    >
+                                      <div className="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center mr-3 group-hover/item:bg-amber-200 transition-colors">
+                                        <i className="fa fa-users text-amber-600"></i>
+                                      </div>
+                                      <div>
+                                        <p className="font-semibold">
+                                          Social Services
+                                        </p>
+                                        <p className="text-xs text-gray-500">
+                                          Community Support
+                                        </p>
+                                      </div>
+                                    </Link>
+                                    <Link
+                                      href="/transport-communications?txterm=116"
+                                      className="flex items-center p-3 rounded-lg text-gray-700 hover:bg-white hover:text-blue-600 hover:shadow-md transition-all duration-300 group/item"
+                                    >
+                                      <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3 group-hover/item:bg-blue-200 transition-colors">
+                                        <i className="fa fa-truck text-blue-600"></i>
+                                      </div>
+                                      <div>
+                                        <p className="font-semibold">
+                                          Transport & Logistics
+                                        </p>
+                                        <p className="text-xs text-gray-500">
+                                          Movement & Delivery
+                                        </p>
+                                      </div>
+                                    </Link>
+                                    <Link
+                                      href="/communications-technology?txterm=117"
+                                      className="flex items-center p-3 rounded-lg text-gray-700 hover:bg-white hover:text-blue-600 hover:shadow-md transition-all duration-300 group/item"
+                                    >
+                                      <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mr-3 group-hover/item:bg-purple-200 transition-colors">
+                                        <i className="fa fa-wifi text-purple-600"></i>
+                                      </div>
+                                      <div>
+                                        <p className="font-semibold">
+                                          Communications, Media & Radio Services
+                                        </p>
+                                        <p className="text-xs text-gray-500">
+                                          Information & Technology
+                                        </p>
+                                      </div>
+                                    </Link>
+                                  </div>
+                                </div>
+
+                                {/* Service Links Column 1 */}
+                                <div className="bg-gradient-to-b from-indigo-50 to-white p-6 border-r border-gray-100">
+                                  <h3 className="text-lg font-bold text-indigo-800 mb-4 flex items-center">
+                                    <i className="fa fa-credit-card mr-2"></i>
+                                    Service Links
+                                  </h3>
+                                  <div className="grid grid-cols-1 gap-2">
+                                    <a
+                                      href="https://www.justice.gov.bw"
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="flex items-center p-3 rounded-lg text-gray-700 hover:bg-white hover:text-indigo-600 hover:shadow-md transition-all duration-300 group/item"
+                                    >
+                                      <div className="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center mr-3 group-hover/item:bg-indigo-200 transition-colors">
+                                        <i className="fa fa-balance-scale text-indigo-600"></i>
+                                      </div>
+                                      <div>
+                                        <p className="font-semibold">
+                                          Administration of Justice
+                                        </p>
+                                        <p className="text-xs text-gray-500">
+                                          Legal System
+                                        </p>
+                                      </div>
+                                    </a>
+                                    <a
+                                      href="http://www.baits2.gov.bw/login"
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="flex items-center p-3 rounded-lg text-gray-700 hover:bg-white hover:text-indigo-600 hover:shadow-md transition-all duration-300 group/item"
+                                    >
+                                      <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center mr-3 group-hover/item:bg-orange-200 transition-colors">
+                                        <i className="fa fa-paw text-orange-600"></i>
+                                      </div>
+                                      <div>
+                                        <p className="font-semibold">
+                                          Animal Traceability
+                                        </p>
+                                        <p className="text-xs text-gray-500">
+                                          Identification System
+                                        </p>
+                                      </div>
+                                    </a>
+                                    <a
+                                      href="https://www.iec.gov.bw/"
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="flex items-center p-3 rounded-lg text-gray-700 hover:bg-white hover:text-indigo-600 hover:shadow-md transition-all duration-300 group/item"
+                                    >
+                                      <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3 group-hover/item:bg-blue-200 transition-colors">
+                                        <i className="fa fa-vote-yea text-blue-600"></i>
+                                      </div>
+                                      <div>
+                                        <p className="font-semibold">
+                                          Independent Electoral Commission
+                                        </p>
+                                        <p className="text-xs text-gray-500">
+                                          Elections
+                                        </p>
+                                      </div>
+                                    </a>
+                                    <a
+                                      href="http://www.elaws.gov.bw/"
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="flex items-center p-3 rounded-lg text-gray-700 hover:bg-white hover:text-indigo-600 hover:shadow-md transition-all duration-300 group/item"
+                                    >
+                                      <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3 group-hover/item:bg-green-200 transition-colors">
+                                        <i className="fa fa-book text-green-600"></i>
+                                      </div>
+                                      <div>
+                                        <p className="font-semibold">
+                                          Laws of Botswana
+                                        </p>
+                                        <p className="text-xs text-gray-500">
+                                          Legal Documents
+                                        </p>
+                                      </div>
+                                    </a>
+                                    <a
+                                      href="https://www.finance.gov.bw/"
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="flex items-center p-3 rounded-lg text-gray-700 hover:bg-white hover:text-indigo-600 hover:shadow-md transition-all duration-300 group/item"
+                                    >
+                                      <div className="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center mr-3 group-hover/item:bg-yellow-200 transition-colors">
+                                        <i className="fa fa-money text-yellow-600"></i>
+                                      </div>
+                                      <div>
+                                        <p className="font-semibold">
+                                          Finance and Economic Development
+                                        </p>
+                                        <p className="text-xs text-gray-500">
+                                          Ministry
+                                        </p>
+                                      </div>
+                                    </a>
+                                    <a
+                                      href="https://www.parliament.gov.bw"
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="flex items-center p-3 rounded-lg text-gray-700 hover:bg-white hover:text-indigo-600 hover:shadow-md transition-all duration-300 group/item"
+                                    >
+                                      <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mr-3 group-hover/item:bg-purple-200 transition-colors">
+                                        <i className="fa fa-landmark text-purple-600"></i>
+                                      </div>
+                                      <div>
+                                        <p className="font-semibold">
+                                          Parliament of Botswana
+                                        </p>
+                                        <p className="text-xs text-gray-500">
+                                          Government
+                                        </p>
+                                      </div>
+                                    </a>
+                                  </div>
+                                </div>
+
+                                {/* Service Links Column 2 */}
+                                <div className="bg-gradient-to-b from-indigo-50 to-white p-6">
+                                  <div className="grid grid-cols-1 gap-2 mt-12">
+                                    <a
+                                      href="http://www.eservices.gov.bw/Tourism/Myhome.aspx"
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="flex items-center p-3 rounded-lg text-gray-700 hover:bg-white hover:text-indigo-600 hover:shadow-md transition-all duration-300 group/item"
+                                    >
+                                      <div className="w-10 h-10 bg-cyan-100 rounded-lg flex items-center justify-center mr-3 group-hover/item:bg-cyan-200 transition-colors">
+                                        <i className="fa fa-plane text-cyan-600"></i>
+                                      </div>
+                                      <div>
+                                        <p className="font-semibold">
+                                          Tourism Services
+                                        </p>
+                                        <p className="text-xs text-gray-500">
+                                          Travel & Visits
+                                        </p>
+                                      </div>
+                                    </a>
+                                    <a
+                                      href="http://www.eservices.gov.bw/"
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="flex items-center p-3 rounded-lg text-gray-700 hover:bg-white hover:text-indigo-600 hover:shadow-md transition-all duration-300 group/item"
+                                    >
+                                      <div className="w-10 h-10 bg-pink-100 rounded-lg flex items-center justify-center mr-3 group-hover/item:bg-pink-200 transition-colors">
+                                        <i className="fa fa-shopping-cart text-pink-600"></i>
+                                      </div>
+                                      <div>
+                                        <p className="font-semibold">
+                                          Trade and Industry
+                                        </p>
+                                        <p className="text-xs text-gray-500">
+                                          Business Services
+                                        </p>
+                                      </div>
+                                    </a>
+                                    <a
+                                      href="https://eservices.botswanapost.co.bw/EServices/Account/Login.aspx?ReturnURL=/Eservices/VehicleLicenceRenewal/VehicleRegistrationDetails.aspx"
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="flex items-center p-3 rounded-lg text-gray-700 hover:bg-white hover:text-indigo-600 hover:shadow-md transition-all duration-300 group/item"
+                                    >
+                                      <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center mr-3 group-hover/item:bg-red-200 transition-colors">
+                                        <i className="fa fa-car text-red-600"></i>
+                                      </div>
+                                      <div>
+                                        <p className="font-semibold">
+                                          Vehicle License Renewal
+                                        </p>
+                                        <p className="text-xs text-gray-500">
+                                          Transport Services
+                                        </p>
+                                      </div>
+                                    </a>
+                                    <a
+                                      href="https://www.rims.gov.bw/"
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="flex items-center p-3 rounded-lg text-gray-700 hover:bg-white hover:text-indigo-600 hover:shadow-md transition-all duration-300 group/item"
+                                    >
+                                      <div className="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center mr-3 group-hover/item:bg-teal-200 transition-colors">
+                                        <i className="fa fa-database text-teal-600"></i>
+                                      </div>
+                                      <div>
+                                        <p className="font-semibold">
+                                          Research Information Management
+                                        </p>
+                                        <p className="text-xs text-gray-500">
+                                          Data & Analytics
+                                        </p>
+                                      </div>
+                                    </a>
+                                    <a
+                                      href="https://evisa.gov.bw"
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="flex items-center p-3 rounded-lg text-gray-700 hover:bg-white hover:text-indigo-600 hover:shadow-md transition-all duration-300 group/item"
+                                    >
+                                      <div className="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center mr-3 group-hover/item:bg-indigo-200 transition-colors">
+                                        <i className="fa fa-passport text-indigo-600"></i>
+                                      </div>
+                                      <div>
+                                        <p className="font-semibold">e-visa</p>
+                                        <p className="text-xs text-gray-500">
+                                          Online Application
+                                        </p>
+                                      </div>
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </ul>
                           ) : (
                             <ul className="absolute left-0 top-full w-64 bg-white shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 z-50 rounded-b-lg">
                               <li>
@@ -422,7 +892,7 @@ const Header = () => {
                       onClick={() => setIsSearchOpen(true)}
                       aria-label="Search"
                     >
-                      <i className="flaticon-search-1"></i>
+                      <Search />
                     </button>
                   </div>
 
