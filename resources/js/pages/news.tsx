@@ -5,9 +5,9 @@ import NewsEventsSection from "@/components/section/news/NewsEventsSection";
 export default function News() {
     return (
         <AppShell>
-            <PageTitle title="News" backgroundImage="/assets/images/breadcrumb/page-title-6.jpg" breadcrumbItems={[
+            <PageTitle title="News & Events" backgroundImage="/assets/images/breadcrumb/page-title-6.jpg" breadcrumbItems={[
                 { label: "Home", href: "/" },
-                { label: "News" },
+                { label: "News & Events" },
             ]} />
             <NewsEventsSection />
         </AppShell>
