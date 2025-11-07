@@ -1,0 +1,167 @@
+{
+  "_AppShell-BCF5N2WB.js": {
+    "file": "assets/AppShell-BCF5N2WB.js",
+    "name": "AppShell",
+    "imports": [
+      "resources/js/app.tsx"
+    ]
+  },
+  "_PageTitle-S17obyF0.js": {
+    "file": "assets/PageTitle-S17obyF0.js",
+    "name": "PageTitle",
+    "imports": [
+      "resources/js/app.tsx",
+      "_AppShell-BCF5N2WB.js"
+    ]
+  },
+  "_SectionHeader-DyPlI5xS.js": {
+    "file": "assets/SectionHeader-DyPlI5xS.js",
+    "name": "SectionHeader",
+    "imports": [
+      "_AppShell-BCF5N2WB.js",
+      "resources/js/app.tsx"
+    ]
+  },
+  "_SectionNavigationLayout-DCAz2Vka.js": {
+    "file": "assets/SectionNavigationLayout-DCAz2Vka.js",
+    "name": "SectionNavigationLayout",
+    "imports": [
+      "resources/js/app.tsx",
+      "_AppShell-BCF5N2WB.js",
+      "_tag-_kYEHjdp.js",
+      "_send-BQ30darw.js"
+    ]
+  },
+  "_send-BQ30darw.js": {
+    "file": "assets/send-BQ30darw.js",
+    "name": "send",
+    "imports": [
+      "_AppShell-BCF5N2WB.js"
+    ]
+  },
+  "_tag-_kYEHjdp.js": {
+    "file": "assets/tag-_kYEHjdp.js",
+    "name": "tag",
+    "imports": [
+      "_AppShell-BCF5N2WB.js"
+    ]
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-DGUXQWgb.css",
+    "src": "resources/css/app.css",
+    "isEntry": true,
+    "names": [
+      "app.css"
+    ]
+  },
+  "resources/js/app.tsx": {
+    "file": "assets/app-Nru3u6oz.js",
+    "name": "app",
+    "src": "resources/js/app.tsx",
+    "isEntry": true,
+    "dynamicImports": [
+      "resources/js/pages/about.tsx",
+      "resources/js/pages/agriculture.tsx",
+      "resources/js/pages/benefits.tsx",
+      "resources/js/pages/contact.tsx",
+      "resources/js/pages/news.tsx",
+      "resources/js/pages/welcome.tsx"
+    ],
+    "css": [
+      "assets/app-DGUXQWgb.css"
+    ]
+  },
+  "resources/js/pages/about.tsx": {
+    "file": "assets/about-BLVKbiq0.js",
+    "name": "about",
+    "src": "resources/js/pages/about.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.tsx",
+      "_AppShell-BCF5N2WB.js",
+      "_SectionHeader-DyPlI5xS.js",
+      "_PageTitle-S17obyF0.js"
+    ],
+    "css": [
+      "assets/app-DGUXQWgb.css"
+    ]
+  },
+  "resources/js/pages/agriculture.tsx": {
+    "file": "assets/agriculture-D-a7sxEo.js",
+    "name": "agriculture",
+    "src": "resources/js/pages/agriculture.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.tsx",
+      "_AppShell-BCF5N2WB.js",
+      "_PageTitle-S17obyF0.js",
+      "_SectionNavigationLayout-DCAz2Vka.js",
+      "_tag-_kYEHjdp.js",
+      "_send-BQ30darw.js"
+    ],
+    "css": [
+      "assets/app-DGUXQWgb.css"
+    ]
+  },
+  "resources/js/pages/benefits.tsx": {
+    "file": "assets/benefits-Ujo2Xi7x.js",
+    "name": "benefits",
+    "src": "resources/js/pages/benefits.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.tsx",
+      "_AppShell-BCF5N2WB.js",
+      "_PageTitle-S17obyF0.js",
+      "_SectionNavigationLayout-DCAz2Vka.js",
+      "_tag-_kYEHjdp.js",
+      "_send-BQ30darw.js"
+    ],
+    "css": [
+      "assets/app-DGUXQWgb.css"
+    ]
+  },
+  "resources/js/pages/contact.tsx": {
+    "file": "assets/contact-D47mp9sr.js",
+    "name": "contact",
+    "src": "resources/js/pages/contact.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.tsx",
+      "_AppShell-BCF5N2WB.js",
+      "_send-BQ30darw.js",
+      "_PageTitle-S17obyF0.js"
+    ],
+    "css": [
+      "assets/app-DGUXQWgb.css"
+    ]
+  },
+  "resources/js/pages/news.tsx": {
+    "file": "assets/news-Dyg5tnLY.js",
+    "name": "news",
+    "src": "resources/js/pages/news.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.tsx",
+      "_AppShell-BCF5N2WB.js",
+      "_PageTitle-S17obyF0.js",
+      "_SectionHeader-DyPlI5xS.js",
+      "_tag-_kYEHjdp.js"
+    ],
+    "css": [
+      "assets/app-DGUXQWgb.css"
+    ]
+  },
+  "resources/js/pages/welcome.tsx": {
+    "file": "assets/welcome-B2KB_jrQ.js",
+    "name": "welcome",
+    "src": "resources/js/pages/welcome.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.tsx",
+      "_AppShell-BCF5N2WB.js"
+    ],
+    "css": [
+      "assets/app-DGUXQWgb.css"
+    ]
+  }
+}
