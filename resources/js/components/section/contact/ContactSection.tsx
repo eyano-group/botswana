@@ -40,7 +40,7 @@ const ContactSection = () => {
           <ContactInfo 
             Icon={MapPin}
             title="Office Address"
-            content="72 MainSail Drive, St. 12/B Calibry, Florida 25502 - USA"
+            content="Private Bag 001, Gaborone, Botswana"
           />
           <ContactInfo 
             Icon={Phone}
