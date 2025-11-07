@@ -3,22 +3,22 @@ import PageTitle from "@/components/UI/PageTitle";
 import { Comment, RecentPost } from "@/types";
 import SectionNavigationLayout from "@/layouts/services/SectionNavigationLayout";
 
-export default function Agriculture() {
+export default function Benefits() {
   const pageData = {
-    title: "Agriculture Best Practices 2024",
-    image: "assets/images/agriculture/hero-agriculture.jpg",
+    title: "Benefits Payments",
+    image: "assets/images/benefits/hero-benefits.jpg",
     date: "APR 18, 2024",
     author: "Admin",
-    category: "Agriculture, Farming",
+    category: "Benefits, Payments, Agriculture",
     commentCount: 24,
     content: [
-      "Discover the latest innovations in agricultural practices that are revolutionizing the farming industry. Our comprehensive guide covers everything from sustainable farming techniques to advanced crop management strategies.",
+      "Discover the latest innovations in benefits payments that are revolutionizing the farming industry. Our comprehensive guide covers everything from sustainable farming techniques to advanced crop management strategies.",
       "Learn how modern technology is transforming traditional farming methods, increasing yields while reducing environmental impact. Expert insights from leading agricultural specialists.",
     ],
     sections: [
       {
-        id: "advisory-rules",
-        title: "Advisory Rules",
+        id: "allowances",
+        title: "Allowances",
         content: [
           {
             id: "agricultural-land-utilization",
@@ -60,8 +60,8 @@ export default function Agriculture() {
         ],
       },
       {
-        id: "animal-husbandry",
-        title: "Animal Husbandry",
+        id: "grants",
+        title: "Grants",
         content: [
           {
             id: "alterations-or-additions-to-meat-premises-application-poultry-meat",
@@ -136,8 +136,8 @@ export default function Agriculture() {
         ],
       },
       {
-        id: "crop-production",
-        title: "Crop Production",
+        id: "fines-and-claims",
+        title: "Fines and Claims",
         content: [
           {
             id: "application-for-farm-equipment-through-ispaad-horticulture",
@@ -186,8 +186,63 @@ export default function Agriculture() {
         ],
       },
       {
-        id: "extension-services",
-        title: "Extension Services",
+        id: "schemes",
+        title: "Schemes",
+        content: [
+          {
+            id: "application-for-permission-to-supply-and-manufacture-feeds-premixes-and-veterinary-equipment",
+            title:
+              "Application for Permission to Supply and Manufacture Feeds, Premixes And Veterinary Equipment",
+            content:
+              "Guidelines for applying for licenses to manufacture or distribute animal feeds, premixes, and veterinary equipment. Ensures compliance with safety, quality, and regulatory standards.",
+          },
+          {
+            id: "application-for-training-services",
+            title: "Application for Training Services",
+            content:
+              "Procedure for applying to participate in agricultural training programs. Learn about available modules, eligibility requirements, and skill development opportunities.",
+          },
+          {
+            id: "bee-keeping-development-services",
+            title: "Bee Keeping Development Services",
+            content:
+              "Support services for beekeepers focusing on hive management, honey production, and pest control. Encourages sustainable apiculture practices and market access.",
+          },
+          {
+            id: "registration-for-artificial-insemination-training",
+            title: "Registration for Artificial Insemination Training",
+            content:
+              "Training registration process for farmers and technicians interested in artificial insemination. Covers theory, practical skills, and certification details.",
+          },
+          {
+            id: "registration-for-hides-and-skins-training",
+            title: "Registration for Hides and Skins Training",
+            content:
+              "Enroll in specialized training on hide and skin processing for improved leather quality. Includes preparation, tanning, and preservation techniques.",
+          },
+          {
+            id: "registration-for-ostrich-farming-training",
+            title: "Registration for Ostrich Farming Training",
+            content:
+              "Information on training programs for ostrich farming, including breeding, feeding, and health management to enhance productivity and profitability.",
+          },
+          {
+            id: "registration-for-piggery-farmer-training",
+            title: "Registration for Piggery Farmer Training",
+            content:
+              "Training program for pig farmers focusing on breeding, feeding, housing, and biosecurity practices. Learn how to improve herd performance and product quality.",
+          },
+          {
+            id: "registration-for-poultry-farming-training",
+            title: "Registration for Poultry Farming Training",
+            content:
+              "Comprehensive training opportunity for poultry farmers covering chick rearing, feed formulation, disease prevention, and business management.",
+          },
+        ],
+      },
+      {
+        id: "subsidies",
+        title: "Subsidies",
         content: [
           {
             id: "application-for-permission-to-supply-and-manufacture-feeds-premixes-and-veterinary-equipment",
@@ -286,11 +341,11 @@ export default function Agriculture() {
   return (
     <AppShell>
       <PageTitle
-        title="Agriculture"
-        backgroundImage="/assets/images/resource/agriculture.png"
+        title="Benefits & Payments"
+        backgroundImage="/assets/images/resource/benefits.png"
         breadcrumbItems={[
           { label: "Home", href: "/" },
-          { label: "Agriculture", href: "/agriculture" },
+          { label: "Benefits Payments", href: "/benefits-payments" },
         ]}
       />
       <SectionNavigationLayout
@@ -298,7 +353,7 @@ export default function Agriculture() {
         comments={comments}
         recentPosts={recentPosts}
       >
-        {/* Contenu spécifique à cette page peut être ajouté ici si nécessaire */}
+        
       </SectionNavigationLayout>
     </AppShell>
   );

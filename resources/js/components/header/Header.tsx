@@ -9,6 +9,47 @@ import React, {
 } from "react";
 import { Link } from "@inertiajs/react";
 import { Search } from "lucide-react";
+import { 
+  FileText, 
+  Users, 
+  Droplets, 
+  Heart, 
+  Shield, 
+  BookOpen, 
+  Award, 
+  MapPin, 
+  Phone, 
+  Mail, 
+  Clock,
+  Calendar,
+  CheckCircle,
+  UserCheck,
+  TrendingUp,
+  BarChart3,
+  Lightbulb,
+  Home,
+  Building,
+  GraduationCap,
+  Briefcase,
+  Stethoscope,
+  Microscope,
+  TestTube,
+  Activity,
+  Target,
+  Compass,
+  DollarSign,
+  Package,
+  Truck,
+  Factory,
+  Leaf,
+  TreePine,
+  Fish,
+  Bug,
+  AlertTriangle,
+  Info,
+  FileCheck,
+  ClipboardList
+} from 'lucide-react';
 import SearchPopup from "./SearchPopup";
 import MobileMenu from "./MobileMenu";
 
@@ -286,7 +327,7 @@ const ServicesSubmenu: React.FC<ServicesSubmenuProps> = React.memo(() => {
               subtitle="Farming & Resources"
             />
             <ServiceLink
-              href="/benefits-payments?txterm=98"
+              href="/benefits-payments"
               icon="fa-money"
               bgColor="purple"
               title="Benefits and Payments"
@@ -489,8 +530,55 @@ const ServicesSubmenu: React.FC<ServicesSubmenuProps> = React.memo(() => {
   );
 });
 
-// Composant pour les liens de service
-const ServiceLink: React.FC<ServiceLinkProps> = React.memo(({ href, icon, bgColor, title, subtitle }) => {
+const getLucideIcon = (iconName: string) => {
+  const iconMap: Record<string, React.ComponentType<any>> = {
+    'fa-file-text': FileText,
+    'fa-users': Users,
+    'fa-tint': Droplets,
+    'fa-heart': Heart,
+    'fa-shield-alt': Shield,
+    'fa-book-open': BookOpen,
+    'fa-award': Award,
+    'fa-map-marker-alt': MapPin,
+    'fa-phone': Phone,
+    'fa-envelope': Mail,
+    'fa-clock': Clock,
+    'fa-calendar': Calendar,
+    'fa-check-circle': CheckCircle,
+    'fa-user-check': UserCheck,
+    'fa-trending-up': TrendingUp,
+    'fa-chart-bar': BarChart3,
+    'fa-lightbulb': Lightbulb,
+    'fa-home': Home,
+    'fa-building': Building,
+    'fa-graduation-cap': GraduationCap,
+    'fa-briefcase': Briefcase,
+    'fa-stethoscope': Stethoscope,
+    'fa-microscope': Microscope,
+    'fa-flask': TestTube,
+    'fa-activity': Activity,
+    'fa-bullseye': Target,
+    'fa-compass': Compass,
+    'fa-dollar-sign': DollarSign,
+    'fa-box': Package,
+    'fa-truck': Truck,
+    'fa-industry': Factory,
+    'fa-leaf': Leaf,
+    'fa-tree': TreePine,
+    'fa-fish': Fish,
+    'fa-bug': Bug,
+    'fa-exclamation-triangle': AlertTriangle,
+    'fa-info-circle': Info,
+    'fa-file-check': FileCheck,
+    'fa-list-check': ClipboardList
+  };
+  
+  return iconMap[iconName] || FileText; // Icône par défaut
+};
+
+const ServiceLink: React.FC<ServiceLinkProps> = ({ href, icon, bgColor, title, subtitle }) => {
+  const IconComponent = getLucideIcon(icon);
+  
   return (
     <Link
       href={href}
@@ -499,7 +587,7 @@ const ServiceLink: React.FC<ServiceLinkProps> = React.memo(({ href, icon, bgColo
       <div
         className={`w-10 h-10 bg-${bgColor}-100 rounded-lg flex items-center justify-center mr-3 group-hover/item:bg-${bgColor}-200 transition-colors`}
       >
-        <i className={`fa ${icon} text-${bgColor}-600`}></i>
+        <IconComponent className={`text-${bgColor}-600 w-5 h-5`} />
       </div>
       <div>
         <p className="font-semibold">{title}</p>
@@ -507,7 +595,7 @@ const ServiceLink: React.FC<ServiceLinkProps> = React.memo(({ href, icon, bgColo
       </div>
     </Link>
   );
-});
+};  
 
 // Composant pour les liens de service externes
 const ExternalServiceLink: React.FC<ExternalServiceLinkProps> = React.memo(

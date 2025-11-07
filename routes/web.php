@@ -26,6 +26,6 @@ Route::get('/agriculture', function () {
     return Inertia::render('agriculture');
 })->name('agriculture');
 
-Route::get('/culture-sports-tourism', function () {
-    return Inertia::render('culture');
-})->name('culture');
+Route::get('/benefits-payments', function () {
+    return Inertia::render('benefits');
+})->name('benefits-payments');

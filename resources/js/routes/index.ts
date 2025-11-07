@@ -604,3 +604,77 @@ agricultureForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'>
 })
 
 agriculture.form = agricultureForm
+
+/**
+* @see routes/web.php:29
+* @route '/benefits-payments'
+*/
+export const benefitsPayments = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: benefitsPayments.url(options),
+    method: 'get',
+})
+
+benefitsPayments.definition = {
+    methods: ["get","head"],
+    url: '/benefits-payments',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see routes/web.php:29
+* @route '/benefits-payments'
+*/
+benefitsPayments.url = (options?: RouteQueryOptions) => {
+    return benefitsPayments.definition.url + queryParams(options)
+}
+
+/**
+* @see routes/web.php:29
+* @route '/benefits-payments'
+*/
+benefitsPayments.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: benefitsPayments.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:29
+* @route '/benefits-payments'
+*/
+benefitsPayments.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: benefitsPayments.url(options),
+    method: 'head',
+})
+
+/**
+* @see routes/web.php:29
+* @route '/benefits-payments'
+*/
+const benefitsPaymentsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: benefitsPayments.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:29
+* @route '/benefits-payments'
+*/
+benefitsPaymentsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: benefitsPayments.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:29
+* @route '/benefits-payments'
+*/
+benefitsPaymentsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: benefitsPayments.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+benefitsPayments.form = benefitsPaymentsForm
