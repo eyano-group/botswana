@@ -22,3 +22,10 @@ Route::get('/about/{slug}', function ($slug) {
     ]);
 })->name('about');
 
+Route::get('/agriculture', function () {
+    return Inertia::render('agriculture');
+})->name('agriculture');
+
+Route::get('/culture-sports-tourism', function () {
+    return Inertia::render('culture');
+})->name('culture');

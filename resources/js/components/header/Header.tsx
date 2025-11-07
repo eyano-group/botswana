@@ -279,7 +279,7 @@ const ServicesSubmenu: React.FC<ServicesSubmenuProps> = React.memo(() => {
           </h3>
           <div className="grid grid-cols-1 gap-2">
             <ServiceLink
-              href="/agriculture?txterm=128"
+              href="/agriculture"
               icon="fa-leaf"
               bgColor="green"
               title="Agriculture"
@@ -293,7 +293,7 @@ const ServicesSubmenu: React.FC<ServicesSubmenuProps> = React.memo(() => {
               subtitle="Financial Support"
             />
             <ServiceLink
-              href="/culture-sports-tourism?txterm=107"
+              href="/culture-sports-tourism"
               icon="fa-futbol-o"
               bgColor="orange"
               title="Recreation & Leisure"

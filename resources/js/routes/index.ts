@@ -530,3 +530,77 @@ aboutForm.head = (args: { slug: string | number } | [slug: string | number ] | s
 })
 
 about.form = aboutForm
+
+/**
+* @see routes/web.php:25
+* @route '/agriculture'
+*/
+export const agriculture = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: agriculture.url(options),
+    method: 'get',
+})
+
+agriculture.definition = {
+    methods: ["get","head"],
+    url: '/agriculture',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see routes/web.php:25
+* @route '/agriculture'
+*/
+agriculture.url = (options?: RouteQueryOptions) => {
+    return agriculture.definition.url + queryParams(options)
+}
+
+/**
+* @see routes/web.php:25
+* @route '/agriculture'
+*/
+agriculture.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: agriculture.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:25
+* @route '/agriculture'
+*/
+agriculture.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: agriculture.url(options),
+    method: 'head',
+})
+
+/**
+* @see routes/web.php:25
+* @route '/agriculture'
+*/
+const agricultureForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: agriculture.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:25
+* @route '/agriculture'
+*/
+agricultureForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: agriculture.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:25
+* @route '/agriculture'
+*/
+agricultureForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: agriculture.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+agriculture.form = agricultureForm
