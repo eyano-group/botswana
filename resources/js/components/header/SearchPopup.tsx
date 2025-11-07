@@ -66,25 +66,25 @@ const SearchPopup = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void
       ></div>
       
       <button 
-        className="close-search absolute right-6 top-6 text-white text-2xl z-10 transition-all duration-500 hover:text-gray-300 hover:rotate-90 transform hover:scale-110"
+        className="close-search absolute right-4 sm:right-6 top-4 sm:top-6 text-white text-xl sm:text-2xl z-10 transition-all duration-500 hover:text-gray-300 hover:rotate-90 transform hover:scale-110"
         onClick={onClose}
       >
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
       
       <div 
         ref={searchRef}
-        className={`search-form relative px-4 max-w-4xl mx-auto transition-all duration-900 ${isOpen ? 'mt-36 mb-24 opacity-100' : 'mt-48 mb-0 opacity-0'}`}
+        className={`search-form relative px-3 sm:px-4 max-w-4xl mx-auto transition-all duration-900 ${isOpen ? 'mt-20 sm:mt-36 mb-12 sm:mb-24 opacity-100' : 'mt-48 mb-0 opacity-0'}`}
       >
         <form onSubmit={handleSubmit}>
-          <fieldset className="relative rounded-xl overflow-hidden shadow-2xl">
+          <fieldset className="relative rounded-lg sm:rounded-xl overflow-hidden shadow-2xl">
             <div className="relative">
               <input 
                 ref={searchRef}
                 type="search" 
-                className={`form-control w-full h-20 px-8 pr-64 bg-white text-2xl text-gray-800 focus:outline-none transition-all duration-300 ${isAnimating ? 'animate-pulse' : ''}`}
+                className={`form-control w-full h-12 sm:h-16 md:h-20 px-4 sm:px-6 md:px-8 pr-32 sm:pr-48 md:pr-64 bg-white text-base sm:text-lg md:text-xl lg:text-2xl text-gray-800 focus:outline-none transition-all duration-300 ${isAnimating ? 'animate-pulse' : ''}`}
                 placeholder="Search Here"
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
@@ -97,20 +97,20 @@ const SearchPopup = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void
             </div>
             <button 
               type="submit" 
-              className="absolute right-0 top-0 w-56 h-20 bg-gradient-to-r from-[#0099cc] to-[#0080b3] text-white text-xl font-semibold transition-all duration-500 hover:from-[#0080b3] hover:to-[#006699] transform hover:scale-105"
+              className="absolute right-0 top-0 w-28 sm:w-40 md:w-48 lg:w-56 h-12 sm:h-16 md:h-20 bg-gradient-to-r from-[#0099cc] to-[#0080b3] text-white text-sm sm:text-base md:text-lg lg:text-xl font-semibold transition-all duration-500 hover:from-[#0080b3] hover:to-[#006699] transform hover:scale-105"
             >
-              <span className="relative z-10">Search Now!</span>
+              <span className="relative z-10">Search</span>
               <div className="absolute inset-0 bg-white opacity-0 hover:opacity-20 transition-opacity duration-300"></div>
             </button>
           </fieldset>
         </form>
         
-        <div className={`transition-all duration-700 ${isOpen ? 'opacity-100 translate-y-0 mt-8' : 'opacity-0 -translate-y-4 mt-0'}`}>
-          <h3 className="text-xl font-semibold text-white text-center uppercase tracking-wider mb-5">
+        <div className={`transition-all duration-700 ${isOpen ? 'opacity-100 translate-y-0 mt-6 sm:mt-8' : 'opacity-0 -translate-y-4 mt-0'}`}>
+          <h3 className="text-base sm:text-lg md:text-xl font-semibold text-white text-center uppercase tracking-wider mb-3 sm:mb-5">
             Recent Search Keywords
           </h3>
           
-          <ul className="recent-searches flex flex-wrap justify-center gap-2">
+          <ul className="recent-searches flex flex-wrap justify-center gap-1 sm:gap-2">
             {recentSearches.map((term, index) => (
               <li 
                 key={index} 
@@ -119,7 +119,7 @@ const SearchPopup = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void
               >
                 <Link 
                   href="/index.html" 
-                  className="block px-4 py-2 border border-white text-white rounded-md transition-all duration-300 hover:bg-white hover:text-[#0099cc] hover:shadow-lg"
+                  className="block px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 border border-white text-white text-sm sm:text-base rounded-md transition-all duration-300 hover:bg-white hover:text-[#0099cc] hover:shadow-lg"
                   onClick={onClose}
                 >
                   {term}
