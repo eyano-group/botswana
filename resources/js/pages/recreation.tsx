@@ -3,7 +3,7 @@ import PageTitle from "@/components/UI/PageTitle";
 import { Comment, RecentPost } from "@/types";
 import SectionNavigationLayout from "@/layouts/services/SectionNavigationLayout";
 
-export default function Benefits() {
+export default function Recreation() {
   const pageData = {
     title: "Recreation & Leisure",
     image: "assets/images/recreation/hero-recreation.jpg",

@@ -974,3 +974,77 @@ immigrationCivilRegistrationForm.head = (options?: RouteQueryOptions): RouteForm
 })
 
 immigrationCivilRegistration.form = immigrationCivilRegistrationForm
+
+/**
+* @see routes/web.php:49
+* @route '/labor-employment'
+*/
+export const labourEmployment = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: labourEmployment.url(options),
+    method: 'get',
+})
+
+labourEmployment.definition = {
+    methods: ["get","head"],
+    url: '/labor-employment',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see routes/web.php:49
+* @route '/labor-employment'
+*/
+labourEmployment.url = (options?: RouteQueryOptions) => {
+    return labourEmployment.definition.url + queryParams(options)
+}
+
+/**
+* @see routes/web.php:49
+* @route '/labor-employment'
+*/
+labourEmployment.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: labourEmployment.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:49
+* @route '/labor-employment'
+*/
+labourEmployment.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: labourEmployment.url(options),
+    method: 'head',
+})
+
+/**
+* @see routes/web.php:49
+* @route '/labor-employment'
+*/
+const labourEmploymentForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: labourEmployment.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:49
+* @route '/labor-employment'
+*/
+labourEmploymentForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: labourEmployment.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:49
+* @route '/labor-employment'
+*/
+labourEmploymentForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: labourEmployment.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+labourEmployment.form = labourEmploymentForm

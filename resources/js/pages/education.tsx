@@ -3,7 +3,7 @@ import PageTitle from "@/components/UI/PageTitle";
 import { Comment, RecentPost } from "@/types";
 import SectionNavigationLayout from "@/layouts/services/SectionNavigationLayout";
 
-export default function Benefits() {
+export default function Education() {
   const pageData = {
     title: "Education & Learning",
     image: "assets/images/education/hero-education.jpg",

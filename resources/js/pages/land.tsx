@@ -3,13 +3,13 @@ import PageTitle from "@/components/UI/PageTitle";
 import { Comment, RecentPost } from "@/types";
 import SectionNavigationLayout from "@/layouts/services/SectionNavigationLayout";
 
-export default function Labour() {
+export default function Land() {
   const pageData = {
-    title: "Labour & Employment",
+    title: "Land & Construction and Housing",
     image: "assets/images/labour/hero-labour.jpg",
     date: "APR 18, 2024",
     author: "Admin",
-    category: "Labour & Employment",
+    category: "Land & Construction and Housing",
     commentCount: 24,
     content: [
       "Discover the latest innovations in education and learning that are revolutionizing the Botswana. Our comprehensive guide covers everything from sustainable farming techniques to advanced crop management strategies.",
@@ -17,167 +17,211 @@ export default function Labour() {
     ],
     sections: [
       {
-        id: "employment-apprentice",
-        title: "Employment & Apprentice",
+        id: "construction",
+        title: "Construction",
         content: [
           {
-            id: "botswana-national-service-programme-tirelo-sechaba",
-            title: "Botswana National Service Programme (Tirelo Sechaba)",
+            id: "registration-of-consultants-for-inclusion-in-the-direct-allocation-system-das-database",
+            title: "Registration of Consultants for inclusion in the Direct Allocation System (DAS) Database",
             content:
               "Comprehensive guidance on preparing and managing agricultural land for optimal productivity. Learn how to test soil, apply amendments, and implement effective tillage and crop rotation techniques to enhance fertility, prevent erosion, and sustain long-term soil health.",
           },
           {
-            id: "national-internship-program",
-            title: "National Internship Program",
-            content:
-              "Comprehensive guidance on preparing and managing agricultural land for optimal productivity. Learn how to test soil, apply amendments, and implement effective tillage and crop rotation techniques to enhance fertility, prevent erosion, and sustain long-term soil health.",
-          },
-          {
-            id: "recruitment-officer-cadet",
-            title: "Recruitment - Officer Cadet",
-            content:
-              "Comprehensive guidance on preparing and managing agricultural land for optimal productivity. Learn how to test soil, apply amendments, and implement effective tillage and crop rotation techniques to enhance fertility, prevent erosion, and sustain long-term soil health.",
-          },
-          {
-            id: "recruitment-recruit-private",
-            title: "Recruitment - Recruit Private",
+            id: "registration-of-youth-contractors",
+            title: "Registration of Youth Contractors",
             content:
               "Comprehensive guidance on preparing and managing agricultural land for optimal productivity. Learn how to test soil, apply amendments, and implement effective tillage and crop rotation techniques to enhance fertility, prevent erosion, and sustain long-term soil health.",
           },
         ],
       },
       {
-        id: "labour-administration",
-        title: "Labour Administration",
+        id: "housing",
+        title: "Housing",
         content: [
           {
-            id: "application-for-civil-registration-documents-abroad",
+            id: "housing-scheme-for-public-officers-on-d4-and-below",
             title:
-              "Application for Certificate of Exemption",
+              "Housing Scheme for Public Officers on D4 and Below",
             content:
               "Procedures and standards for modifying or expanding poultry meat processing facilities. Ensure compliance with hygiene, safety, and environmental regulations to maintain product quality and operational efficiency.",
           },
           {
-            id: "labour-inspection",
+            id: "integrated-poverty-alleviation-and-housing-scheme",
             title:
-              "Labour Inspection",
+              "Integrated Poverty Alleviation and Housing Scheme",
             content:
               "Procedures and standards for modifying or expanding poultry meat processing facilities. Ensure compliance with hygiene, safety, and environmental regulations to maintain product quality and operational efficiency.",
           },
           {
-            id: "recruiter-permit",
+            id: "pool-housing",
             title:
-              "Recruiter’s Permit",
+              "Pool Housing",
             content:
               "Procedures and standards for modifying or expanding poultry meat processing facilities. Ensure compliance with hygiene, safety, and environmental regulations to maintain product quality and operational efficiency.",
           },
           {
-            id: "registration-of-employers-organisation",
+            id: "shha-home-improvement",
             title:
-              "Registration of Employers’ Organisation",
+              "SHHA Home Improvement",
             content:
               "Procedures and standards for modifying or expanding poultry meat processing facilities. Ensure compliance with hygiene, safety, and environmental regulations to maintain product quality and operational efficiency.",
           },
           {
-            id: "registration-of-federation-of-trade-unions",
+            id: "shha-turnkey-programme",
             title:
-              "Registration of Federation of Trade Unions",
-            content:
-              "Procedures and standards for modifying or expanding poultry meat processing facilities. Ensure compliance with hygiene, safety, and environmental regulations to maintain product quality and operational efficiency.",
-          },
-          {
-            id: "requirements-for-labour-exemption-certificates-for-permanent-residents",
-            title:
-              "Requirements for Labour Exemption Certificates for Permanent Residents",
-            content:
-              "Procedures and standards for modifying or expanding poultry meat processing facilities. Ensure compliance with hygiene, safety, and environmental regulations to maintain product quality and operational efficiency.",
-          },
-          {
-            id: "societies-registration",
-            title:
-              "Societies Registration",
-            content:
-              "Procedures and standards for modifying or expanding poultry meat processing facilities. Ensure compliance with hygiene, safety, and environmental regulations to maintain product quality and operational efficiency.",
-          },
-          {
-            id: "trade-dispute-arbitration",
-            title:
-              "Trade Dispute - Arbitration",
-            content:
-              "Procedures and standards for modifying or expanding poultry meat processing facilities. Ensure compliance with hygiene, safety, and environmental regulations to maintain product quality and operational efficiency.",
-          },
-          {
-            id: "trade-dispute-mediation",
-            title:
-              "Trade Dispute - Mediation",
-            content:
-              "Procedures and standards for modifying or expanding poultry meat processing facilities. Ensure compliance with hygiene, safety, and environmental regulations to maintain product quality and operational efficiency.",
-          },
-          {
-            id: "trade-unions-registration",
-            title:
-              "Trade Unions Registration",
+              "SHHA Turnkey Programme",
             content:
               "Procedures and standards for modifying or expanding poultry meat processing facilities. Ensure compliance with hygiene, safety, and environmental regulations to maintain product quality and operational efficiency.",
           },
         ],
       },
       {
-        id: "occupational-health-safety",
-        title: "Occupational Health & Safety",
+        id: "land-management",
+        title: "Land management",
         content: [
           {
-            id: "examination-of-cranes-and-other-lifting-equipment",
-            title: "Examination of Cranes and Other Lifting Equipment",
+            id: "allocation-of-state-land",
+            title: "Allocation of State Land",
             content:
               "Process for applying for farm equipment under the ISPAAD horticulture program. Includes eligibility criteria, application requirements, and guidelines for efficient use of provided machinery.",
           },
           {
-            id: "examination-of-steam-boilers-under-normal-pressure",
+            id: "allocation-of-tribal-land",
             title:
-              "Examination of Steam Boilers Under Normal Pressure",
+              "Allocation of Tribal Land",
             content:
               "Detailed guide for accessing support on seeds, fertilizers, and other production inputs through ISPAAD. Learn how to optimize resource utilization for sustainable crop yields.",
           },
           {
-            id: "examination-of-steam-boilers-when-cold",
-            title: "Examination of Steam Boilers When Cold",
+            id: "application-for-change-of-land-use",
+            title: "Application for Change of Land Use",
             content:
               "Practical manual on identifying and managing common crop pests. Covers biological, cultural, and chemical control methods for integrated pest management.",
           },
           {
-            id: "examination-of-steam-or-air-receiver-normal-pressure-supplementary-report",
-            title: "Examination of Steam or Air Receiver Normal Pressure - Supplementary Report",
+            id: "application-for-common-land-law-rights",
+            title: "Application for Common Land Law Rights",
             content:
               "Practical manual on identifying and managing common crop pests. Covers biological, cultural, and chemical control methods for integrated pest management.",
           },
           {
-            id: "examination-of-steam-receivers",
-            title: "Examination of Steam Receivers",
+            id: "application-for-customary-law-land-grant",
+            title: "Application for Customary Law Land Grant",
             content:
               "Practical manual on identifying and managing common crop pests. Covers biological, cultural, and chemical control methods for integrated pest management.",
           },
           {
-            id: "factory-registration",
-            title: "Factory Registration",
+            id: "application-for-mining-surface-rights",
+            title: "Application for Mining Surface Rights",
             content:
               "Practical manual on identifying and managing common crop pests. Covers biological, cultural, and chemical control methods for integrated pest management.",
           },
           {
-            id: "general-register",
-            title: "General Register",
+            id: "application-for-plot-extension",
+            title: "Application for Plot Extension",
             content:
               "Practical manual on identifying and managing common crop pests. Covers biological, cultural, and chemical control methods for integrated pest management.",
           },
           {
-            id: "workers-compensation",
-            title: "Workers Compensation",
+            id: "beacon-showing",
+            title: "Beacon Showing",
             content:
               "Practical manual on identifying and managing common crop pests. Covers biological, cultural, and chemical control methods for integrated pest management.",
           },
           {
-            id: "workplace-accident-reporting-and-investigation",
-            title: "Workplace Accident Reporting and Investigation",
+            id: "borehole-registration",
+            title: "Borehole Registration",
+            content:
+              "Practical manual on identifying and managing common crop pests. Covers biological, cultural, and chemical control methods for integrated pest management.",
+          },
+          {
+            id: "cancellation-of-a-mortgage-bond",
+            title: "Cancellation of a Mortgage Bond",
+            content:
+              "Process for applying for farm equipment under the ISPAAD horticulture program. Includes eligibility criteria, application requirements, and guidelines for efficient use of provided machinery.",
+          },
+          {
+            id: "certified-copy-of-a-title-deed",
+            title:
+              "Certified Copy of a Title Deed",
+            content:
+              "Detailed guide for accessing support on seeds, fertilizers, and other production inputs through ISPAAD. Learn how to optimize resource utilization for sustainable crop yields.",
+          },
+          {
+            id: "conversion-from-customary-to-common-law",
+            title: "Conversion from Customary to Common Law",
+            content:
+              "Practical manual on identifying and managing common crop pests. Covers biological, cultural, and chemical control methods for integrated pest management.",
+          },
+          {
+            id: "land-survey-records-approval",
+            title: "Land Survey Records Approval",
+            content:
+              "Practical manual on identifying and managing common crop pests. Covers biological, cultural, and chemical control methods for integrated pest management.",
+          },
+          {
+            id: "maps-and-geospatial-data",
+            title: "Maps and Geospatial Data",
+            content:
+              "Practical manual on identifying and managing common crop pests. Covers biological, cultural, and chemical control methods for integrated pest management.",
+          },
+          {
+            id: "planning-permission",
+            title: "Planning Permission",
+            content:
+              "Practical manual on identifying and managing common crop pests. Covers biological, cultural, and chemical control methods for integrated pest management.",
+          },
+          {
+            id: "plot-inheritance",
+            title: "Plot Inheritance",
+            content:
+              "Practical manual on identifying and managing common crop pests. Covers biological, cultural, and chemical control methods for integrated pest management.",
+          },
+          {
+            id: "registration-of-a-mortgage-bond",
+            title: "Registration of a Mortgage Bond",
+            content:
+              "Practical manual on identifying and managing common crop pests. Covers biological, cultural, and chemical control methods for integrated pest management.",
+          },
+          {
+            id: "registration-of-leases",
+            title: "Registration of Leases",
+            content:
+              "Practical manual on identifying and managing common crop pests. Covers biological, cultural, and chemical control methods for integrated pest management.",
+          },
+          {
+            id: "replacement-of-lost-burnt-stolen-misplaced-ordinary-certificates-lease",
+            title: "Replacement of Lost/Burnt/Stolen/Misplaced/Ordinary Certificates/Lease",
+            content:
+              "Practical manual on identifying and managing common crop pests. Covers biological, cultural, and chemical control methods for integrated pest management.",
+          },
+          {
+            id: "request-for-beacon-re-identification",
+            title: "Request for Beacon Re-identification",
+            content:
+              "Practical manual on identifying and managing common crop pests. Covers biological, cultural, and chemical control methods for integrated pest management.",
+          },
+          {
+            id: "request-for-consolidation-sub-division",
+            title: "Request for Consolidation/ Sub Division",
+            content:
+              "Practical manual on identifying and managing common crop pests. Covers biological, cultural, and chemical control methods for integrated pest management.",
+          },
+          {
+            id: "sales-of-maps",
+            title: "Sales of Maps",
+            content:
+              "Practical manual on identifying and managing common crop pests. Covers biological, cultural, and chemical control methods for integrated pest management.",
+          },
+          {
+            id: "spatial-planning-data",
+            title: "Spatial Planning Data",
+            content:
+              "Practical manual on identifying and managing common crop pests. Covers biological, cultural, and chemical control methods for integrated pest management.",
+          },
+          {
+            id: "transfer-of-land-rights",
+            title: "Transfer of Land Rights",
             content:
               "Practical manual on identifying and managing common crop pests. Covers biological, cultural, and chemical control methods for integrated pest management.",
           },
@@ -229,11 +273,11 @@ export default function Labour() {
   return (
     <AppShell>
       <PageTitle
-        title="Labour & Employment"
+        title="Land & Construction and Housing"
         backgroundImage="/assets/images/resource/labour.png"
         breadcrumbItems={[
           { label: "Home", href: "/" },
-          { label: "Labour & Employment", href: "/labour" },
+          { label: "Land & Construction and Housing", href: "/land" },
         ]}
       />
       <SectionNavigationLayout

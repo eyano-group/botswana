@@ -362,7 +362,7 @@ const ServicesSubmenu: React.FC<ServicesSubmenuProps> = React.memo(() => {
               subtitle="Citizenship & Visas"
             />
             <ServiceLink
-              href="/labor-employment?txterm=132"
+              href="/labor-employment"
               icon="fa-briefcase"
               bgColor="teal"
               title="Labour and Employment"

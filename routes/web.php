@@ -46,3 +46,7 @@ Route::get('/immigration-civil-registration', function () {
     return Inertia::render('immigration');
 })->name('immigration-civil-registration');
 
+Route::get('/labor-employment', function () {
+    return Inertia::render('labour');
+})->name('labour-employment');
+

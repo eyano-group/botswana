@@ -3,7 +3,7 @@ import PageTitle from "@/components/UI/PageTitle";
 import { Comment, RecentPost } from "@/types";
 import SectionNavigationLayout from "@/layouts/services/SectionNavigationLayout";
 
-export default function Benefits() {
+export default function Immigration() {
   const pageData = {
     title: "immigration & civil registration",
     image: "assets/images/health/hero-health.jpg",
