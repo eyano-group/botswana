@@ -341,7 +341,7 @@ const ServicesSubmenu: React.FC<ServicesSubmenuProps> = React.memo(() => {
               subtitle="Sports & Tourism"
             />
             <ServiceLink
-              href="/education-learning?txterm=110"
+              href="/education-learning"
               icon="fa-graduation-cap"
               bgColor="blue"
               title="Education and Learning"

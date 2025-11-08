@@ -30,6 +30,11 @@ Route::get('/benefits-payments', function () {
     return Inertia::render('benefits');
 })->name('benefits-payments');
 
-Route::get('/recreation', function () {
+Route::get('/culture-sports-tourism', function () {
     return Inertia::render('recreation');
-})->name('recreation');
+})->name('culture-sports-tourism');
+
+Route::get('/education-learning', function () {
+    return Inertia::render('education');
+})->name('education-learning');
+

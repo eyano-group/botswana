@@ -681,68 +681,68 @@ benefitsPayments.form = benefitsPaymentsForm
 
 /**
 * @see routes/web.php:33
-* @route '/recreation'
+* @route '/culture-sports-tourism'
 */
-export const recreation = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: recreation.url(options),
+export const cultureSportsTourism = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: cultureSportsTourism.url(options),
     method: 'get',
 })
 
-recreation.definition = {
+cultureSportsTourism.definition = {
     methods: ["get","head"],
-    url: '/recreation',
+    url: '/culture-sports-tourism',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see routes/web.php:33
-* @route '/recreation'
+* @route '/culture-sports-tourism'
 */
-recreation.url = (options?: RouteQueryOptions) => {
-    return recreation.definition.url + queryParams(options)
+cultureSportsTourism.url = (options?: RouteQueryOptions) => {
+    return cultureSportsTourism.definition.url + queryParams(options)
 }
 
 /**
 * @see routes/web.php:33
-* @route '/recreation'
+* @route '/culture-sports-tourism'
 */
-recreation.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: recreation.url(options),
+cultureSportsTourism.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: cultureSportsTourism.url(options),
     method: 'get',
 })
 
 /**
 * @see routes/web.php:33
-* @route '/recreation'
+* @route '/culture-sports-tourism'
 */
-recreation.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: recreation.url(options),
+cultureSportsTourism.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: cultureSportsTourism.url(options),
     method: 'head',
 })
 
 /**
 * @see routes/web.php:33
-* @route '/recreation'
+* @route '/culture-sports-tourism'
 */
-const recreationForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: recreation.url(options),
+const cultureSportsTourismForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: cultureSportsTourism.url(options),
     method: 'get',
 })
 
 /**
 * @see routes/web.php:33
-* @route '/recreation'
+* @route '/culture-sports-tourism'
 */
-recreationForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: recreation.url(options),
+cultureSportsTourismForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: cultureSportsTourism.url(options),
     method: 'get',
 })
 
 /**
 * @see routes/web.php:33
-* @route '/recreation'
+* @route '/culture-sports-tourism'
 */
-recreationForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: recreation.url({
+cultureSportsTourismForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: cultureSportsTourism.url({
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -751,4 +751,78 @@ recreationForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> 
     method: 'get',
 })
 
-recreation.form = recreationForm
+cultureSportsTourism.form = cultureSportsTourismForm
+
+/**
+* @see routes/web.php:37
+* @route '/education-learning'
+*/
+export const educationLearning = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: educationLearning.url(options),
+    method: 'get',
+})
+
+educationLearning.definition = {
+    methods: ["get","head"],
+    url: '/education-learning',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see routes/web.php:37
+* @route '/education-learning'
+*/
+educationLearning.url = (options?: RouteQueryOptions) => {
+    return educationLearning.definition.url + queryParams(options)
+}
+
+/**
+* @see routes/web.php:37
+* @route '/education-learning'
+*/
+educationLearning.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: educationLearning.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:37
+* @route '/education-learning'
+*/
+educationLearning.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: educationLearning.url(options),
+    method: 'head',
+})
+
+/**
+* @see routes/web.php:37
+* @route '/education-learning'
+*/
+const educationLearningForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: educationLearning.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:37
+* @route '/education-learning'
+*/
+educationLearningForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: educationLearning.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:37
+* @route '/education-learning'
+*/
+educationLearningForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: educationLearning.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+educationLearning.form = educationLearningForm
