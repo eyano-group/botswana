@@ -38,3 +38,8 @@ Route::get('/education-learning', function () {
     return Inertia::render('education');
 })->name('education-learning');
 
+Route::get('/health-wellness', function () {
+    return Inertia::render('health');
+})->name('health-wellness');
+
+

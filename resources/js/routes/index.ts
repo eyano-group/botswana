@@ -826,3 +826,77 @@ educationLearningForm.head = (options?: RouteQueryOptions): RouteFormDefinition<
 })
 
 educationLearning.form = educationLearningForm
+
+/**
+* @see routes/web.php:41
+* @route '/health-wellness'
+*/
+export const healthWellness = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: healthWellness.url(options),
+    method: 'get',
+})
+
+healthWellness.definition = {
+    methods: ["get","head"],
+    url: '/health-wellness',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see routes/web.php:41
+* @route '/health-wellness'
+*/
+healthWellness.url = (options?: RouteQueryOptions) => {
+    return healthWellness.definition.url + queryParams(options)
+}
+
+/**
+* @see routes/web.php:41
+* @route '/health-wellness'
+*/
+healthWellness.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: healthWellness.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:41
+* @route '/health-wellness'
+*/
+healthWellness.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: healthWellness.url(options),
+    method: 'head',
+})
+
+/**
+* @see routes/web.php:41
+* @route '/health-wellness'
+*/
+const healthWellnessForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: healthWellness.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:41
+* @route '/health-wellness'
+*/
+healthWellnessForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: healthWellness.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:41
+* @route '/health-wellness'
+*/
+healthWellnessForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: healthWellness.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+healthWellness.form = healthWellnessForm
