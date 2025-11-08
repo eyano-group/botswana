@@ -900,3 +900,77 @@ healthWellnessForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'ge
 })
 
 healthWellness.form = healthWellnessForm
+
+/**
+* @see routes/web.php:45
+* @route '/immigration-civil-registration'
+*/
+export const immigrationCivilRegistration = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: immigrationCivilRegistration.url(options),
+    method: 'get',
+})
+
+immigrationCivilRegistration.definition = {
+    methods: ["get","head"],
+    url: '/immigration-civil-registration',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see routes/web.php:45
+* @route '/immigration-civil-registration'
+*/
+immigrationCivilRegistration.url = (options?: RouteQueryOptions) => {
+    return immigrationCivilRegistration.definition.url + queryParams(options)
+}
+
+/**
+* @see routes/web.php:45
+* @route '/immigration-civil-registration'
+*/
+immigrationCivilRegistration.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: immigrationCivilRegistration.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:45
+* @route '/immigration-civil-registration'
+*/
+immigrationCivilRegistration.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: immigrationCivilRegistration.url(options),
+    method: 'head',
+})
+
+/**
+* @see routes/web.php:45
+* @route '/immigration-civil-registration'
+*/
+const immigrationCivilRegistrationForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: immigrationCivilRegistration.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:45
+* @route '/immigration-civil-registration'
+*/
+immigrationCivilRegistrationForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: immigrationCivilRegistration.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:45
+* @route '/immigration-civil-registration'
+*/
+immigrationCivilRegistrationForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: immigrationCivilRegistration.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+immigrationCivilRegistration.form = immigrationCivilRegistrationForm

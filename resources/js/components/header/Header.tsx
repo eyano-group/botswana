@@ -348,14 +348,14 @@ const ServicesSubmenu: React.FC<ServicesSubmenuProps> = React.memo(() => {
               subtitle="Schools & Training"
             />
             <ServiceLink
-              href="/health-wellness?txterm=120"
+              href="/health-wellness"
               icon="fa-heartbeat"
               bgColor="red"
               title="Health and Wellness"
               subtitle="Medical Services"
             />
             <ServiceLink
-              href="/immigration-civil-registration?txterm=97"
+              href="/immigration-civil-registration"
               icon="fa-passport"
               bgColor="indigo"
               title="Immigration and Civil Registration"

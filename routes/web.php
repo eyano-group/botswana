@@ -42,4 +42,7 @@ Route::get('/health-wellness', function () {
     return Inertia::render('health');
 })->name('health-wellness');
 
+Route::get('/immigration-civil-registration', function () {
+    return Inertia::render('immigration');
+})->name('immigration-civil-registration');
 
