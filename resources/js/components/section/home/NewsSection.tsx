@@ -6,34 +6,47 @@ const NewsSection = () => {
   const sectionRef = useRef(null);
   
   const newsItems = [
-    {
-      id: 1,
-      image: 'assets/images/news/news-1.jpg',
-      date: 18,
-      month: 'apr',
-      title: 'Covid-19 And Its Impact On USA Immigration',
-      author: 'By Admin',
-      categories: ['Study Visa', 'Work']
-    },
-    {
-      id: 2,
-      image: 'assets/images/news/news-2.jpg',
-      date: 17,
-      month: 'apr',
-      title: 'UK To Offers Point-Based Immigration Process',
-      author: 'By Admin',
-      categories: ['Europe Permit']
-    },
-    {
-      id: 3,
-      image: 'assets/images/news/news-3.jpg',
-      date: 16,
-      month: 'apr',
-      title: 'Kickstart Your Visa Approval With 4 Easy Steps',
-      author: 'By Admin',
-      categories: ['Immigration']
-    }
-  ];
+  {
+    id: 1,
+    // Image: Skilpadshek / Pioneer Gate border checkpoint (Wikimedia Commons)
+    image: 'https://upload.wikimedia.org/wikipedia/commons/2/2b/Skilpadshek_Pioneer_Gate_Border_Checkpoint.JPG',
+    date: 30,
+    month: 'May',
+    title: 'Botswana e-Visa System Restored after Short Suspension',
+    author: 'Department of Immigration',
+    summary:
+      'After a brief suspension at the end of April 2025, Botswana’s electronic visa (e-Visa) portal has been fully restored — applicants can now submit visa forms and supporting documents online.',
+    categories: ['Visas', 'Digital Services'],
+    source: 'https://visasnews.com/en/botswana-electronic-visa-application-system-restored/'
+  },
+  {
+    id: 2,
+    // Image: Okavango Delta (aerial / wetlands) (Wikimedia Commons)
+    image: 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Okavango_Delta%2C_Botswana_%282674373339%29.jpg',
+    date: 1,
+    month: 'Dec',
+    title: 'Okavango Delta: State of Conservation Report and Ongoing Measures',
+    author: 'UNESCO / Government of Botswana',
+    summary:
+      'The State Party submitted a conservation report (Dec 2024) and the World Heritage Committee continues to monitor threats to the Okavango Delta while acknowledging progress in management and community-based measures.',
+    categories: ['Environment', 'Conservation'],
+    source: 'https://whc.unesco.org/en/list/1432/'
+  },
+  {
+    id: 3,
+    // Image: Gaborone skyline (Wikimedia Commons)
+    image: 'https://upload.wikimedia.org/wikipedia/commons/5/54/Gaborone_skyline.JPG',
+    date: 26,
+    month: 'Sep',
+    title: 'Government Announces Citizenship-by-Investment Initiative',
+    author: 'Reuters',
+    summary:
+      'The government announced the design of a citizenship-by-investment programme aimed at diversifying the national economy and attracting capital for sectors such as housing, tourism and renewable energy.',
+    categories: ['Economy', 'Policy'],
+    source: 'https://www.reuters.com/world/africa/botswana-launches-citizenship-program-boost-economy-beyond-diamonds-2025-09-26/'
+  }
+];
+
   
   useEffect(() => {
     const observer = new IntersectionObserver(

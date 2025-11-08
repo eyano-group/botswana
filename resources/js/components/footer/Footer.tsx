@@ -199,7 +199,7 @@ const Footer = () => {
         <div className="footer-bottom relative py-10">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="copyright text-gray-400 leading-6 mb-4 md:mb-0">
-              <p>(&copy;) 2020 <Link href="/index.html" className="text-gray-400 uppercase hover:text-[#0099cc] transition-colors duration-300">VISARZO</Link> Immigration & Visa Firm. All rights reserved.</p>
+              <p>(&copy;) 2025 <Link href="/index.html" className="text-gray-400 uppercase hover:text-[#0099cc] transition-colors duration-300">Botswana</Link> Immigration & Visa Firm. All rights reserved.</p>
             </div>
             <ul className="footer-nav flex flex-wrap">
               <li className="relative inline-block mr-5 last:mr-0">

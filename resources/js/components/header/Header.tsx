@@ -9,17 +9,17 @@ import React, {
 } from "react";
 import { Link } from "@inertiajs/react";
 import { Search } from "lucide-react";
-import { 
-  FileText, 
-  Users, 
-  Droplets, 
-  Heart, 
-  Shield, 
-  BookOpen, 
-  Award, 
-  MapPin, 
-  Phone, 
-  Mail, 
+import {
+  FileText,
+  Users,
+  Droplets,
+  Heart,
+  Shield,
+  BookOpen,
+  Award,
+  MapPin,
+  Phone,
+  Mail,
   Clock,
   Calendar,
   CheckCircle,
@@ -48,8 +48,13 @@ import {
   AlertTriangle,
   Info,
   FileCheck,
-  ClipboardList
-} from 'lucide-react';
+  ClipboardList,
+  Twitter, 
+  Facebook, 
+  Instagram, 
+  Linkedin, 
+  Plus 
+} from "lucide-react";
 import SearchPopup from "./SearchPopup";
 import MobileMenu from "./MobileMenu";
 
@@ -134,57 +139,66 @@ interface StickyHeaderProps {
 }
 
 // Composants optimisés et réutilisables
+
 const SocialLinks: React.FC<SocialLinksProps> = React.memo(() => {
   const socialPlatforms = [
-    "twitter",
-    "facebook-f",
-    "instagram",
-    "linkedin-in",
-    "google-plus-g",
+    { name: "twitter", icon: Twitter },
+    { name: "facebook-f", icon: Facebook },
+    { name: "instagram", icon: Instagram },
+    { name: "linkedin-in", icon: Linkedin },
+    { name: "google-plus-g", icon: Plus },
   ];
 
   return (
-    <ul className="social-links flex gap-3 sm:gap-4">
-      {socialPlatforms.map((social, index) => (
-        <li
-          key={social}
-          className="transform transition-all duration-300 hover:scale-110"
-          style={{ transitionDelay: `${index * 50}ms` }}
-        >
-          <a
-            href="/index.html"
-            className="text-white hover:text-[#66d9ff] transition-all duration-300"
-            aria-label={`Visit our ${social} page`}
+    <ul className="social-links flex gap-2 sm:gap-3 md:gap-4">
+      {socialPlatforms.map((social, index) => {
+        const IconComponent = social.icon;
+        return (
+          <li
+            key={social.name}
+            className="transform transition-all duration-300 hover:scale-110"
+            style={{ transitionDelay: `${index * 50}ms` }}
           >
-            <i className={`fab fa-${social} text-sm sm:text-base`}></i>
-          </a>
-        </li>
-      ))}
+            <a
+              href="/index.html"
+              className="text-white hover:text-[#66d9ff] transition-all duration-300 flex items-center justify-center w-8 h-8 sm:w-auto sm:h-auto"
+              aria-label={`Visit our ${social.name} page`}
+            >
+              <IconComponent className="w-4 h-4 sm:w-5 sm:h-5" />
+            </a>
+          </li>
+        );
+      })}
     </ul>
   );
 });
 
 const ContactInfo: React.FC<ContactInfoProps> = React.memo(() => {
   return (
-    <ul className="flex flex-wrap justify-center sm:justify-start gap-3 sm:gap-6 text-white text-xs sm:text-sm">
+    <ul className="flex flex-wrap justify-center sm:justify-start gap-2 sm:gap-4 md:gap-6 text-white text-xs sm:text-sm">
       <li className="flex items-center group">
-        <i className="flaticon-home mr-2 text-base sm:text-lg group-hover:text-[#66d9ff] transition-all duration-300"></i>
-        <span className="hidden xs:inline">Private Bag 001, Gaborone, Botswana</span>
-        <span className="xs:hidden">Gaborone, Botswana</span>
+        <i className="flaticon-home mr-1 sm:mr-2 text-sm sm:text-base md:text-lg group-hover:text-[#66d9ff] transition-all duration-300"></i>
+        <span className="hidden md:inline">
+          Private Bag 001, Gaborone, Botswana
+        </span>
+        <span className="hidden sm:inline md:hidden">Gaborone, Botswana</span>
+        <span className="inline sm:hidden">Gaborone</span>
       </li>
       <li className="flex items-center group">
-        <i className="flaticon-open-email-message mr-2 text-base sm:text-lg group-hover:text-[#66d9ff] transition-all duration-300"></i>
+        <i className="flaticon-open-email-message mr-1 sm:mr-2 text-sm sm:text-base md:text-lg group-hover:text-[#66d9ff] transition-all duration-300"></i>
         <a
           href="mailto:bgcis@gov.bw"
           className="hover:text-[#66d9ff] transition-all duration-300"
         >
-          bgcis@gov.bw
+          <span className="hidden sm:inline">bgcis@gov.bw</span>
+          <span className="inline sm:hidden">Email</span>
         </a>
       </li>
       <li className="flex items-center group">
-        <i className="flaticon-clock mr-2 text-base sm:text-lg group-hover:text-[#66d9ff] transition-all duration-300"></i>
-        <span className="hidden xs:inline">Mon - Fri : 0900 to 1800</span>
-        <span className="xs:hidden">0900-1800</span>
+        <i className="flaticon-clock mr-1 sm:mr-2 text-sm sm:text-base md:text-lg group-hover:text-[#66d9ff] transition-all duration-300"></i>
+        <span className="hidden md:inline">Mon - Fri : 0900 to 1800</span>
+        <span className="hidden sm:inline md:hidden">Mon-Fri: 0900-1800</span>
+        <span className="inline sm:hidden">0900-1800</span>
       </li>
     </ul>
   );
@@ -197,41 +211,23 @@ const Logo: React.FC<LogoProps> = React.memo(({ isScrolled }) => {
         <img
           src="/assets/logo/logo.png"
           alt="Logo"
-          className={`h-8 lg:h-10 transition-all duration-300 ${isScrolled ? "hover:scale-95" : "hover:scale-105"}`}
+          className={`h-7 sm:h-8 md:h-9 lg:h-10 transition-all duration-300 ${isScrolled ? "hover:scale-95" : "hover:scale-105"}`}
         />
       </Link>
     </figure>
   );
 });
 
-const AppointmentButton: React.FC<AppointmentButtonProps> = React.memo(() => {
-  return (
-    <div className="btn-box lg:ml-6 hidden sm:block">
-      <Link
-        href="/contact"
-        className="theme-btn-one inline-flex items-center px-4 sm:px-6 lg:px-8 py-2 sm:py-2.5 lg:py-3 rounded-md font-semibold transition-all duration-300 transform hover:scale-105 border-2 border-white text-white bg-transparent hover:bg-white hover:text-[#0099cc] shadow-lg relative overflow-hidden group"
-      >
-        <span className="relative z-10 transition-colors duration-300 flex items-center">
-          <span className="hidden sm:inline">Appointment</span>
-          <span className="sm:hidden">Book</span>
-          <i className="flaticon-send ml-2"></i>
-        </span>
-        <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-      </Link>
-    </div>
-  );
-});
-
 const SearchButton: React.FC<SearchButtonProps> = React.memo(({ onOpen }) => {
   return (
     <button
-      className="text-white focus:outline-none p-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all transform hover:scale-105"
+      className="text-white focus:outline-none p-1.5 sm:p-2 lg:p-1.5 xl:p-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all transform hover:scale-105"
       onClick={onOpen}
       aria-label="Search"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-5 w-5"
+        className="h-4 w-4 sm:h-5 sm:w-5 lg:h-4 lg:w-4 xl:h-5 xl:w-5"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -247,59 +243,69 @@ const SearchButton: React.FC<SearchButtonProps> = React.memo(({ onOpen }) => {
   );
 });
 
-const MobileMenuButton: React.FC<MobileMenuButtonProps> = React.memo(({ isOpen, onToggle }) => {
-  return (
-    <button
-      className="relative flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 group"
-      onClick={onToggle}
-      aria-label={isOpen ? "Close menu" : "Open menu"}
-      aria-expanded={isOpen}
-    >
-      {/* Cercle de fond */}
-      <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-      
-      {/* Icône du menu */}
-      <div className="relative w-6 h-6">
-        {/* Lignes du hamburger */}
-        <span
-          className={`absolute top-1 left-0 w-6 h-0.5 bg-white transition-all duration-300 ease-in-out ${
-            isOpen ? "top-3 rotate-45" : ""
+const MobileMenuButton: React.FC<MobileMenuButtonProps> = React.memo(
+  ({ isOpen, onToggle }) => {
+    return (
+      <button
+        className="relative flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full transition-all duration-300 group"
+        onClick={onToggle}
+        aria-label={isOpen ? "Close menu" : "Open menu"}
+        aria-expanded={isOpen}
+      >
+        {/* Cercle de fond */}
+        <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+
+        {/* Icône du menu */}
+        <div className="relative w-5 h-5 sm:w-6 sm:h-6">
+          {/* Lignes du hamburger */}
+          <span
+            className={`absolute top-0.5 sm:top-1 left-0 w-5 h-0.5 sm:w-6 bg-white transition-all duration-300 ease-in-out ${
+              isOpen ? "top-2 sm:top-3 rotate-45" : ""
+            }`}
+          ></span>
+          <span
+            className={`absolute top-2 sm:top-3 left-0 w-5 h-0.5 sm:w-6 bg-white transition-all duration-300 ease-in-out ${
+              isOpen ? "opacity-0" : ""
+            }`}
+          ></span>
+          <span
+            className={`absolute top-3.5 sm:top-5 left-0 w-5 h-0.5 sm:w-6 bg-white transition-all duration-300 ease-in-out ${
+              isOpen ? "top-2 sm:top-3 -rotate-45" : ""
+            }`}
+          ></span>
+        </div>
+
+        {/* Indicateur d'état */}
+        <div
+          className={`absolute -bottom-1 -right-1 w-2 h-2 rounded-full transition-all duration-300 ${
+            isOpen ? "bg-red-400 scale-100" : "bg-transparent scale-0"
           }`}
-        ></span>
-        <span
-          className={`absolute top-3 left-0 w-6 h-0.5 bg-white transition-all duration-300 ease-in-out ${
-            isOpen ? "opacity-0" : ""
-          }`}
-        ></span>
-        <span
-          className={`absolute top-5 left-0 w-6 h-0.5 bg-white transition-all duration-300 ease-in-out ${
-            isOpen ? "top-3 -rotate-45" : ""
-          }`}
-        ></span>
-      </div>
-      
-      {/* Indicateur d'état */}
-      <div className={`absolute -bottom-1 -right-1 w-2 h-2 rounded-full transition-all duration-300 ${
-        isOpen ? "bg-red-400 scale-100" : "bg-transparent scale-0"
-      }`}></div>
-    </button>
-  );
-});
+        ></div>
+      </button>
+    );
+  }
+);
 
 const SupportBox: React.FC<SupportBoxProps> = React.memo(() => {
   return (
-    <div className="support-box px-2 sm:px-3 lg:px-6 py-3 sm:py-4 lg:py-5 relative">
-      <i className="fas fa-phone-volume absolute left-2 sm:left-4 lg:left-8 top-1/2 transform -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center text-white text-sm sm:text-base lg:text-lg"></i>
-      <div className="ml-10 sm:ml-12 lg:ml-16">
-        <p className="text-white text-xs sm:text-sm font-normal mb-1">
-          Any Questions? Call us
+    <div className="support-box px-2 sm:px-3 md:px-3 lg:px-4 xl:px-3 py-2 sm:py-2.5 md:py-3 lg:py-4 xl:py-3 relative">
+      <div className="absolute left-2 sm:left-3 md:left-3 lg:left-4 xl:left-3 top-1/2 transform -translate-y-1/2 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 xl:w-8 xl:h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+        <Phone className="text-white w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 lg:w-5 lg:h-5 xl:w-4 xl:h-4" />
+      </div>
+      <div className="ml-8 sm:ml-9 md:ml-10 lg:ml-12 xl:ml-10">
+        <p className="text-white text-xs sm:text-xs md:text-sm lg:text-sm xl:text-xs font-normal mb-1">
+          <span className="hidden lg:inline xl:inline">
+            Any Questions? Call us
+          </span>
+          <span className="inline lg:hidden xl:hidden">Call Us</span>
         </p>
-        <h3 className="text-white text-sm sm:text-base lg:text-lg xl:text-xl font-bold">
+        <h3 className="text-white text-xs sm:text-xs md:text-sm lg:text-base xl:text-sm font-bold">
           <a
             href="tel:12463330079"
             className="hover:underline transition-all duration-300"
           >
-            +1 (246) 333 0079
+            <span className="hidden sm:inline">+1 (246) 333 0079</span>
+            <span className="inline sm:hidden">+12463330079</span>
           </a>
         </h3>
       </div>
@@ -313,8 +319,8 @@ const ServicesSubmenu: React.FC<ServicesSubmenuProps> = React.memo(() => {
     <ul className="absolute left-[-550px] top-full w-screen max-w-6xl bg-white shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 z-50 rounded-b-lg">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0">
         {/* Services Column */}
-        <div className="bg-gradient-to-b from-blue-50 to-white p-6 border-r border-gray-100">
-          <h3 className="text-lg font-bold text-blue-800 mb-4 flex items-center">
+        <div className="bg-gradient-to-b from-blue-50 to-white p-4 sm:p-6 border-r border-gray-100">
+          <h3 className="text-base sm:text-lg font-bold text-blue-800 mb-3 sm:mb-4 flex items-center">
             <i className="fa fa-bars mr-2"></i>
             Services
           </h3>
@@ -372,8 +378,8 @@ const ServicesSubmenu: React.FC<ServicesSubmenuProps> = React.memo(() => {
         </div>
 
         {/* Second Services Column */}
-        <div className="bg-gradient-to-b from-blue-50 to-white p-6 border-r border-gray-100">
-          <div className="grid grid-cols-1 gap-2 mt-12">
+        <div className="bg-gradient-to-b from-blue-50 to-white p-4 sm:p-6 border-r border-gray-100">
+          <div className="grid grid-cols-1 gap-2 mt-8 sm:mt-12">
             <ServiceLink
               href="/land-construction-housing?txterm=130"
               icon="fa-home"
@@ -434,8 +440,8 @@ const ServicesSubmenu: React.FC<ServicesSubmenuProps> = React.memo(() => {
         </div>
 
         {/* Service Links Column 1 */}
-        <div className="bg-gradient-to-b from-indigo-50 to-white p-6 border-r border-gray-100">
-          <h3 className="text-lg font-bold text-indigo-800 mb-4 flex items-center">
+        <div className="bg-gradient-to-b from-indigo-50 to-white p-4 sm:p-6 border-r border-gray-100">
+          <h3 className="text-base sm:text-lg font-bold text-indigo-800 mb-3 sm:mb-4 flex items-center">
             <i className="fa fa-credit-card mr-2"></i>
             Service Links
           </h3>
@@ -486,8 +492,8 @@ const ServicesSubmenu: React.FC<ServicesSubmenuProps> = React.memo(() => {
         </div>
 
         {/* Service Links Column 2 */}
-        <div className="bg-gradient-to-b from-indigo-50 to-white p-6">
-          <div className="grid grid-cols-1 gap-2 mt-12">
+        <div className="bg-gradient-to-b from-indigo-50 to-white p-4 sm:p-6">
+          <div className="grid grid-cols-1 gap-2 mt-8 sm:mt-12">
             <ExternalServiceLink
               href="http://www.eservices.gov.bw/Tourism/Myhome.aspx"
               icon="fa-plane"
@@ -532,70 +538,78 @@ const ServicesSubmenu: React.FC<ServicesSubmenuProps> = React.memo(() => {
 
 const getLucideIcon = (iconName: string) => {
   const iconMap: Record<string, React.ComponentType<any>> = {
-    'fa-file-text': FileText,
-    'fa-users': Users,
-    'fa-tint': Droplets,
-    'fa-heart': Heart,
-    'fa-shield-alt': Shield,
-    'fa-book-open': BookOpen,
-    'fa-award': Award,
-    'fa-map-marker-alt': MapPin,
-    'fa-phone': Phone,
-    'fa-envelope': Mail,
-    'fa-clock': Clock,
-    'fa-calendar': Calendar,
-    'fa-check-circle': CheckCircle,
-    'fa-user-check': UserCheck,
-    'fa-trending-up': TrendingUp,
-    'fa-chart-bar': BarChart3,
-    'fa-lightbulb': Lightbulb,
-    'fa-home': Home,
-    'fa-building': Building,
-    'fa-graduation-cap': GraduationCap,
-    'fa-briefcase': Briefcase,
-    'fa-stethoscope': Stethoscope,
-    'fa-microscope': Microscope,
-    'fa-flask': TestTube,
-    'fa-activity': Activity,
-    'fa-bullseye': Target,
-    'fa-compass': Compass,
-    'fa-dollar-sign': DollarSign,
-    'fa-box': Package,
-    'fa-truck': Truck,
-    'fa-industry': Factory,
-    'fa-leaf': Leaf,
-    'fa-tree': TreePine,
-    'fa-fish': Fish,
-    'fa-bug': Bug,
-    'fa-exclamation-triangle': AlertTriangle,
-    'fa-info-circle': Info,
-    'fa-file-check': FileCheck,
-    'fa-list-check': ClipboardList
+    "fa-file-text": FileText,
+    "fa-users": Users,
+    "fa-tint": Droplets,
+    "fa-heart": Heart,
+    "fa-shield-alt": Shield,
+    "fa-book-open": BookOpen,
+    "fa-award": Award,
+    "fa-map-marker-alt": MapPin,
+    "fa-phone": Phone,
+    "fa-envelope": Mail,
+    "fa-clock": Clock,
+    "fa-calendar": Calendar,
+    "fa-check-circle": CheckCircle,
+    "fa-user-check": UserCheck,
+    "fa-trending-up": TrendingUp,
+    "fa-chart-bar": BarChart3,
+    "fa-lightbulb": Lightbulb,
+    "fa-home": Home,
+    "fa-building": Building,
+    "fa-graduation-cap": GraduationCap,
+    "fa-briefcase": Briefcase,
+    "fa-stethoscope": Stethoscope,
+    "fa-microscope": Microscope,
+    "fa-flask": TestTube,
+    "fa-activity": Activity,
+    "fa-bullseye": Target,
+    "fa-compass": Compass,
+    "fa-dollar-sign": DollarSign,
+    "fa-box": Package,
+    "fa-truck": Truck,
+    "fa-industry": Factory,
+    "fa-leaf": Leaf,
+    "fa-tree": TreePine,
+    "fa-fish": Fish,
+    "fa-bug": Bug,
+    "fa-exclamation-triangle": AlertTriangle,
+    "fa-info-circle": Info,
+    "fa-file-check": FileCheck,
+    "fa-list-check": ClipboardList,
   };
-  
+
   return iconMap[iconName] || FileText; // Icône par défaut
 };
 
-const ServiceLink: React.FC<ServiceLinkProps> = ({ href, icon, bgColor, title, subtitle }) => {
+const ServiceLink: React.FC<ServiceLinkProps> = ({
+  href,
+  icon,
+  bgColor,
+  title,
+  subtitle,
+}) => {
   const IconComponent = getLucideIcon(icon);
-  
+
   return (
     <Link
       href={href}
-      className="flex items-center p-3 rounded-lg text-gray-700 hover:bg-white hover:text-blue-600 hover:shadow-md transition-all duration-300 group/item"
+      className="flex items-center p-2 sm:p-3 rounded-lg text-gray-700 hover:bg-white hover:text-blue-600 hover:shadow-md transition-all duration-300 group/item"
     >
       <div
-        className={`w-10 h-10 bg-${bgColor}-100 rounded-lg flex items-center justify-center mr-3 group-hover/item:bg-${bgColor}-200 transition-colors`}
+        className={`w-8 h-8 sm:w-10 sm:h-10 bg-${bgColor}-100 rounded-lg flex items-center justify-center mr-2 sm:mr-3 group-hover/item:bg-${bgColor}-200 transition-colors`}
       >
-        <IconComponent className={`text-${bgColor}-600 w-5 h-5`} />
+        <IconComponent
+          className={`text-${bgColor}-600 w-4 h-4 sm:w-5 sm:h-5`}
+        />
       </div>
       <div>
-        <p className="font-semibold">{title}</p>
-        <p className="text-xs text-gray-500">{subtitle}</p>
+        <p className="font-semibold text-sm sm:text-base">{title}</p>
+        <p className="text-xs text-gray-500 hidden sm:block">{subtitle}</p>
       </div>
     </Link>
   );
-};  
+};
 
 // Composant pour les liens de service externes
 const ExternalServiceLink: React.FC<ExternalServiceLinkProps> = React.memo(
@@ -605,16 +619,18 @@ const ExternalServiceLink: React.FC<ExternalServiceLinkProps> = React.memo(
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center p-3 rounded-lg text-gray-700 hover:bg-white hover:text-indigo-600 hover:shadow-md transition-all duration-300 group/item"
+        className="flex items-center p-2 sm:p-3 rounded-lg text-gray-700 hover:bg-white hover:text-indigo-600 hover:shadow-md transition-all duration-300 group/item"
       >
         <div
-          className={`w-10 h-10 bg-${bgColor}-100 rounded-lg flex items-center justify-center mr-3 group-hover/item:bg-${bgColor}-200 transition-colors`}
+          className={`w-8 h-8 sm:w-10 sm:h-10 bg-${bgColor}-100 rounded-lg flex items-center justify-center mr-2 sm:mr-3 group-hover/item:bg-${bgColor}-200 transition-colors`}
         >
-          <i className={`fa ${icon} text-${bgColor}-600`}></i>
+          <i
+            className={`fa ${icon} text-${bgColor}-600 text-sm sm:text-base`}
+          ></i>
         </div>
         <div>
-          <p className="font-semibold">{title}</p>
-          <p className="text-xs text-gray-500">{subtitle}</p>
+          <p className="font-semibold text-sm sm:text-base">{title}</p>
+          <p className="text-xs text-gray-500 hidden sm:block">{subtitle}</p>
         </div>
       </a>
     );
@@ -624,13 +640,13 @@ const ExternalServiceLink: React.FC<ExternalServiceLinkProps> = React.memo(
 // Composant pour les sous-menus About
 const AboutSubmenu: React.FC<AboutSubmenuProps> = React.memo(() => {
   return (
-    <ul className="absolute left-0 top-full w-64 bg-white shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 z-50 rounded-b-lg">
+    <ul className="absolute left-0 top-full w-56 sm:w-64 bg-white shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 z-50 rounded-b-lg">
       {/* About Botswana Submenu with its own sections */}
       <li className="relative group/submenu-botswana">
-        <div className="flex items-center justify-between px-6 py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100 cursor-pointer">
-          <span>About Botswana</span>
+        <div className="flex items-center justify-between px-4 sm:px-6 py-2.5 sm:py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100 cursor-pointer">
+          <span className="text-sm sm:text-base">About Botswana</span>
           <svg
-            className="w-4 h-4"
+            className="w-3 h-3 sm:w-4 sm:h-4"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -644,11 +660,11 @@ const AboutSubmenu: React.FC<AboutSubmenuProps> = React.memo(() => {
             />
           </svg>
         </div>
-        <ul className="absolute left-full top-0 w-56 bg-white shadow-xl opacity-0 invisible group-hover/submenu-botswana:opacity-100 group-hover/submenu-botswana:visible transition-all duration-300 transform translate-x-4 group-hover/submenu-botswana:translate-x-0 z-50 rounded-lg">
+        <ul className="absolute left-full top-0 w-48 sm:w-56 bg-white shadow-xl opacity-0 invisible group-hover/submenu-botswana:opacity-100 group-hover/submenu-botswana:visible transition-all duration-300 transform translate-x-4 group-hover/submenu-botswana:translate-x-0 z-50 rounded-lg">
           <li>
             <Link
               href="/about/about-botswana#our-country"
-              className="block px-6 py-3 text-gray-700 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100"
+              className="block px-4 sm:px-6 py-2 sm:py-3 text-gray-700 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100 text-sm sm:text-base"
             >
               Our Country
             </Link>
@@ -656,7 +672,7 @@ const AboutSubmenu: React.FC<AboutSubmenuProps> = React.memo(() => {
           <li>
             <Link
               href="/about/about-botswana#public-holidays"
-              className="block px-6 py-3 text-gray-700 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100"
+              className="block px-4 sm:px-6 py-2 sm:py-3 text-gray-700 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100 text-sm sm:text-base"
             >
               Public Holidays
             </Link>
@@ -664,7 +680,7 @@ const AboutSubmenu: React.FC<AboutSubmenuProps> = React.memo(() => {
           <li>
             <Link
               href="/about/about-botswana#school-terms"
-              className="block px-6 py-3 text-gray-700 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300"
+              className="block px-4 sm:px-6 py-2 sm:py-3 text-gray-700 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 text-sm sm:text-base"
             >
               School Terms
             </Link>
@@ -674,10 +690,10 @@ const AboutSubmenu: React.FC<AboutSubmenuProps> = React.memo(() => {
 
       {/* About Government Submenu with its own sections */}
       <li className="relative group/submenu-government">
-        <div className="flex items-center justify-between px-6 py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100 cursor-pointer">
-          <span>About Government</span>
+        <div className="flex items-center justify-between px-4 sm:px-6 py-2.5 sm:py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100 cursor-pointer">
+          <span className="text-sm sm:text-base">About Government</span>
           <svg
-            className="w-4 h-4"
+            className="w-3 h-3 sm:w-4 sm:h-4"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -691,11 +707,11 @@ const AboutSubmenu: React.FC<AboutSubmenuProps> = React.memo(() => {
             />
           </svg>
         </div>
-        <ul className="absolute left-full top-0 w-56 bg-white shadow-xl opacity-0 invisible group-hover/submenu-government:opacity-100 group-hover/submenu-government:visible transition-all duration-300 transform translate-x-4 group-hover/submenu-government:translate-x-0 z-50 rounded-lg">
+        <ul className="absolute left-full top-0 w-48 sm:w-56 bg-white shadow-xl opacity-0 invisible group-hover/submenu-government:opacity-100 group-hover/submenu-government:visible transition-all duration-300 transform translate-x-4 group-hover/submenu-government:translate-x-0 z-50 rounded-lg">
           <li>
             <Link
               href="/about/about-government#ministries-and-agencies"
-              className="block px-6 py-3 text-gray-700 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100"
+              className="block px-4 sm:px-6 py-2 sm:py-3 text-gray-700 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100 text-sm sm:text-base"
             >
               Ministries and Agencies
             </Link>
@@ -703,7 +719,7 @@ const AboutSubmenu: React.FC<AboutSubmenuProps> = React.memo(() => {
           <li>
             <Link
               href="/about/about-government#parastatals"
-              className="block px-6 py-3 text-gray-700 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100"
+              className="block px-4 sm:px-6 py-2 sm:py-3 text-gray-700 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100 text-sm sm:text-base"
             >
               Parastatals
             </Link>
@@ -711,7 +727,7 @@ const AboutSubmenu: React.FC<AboutSubmenuProps> = React.memo(() => {
           <li>
             <Link
               href="/about/about-government#publications"
-              className="block px-6 py-3 text-gray-700 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100"
+              className="block px-4 sm:px-6 py-2 sm:py-3 text-gray-700 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100 text-sm sm:text-base"
             >
               Publications
             </Link>
@@ -719,7 +735,7 @@ const AboutSubmenu: React.FC<AboutSubmenuProps> = React.memo(() => {
           <li>
             <Link
               href="/about/about-government#local-authorities"
-              className="block px-6 py-3 text-gray-700 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100"
+              className="block px-4 sm:px-6 py-2 sm:py-3 text-gray-700 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100 text-sm sm:text-base"
             >
               Local Authorities
             </Link>
@@ -727,7 +743,7 @@ const AboutSubmenu: React.FC<AboutSubmenuProps> = React.memo(() => {
           <li>
             <Link
               href="/about/about-government#land-board"
-              className="block px-6 py-3 text-gray-700 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300"
+              className="block px-4 sm:px-6 py-2 sm:py-3 text-gray-700 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 text-sm sm:text-base"
             >
               Land Board
             </Link>
@@ -741,11 +757,11 @@ const AboutSubmenu: React.FC<AboutSubmenuProps> = React.memo(() => {
 // Composant pour les sous-menus News & Events
 const NewsEventsSubmenu: React.FC<NewsEventsSubmenuProps> = React.memo(() => {
   return (
-    <ul className="absolute left-0 top-full w-64 bg-white shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 z-50 rounded-b-lg">
+    <ul className="absolute left-0 top-full w-56 sm:w-64 bg-white shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 z-50 rounded-b-lg">
       <li>
         <Link
           href="/news#latest-news"
-          className="block px-6 py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100"
+          className="block px-4 sm:px-6 py-2.5 sm:py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100 text-sm sm:text-base"
         >
           Latest News
         </Link>
@@ -753,7 +769,7 @@ const NewsEventsSubmenu: React.FC<NewsEventsSubmenuProps> = React.memo(() => {
       <li>
         <Link
           href="/news#upcoming-events"
-          className="block px-6 py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100"
+          className="block px-4 sm:px-6 py-2.5 sm:py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100 text-sm sm:text-base"
         >
           Upcoming Events
         </Link>
@@ -761,7 +777,7 @@ const NewsEventsSubmenu: React.FC<NewsEventsSubmenuProps> = React.memo(() => {
       <li>
         <Link
           href="/news#press-releases"
-          className="block px-6 py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100"
+          className="block px-4 sm:px-6 py-2.5 sm:py-3.5 text-gray-800 hover:bg-[#f0f9ff] hover:text-[#0099cc] transition-all duration-300 border-b border-gray-100 text-sm sm:text-base"
         >
           Press Releases
         </Link>
@@ -771,55 +787,59 @@ const NewsEventsSubmenu: React.FC<NewsEventsSubmenuProps> = React.memo(() => {
 });
 
 // Composant pour les éléments de navigation
-const NavigationItem: React.FC<NavigationItemProps> = React.memo(({ item, index }) => {
-  const renderSubmenu = () => {
-    if (item.name === "services") {
-      return <ServicesSubmenu />;
-    } else if (item.name === "about") {
-      return <AboutSubmenu />;
-    } else if (item.name === "news & events") {
-      return <NewsEventsSubmenu />;
-    }
-    return null;
-  };
+const NavigationItem: React.FC<NavigationItemProps> = React.memo(
+  ({ item, index }) => {
+    const renderSubmenu = () => {
+      if (item.name === "services") {
+        return <ServicesSubmenu />;
+      } else if (item.name === "about") {
+        return <AboutSubmenu />;
+      } else if (item.name === "news & events") {
+        return <NewsEventsSubmenu />;
+      }
+      return null;
+    };
 
-  const hasSubmenu =
-    item.name !== "contact" &&
-    item.name !== "e-services" &&
-    item.name !== "home";
+    const hasSubmenu =
+      item.name !== "contact" &&
+      item.name !== "e-services" &&
+      item.name !== "home";
 
-  return (
-    <li key={item.name} className="relative group">
-      <Link
-        href={item.href}
-        className="text-white text-sm lg:text-base font-normal uppercase py-4 lg:py-6 px-2 lg:px-3 block hover:text-[#66d9ff] transition-all duration-300 relative"
-        onClick={(e) => {
-          if (item.href == "#") {
-            e.preventDefault();
-          }
-        }}
-      >
-        {item.name.charAt(0).toUpperCase() + item.name.slice(1)}
-        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#66d9ff] transition-all duration-300 group-hover:w-full"></span>
-      </Link>
+    return (
+      <li key={item.name} className="relative group">
+        <Link
+          href={item.href}
+          className="text-white text-xs sm:text-sm md:text-base lg:text-base font-normal uppercase py-3 sm:py-4 lg:py-6 px-1 sm:px-2 lg:px-3 block hover:text-[#66d9ff] transition-all duration-300 relative"
+          onClick={(e) => {
+            if (item.href == "#") {
+              e.preventDefault();
+            }
+          }}
+        >
+          {item.name.charAt(0).toUpperCase() + item.name.slice(1)}
+          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#66d9ff] transition-all duration-300 group-hover:w-full"></span>
+        </Link>
 
-      {hasSubmenu && renderSubmenu()}
-    </li>
-  );
-});
+        {hasSubmenu && renderSubmenu()}
+      </li>
+    );
+  }
+);
 
 // Composant pour la navigation principale
-const MainNavigation: React.FC<MainNavigationProps> = React.memo(({ navItems }) => {
-  return (
-    <nav className="main-menu hidden lg:block">
-      <ul className="navigation flex">
-        {navItems.map((item, index) => (
-          <NavigationItem key={item.name} item={item} index={index} />
-        ))}
-      </ul>
-    </nav>
-  );
-});
+const MainNavigation: React.FC<MainNavigationProps> = React.memo(
+  ({ navItems }) => {
+    return (
+      <nav className="main-menu hidden xl:block">
+        <ul className="navigation flex">
+          {navItems.map((item, index) => (
+            <NavigationItem key={item.name} item={item} index={index} />
+          ))}
+        </ul>
+      </nav>
+    );
+  }
+);
 
 // Composant pour le header principal
 const MainHeader: React.FC<MainHeaderProps> = React.memo(
@@ -834,11 +854,10 @@ const MainHeader: React.FC<MainHeaderProps> = React.memo(
       <div
         className={`header-upper relative w-full transition-all duration-500 ${isScrolled ? "bg-[#0099cc] bg-opacity-95 shadow-lg" : "bg-[#0099cc]"}`}
       >
-        <div className="outer-container absolute left-0 top-0 right-0 w-full px-4 lg:px-24 border-b border-white border-opacity-20">
-          <div className="flex flex-col lg:flex-row justify-between items-center py-2 lg:py-3">
-            <div className="upper-left flex items-center mb-2 lg:mb-0 w-full lg:w-auto justify-between lg:justify-start">
+        <div className="outer-container absolute left-0 top-0 right-0 w-full px-3 sm:px-4 md:px-6 lg:px-24 border-b border-white border-opacity-20">
+          <div className="flex flex-col lg:flex-row justify-between items-center py-1.5 sm:py-2 lg:py-3">
+            <div className="upper-left flex items-center mb-1 lg:mb-0 w-full lg:w-auto justify-between lg:justify-start">
               <Logo isScrolled={isScrolled} />
-              <AppointmentButton />
             </div>
 
             <div className="menu-area flex items-center w-full lg:w-auto justify-between lg:justify-end">
@@ -849,23 +868,25 @@ const MainHeader: React.FC<MainHeaderProps> = React.memo(
 
               <div className="menu-right-content flex items-center">
                 {/* Icône de recherche - cachée en mobile, visible à partir de sm */}
-                <div className="search-box-outer hidden sm:block px-2 sm:px-4 lg:px-6 py-3 sm:py-4 lg:py-5 border-l border-white border-opacity-20">
+                <div className="search-box-outer hidden sm:block px-1 sm:px-2 md:px-3 lg:px-4 xl:px-3 py-2 sm:py-2.5 md:py-3 lg:py-4 xl:py-3 border-l border-white border-opacity-20">
                   <button
-                    className="search-toggler text-white text-lg sm:text-xl lg:text-2xl hover:text-[#66d9ff] transition-all duration-300 transform hover:scale-110"
+                    className="search-toggler text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-lg hover:text-[#66d9ff] transition-all duration-300 transform hover:scale-110 flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-11 lg:h-11 xl:w-10 xl:h-10"
                     onClick={onSearchOpen}
                     aria-label="Search"
                   >
-                    <Search />
+                    <Search className="w-4 h-4 sm:w-5 sm:h-5 md:w-5 md:h-5 lg:w-6 lg:h-6 xl:w-5 xl:h-5" />
                   </button>
                 </div>
 
-                {/* SupportBox - caché en mobile, visible à partir de sm */}
-                <div className="hidden sm:block">
+                {/* SupportBox - caché en mobile, visible à partir de md */}
+                <div className="hidden md:block">
                   <SupportBox />
                 </div>
               </div>
-              <div className="flex items-center gap-3 lg:hidden">
-                <SearchButton onOpen={onSearchOpen} />
+              <div className="flex items-center gap-2 sm:gap-3 xl:hidden">
+                <div className="block sm:hidden">
+                  <SearchButton onOpen={onSearchOpen} />
+                </div>
                 <MobileMenuButton
                   isOpen={isMobileMenuOpen}
                   onToggle={onMobileMenuToggle}
@@ -884,14 +905,14 @@ const StickyHeader: React.FC<StickyHeaderProps> = React.memo(
   ({ navItems, onSearchOpen, isMobileMenuOpen, onMobileMenuToggle }) => {
     return (
       <div className="sticky-header fixed left-0 top-0 w-full bg-[#0099cc] shadow-2xl transition-all duration-500 z-[999] opacity-100 visible translate-y-0">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center py-2">
+        <div className="container mx-auto px-3 sm:px-4">
+          <div className="flex justify-between items-center py-1.5 sm:py-2">
             <div className="logo-box">
               <Link href="/index.html">
                 <img
                   src="/assets/logo/logo.png"
                   alt="Logo"
-                  className="h-7 sm:h-8 lg:h-10 transition-all duration-300 hover:scale-105"
+                  className="h-6 sm:h-7 md:h-8 lg:h-10 transition-all duration-300 hover:scale-105"
                 />
               </Link>
             </div>
@@ -899,7 +920,7 @@ const StickyHeader: React.FC<StickyHeaderProps> = React.memo(
               <MainNavigation navItems={navItems} />
 
               {/* Mobile menu button in sticky header */}
-              <div className="lg:hidden flex items-center gap-3">
+              <div className="xl:hidden flex items-center gap-2 sm:gap-3">
                 <SearchButton onOpen={onSearchOpen} />
                 <MobileMenuButton
                   isOpen={isMobileMenuOpen}
@@ -921,7 +942,9 @@ const Header: React.FC = () => {
   const [isSticky, setIsSticky] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [lastScrollY, setLastScrollY] = useState<number>(0);
-  const [expandedItems, setExpandedItems] = useState<Record<string, boolean>>({});
+  const [expandedItems, setExpandedItems] = useState<Record<string, boolean>>(
+    {}
+  );
 
   // Utilisation de useCallback pour optimiser les fonctions de rappel
   const handleScroll = useCallback(() => {
@@ -1014,10 +1037,10 @@ const Header: React.FC = () => {
       >
         {/* Barre supérieure avec animation de réduction douce */}
         <div
-          className={`header-top bg-[#0099cc] transition-all duration-500 ${isScrolled ? "py-1 opacity-90" : "py-2 opacity-100"} px-4 lg:px-24 hidden md:block`}
+          className={`header-top bg-[#0099cc] transition-all duration-500 ${isScrolled ? "py-0.5 opacity-90" : "py-1 sm:py-2 opacity-100"} px-3 sm:px-4 md:px-6 lg:px-24 hidden md:block`}
         >
-          <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col sm:flex-row justify-between items-center gap-3">
+          <div className="max-w-9xl mx-auto">
+            <div className="flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-3">
               <div className="top-left">
                 <ContactInfo />
               </div>

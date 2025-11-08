@@ -36,7 +36,7 @@ const ApplySection = () => {
           }`}>
             <div className="shine-effect absolute inset-0 z-10"></div>
             <img 
-              src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+              src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Okavango_Delta%2C_Botswana_%282674373339%29.jpg" 
               alt="Apply for visa" 
               className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
             />
