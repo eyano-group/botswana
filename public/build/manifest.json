@@ -1,0 +1,307 @@
+{
+  "_AppShell-BiEUygvy.js": {
+    "file": "assets/AppShell-BiEUygvy.js",
+    "name": "AppShell",
+    "imports": [
+      "resources/js/app.tsx"
+    ]
+  },
+  "_PageTitle-Cj8B5Vj7.js": {
+    "file": "assets/PageTitle-Cj8B5Vj7.js",
+    "name": "PageTitle",
+    "imports": [
+      "resources/js/app.tsx",
+      "_AppShell-BiEUygvy.js"
+    ]
+  },
+  "_SectionHeader-y7q2e2O5.js": {
+    "file": "assets/SectionHeader-y7q2e2O5.js",
+    "name": "SectionHeader",
+    "imports": [
+      "_AppShell-BiEUygvy.js",
+      "resources/js/app.tsx"
+    ]
+  },
+  "_SectionNavigationLayout-CWmzp-_V.js": {
+    "file": "assets/SectionNavigationLayout-CWmzp-_V.js",
+    "name": "SectionNavigationLayout",
+    "imports": [
+      "resources/js/app.tsx",
+      "_AppShell-BiEUygvy.js",
+      "_tag-XTP-cKTR.js",
+      "_send-CExGZRLm.js"
+    ]
+  },
+  "_send-CExGZRLm.js": {
+    "file": "assets/send-CExGZRLm.js",
+    "name": "send",
+    "imports": [
+      "_AppShell-BiEUygvy.js"
+    ]
+  },
+  "_tag-XTP-cKTR.js": {
+    "file": "assets/tag-XTP-cKTR.js",
+    "name": "tag",
+    "imports": [
+      "_AppShell-BiEUygvy.js"
+    ]
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-CyTguJxf.css",
+    "src": "resources/css/app.css",
+    "isEntry": true,
+    "names": [
+      "app.css"
+    ]
+  },
+  "resources/js/app.tsx": {
+    "file": "assets/app-ptQlQEfw.js",
+    "name": "app",
+    "src": "resources/js/app.tsx",
+    "isEntry": true,
+    "dynamicImports": [
+      "resources/js/pages/about.tsx",
+      "resources/js/pages/agriculture.tsx",
+      "resources/js/pages/benefits.tsx",
+      "resources/js/pages/contact.tsx",
+      "resources/js/pages/education.tsx",
+      "resources/js/pages/health.tsx",
+      "resources/js/pages/immigration.tsx",
+      "resources/js/pages/labour.tsx",
+      "resources/js/pages/land.tsx",
+      "resources/js/pages/law.tsx",
+      "resources/js/pages/news.tsx",
+      "resources/js/pages/recreation.tsx",
+      "resources/js/pages/service-details.tsx",
+      "resources/js/pages/welcome.tsx"
+    ],
+    "css": [
+      "assets/app-CyTguJxf.css"
+    ]
+  },
+  "resources/js/pages/about.tsx": {
+    "file": "assets/about-CbdfPpUD.js",
+    "name": "about",
+    "src": "resources/js/pages/about.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.tsx",
+      "_AppShell-BiEUygvy.js",
+      "_SectionHeader-y7q2e2O5.js",
+      "_PageTitle-Cj8B5Vj7.js"
+    ],
+    "css": [
+      "assets/app-CyTguJxf.css"
+    ]
+  },
+  "resources/js/pages/agriculture.tsx": {
+    "file": "assets/agriculture-DOCoW1mg.js",
+    "name": "agriculture",
+    "src": "resources/js/pages/agriculture.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.tsx",
+      "_AppShell-BiEUygvy.js",
+      "_PageTitle-Cj8B5Vj7.js",
+      "_SectionNavigationLayout-CWmzp-_V.js",
+      "_tag-XTP-cKTR.js",
+      "_send-CExGZRLm.js"
+    ],
+    "css": [
+      "assets/app-CyTguJxf.css"
+    ]
+  },
+  "resources/js/pages/benefits.tsx": {
+    "file": "assets/benefits-CMQBNH4A.js",
+    "name": "benefits",
+    "src": "resources/js/pages/benefits.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.tsx",
+      "_AppShell-BiEUygvy.js",
+      "_PageTitle-Cj8B5Vj7.js",
+      "_SectionNavigationLayout-CWmzp-_V.js",
+      "_tag-XTP-cKTR.js",
+      "_send-CExGZRLm.js"
+    ],
+    "css": [
+      "assets/app-CyTguJxf.css"
+    ]
+  },
+  "resources/js/pages/contact.tsx": {
+    "file": "assets/contact-nSt4doxf.js",
+    "name": "contact",
+    "src": "resources/js/pages/contact.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.tsx",
+      "_AppShell-BiEUygvy.js",
+      "_send-CExGZRLm.js",
+      "_PageTitle-Cj8B5Vj7.js"
+    ],
+    "css": [
+      "assets/app-CyTguJxf.css"
+    ]
+  },
+  "resources/js/pages/education.tsx": {
+    "file": "assets/education-vRIfK1ij.js",
+    "name": "education",
+    "src": "resources/js/pages/education.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.tsx",
+      "_AppShell-BiEUygvy.js",
+      "_PageTitle-Cj8B5Vj7.js",
+      "_SectionNavigationLayout-CWmzp-_V.js",
+      "_tag-XTP-cKTR.js",
+      "_send-CExGZRLm.js"
+    ],
+    "css": [
+      "assets/app-CyTguJxf.css"
+    ]
+  },
+  "resources/js/pages/health.tsx": {
+    "file": "assets/health-DVd62kKq.js",
+    "name": "health",
+    "src": "resources/js/pages/health.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.tsx",
+      "_AppShell-BiEUygvy.js",
+      "_PageTitle-Cj8B5Vj7.js",
+      "_SectionNavigationLayout-CWmzp-_V.js",
+      "_tag-XTP-cKTR.js",
+      "_send-CExGZRLm.js"
+    ],
+    "css": [
+      "assets/app-CyTguJxf.css"
+    ]
+  },
+  "resources/js/pages/immigration.tsx": {
+    "file": "assets/immigration-CFjqh03z.js",
+    "name": "immigration",
+    "src": "resources/js/pages/immigration.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.tsx",
+      "_AppShell-BiEUygvy.js",
+      "_PageTitle-Cj8B5Vj7.js",
+      "_SectionNavigationLayout-CWmzp-_V.js",
+      "_tag-XTP-cKTR.js",
+      "_send-CExGZRLm.js"
+    ],
+    "css": [
+      "assets/app-CyTguJxf.css"
+    ]
+  },
+  "resources/js/pages/labour.tsx": {
+    "file": "assets/labour-CPmLqo_4.js",
+    "name": "labour",
+    "src": "resources/js/pages/labour.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.tsx",
+      "_AppShell-BiEUygvy.js",
+      "_PageTitle-Cj8B5Vj7.js",
+      "_SectionNavigationLayout-CWmzp-_V.js",
+      "_tag-XTP-cKTR.js",
+      "_send-CExGZRLm.js"
+    ],
+    "css": [
+      "assets/app-CyTguJxf.css"
+    ]
+  },
+  "resources/js/pages/land.tsx": {
+    "file": "assets/land-D-jWuPpI.js",
+    "name": "land",
+    "src": "resources/js/pages/land.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.tsx",
+      "_AppShell-BiEUygvy.js",
+      "_PageTitle-Cj8B5Vj7.js",
+      "_SectionNavigationLayout-CWmzp-_V.js",
+      "_tag-XTP-cKTR.js",
+      "_send-CExGZRLm.js"
+    ],
+    "css": [
+      "assets/app-CyTguJxf.css"
+    ]
+  },
+  "resources/js/pages/law.tsx": {
+    "file": "assets/law-CBhGmssd.js",
+    "name": "law",
+    "src": "resources/js/pages/law.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.tsx",
+      "_AppShell-BiEUygvy.js",
+      "_PageTitle-Cj8B5Vj7.js",
+      "_SectionNavigationLayout-CWmzp-_V.js",
+      "_tag-XTP-cKTR.js",
+      "_send-CExGZRLm.js"
+    ],
+    "css": [
+      "assets/app-CyTguJxf.css"
+    ]
+  },
+  "resources/js/pages/news.tsx": {
+    "file": "assets/news-BJjT8B0O.js",
+    "name": "news",
+    "src": "resources/js/pages/news.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.tsx",
+      "_AppShell-BiEUygvy.js",
+      "_PageTitle-Cj8B5Vj7.js",
+      "_SectionHeader-y7q2e2O5.js",
+      "_tag-XTP-cKTR.js"
+    ],
+    "css": [
+      "assets/app-CyTguJxf.css"
+    ]
+  },
+  "resources/js/pages/recreation.tsx": {
+    "file": "assets/recreation-DeDdlCUR.js",
+    "name": "recreation",
+    "src": "resources/js/pages/recreation.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.tsx",
+      "_AppShell-BiEUygvy.js",
+      "_PageTitle-Cj8B5Vj7.js",
+      "_SectionNavigationLayout-CWmzp-_V.js",
+      "_tag-XTP-cKTR.js",
+      "_send-CExGZRLm.js"
+    ],
+    "css": [
+      "assets/app-CyTguJxf.css"
+    ]
+  },
+  "resources/js/pages/service-details.tsx": {
+    "file": "assets/service-details-1q9-87EL.js",
+    "name": "service-details",
+    "src": "resources/js/pages/service-details.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.tsx",
+      "_AppShell-BiEUygvy.js"
+    ],
+    "css": [
+      "assets/app-CyTguJxf.css"
+    ]
+  },
+  "resources/js/pages/welcome.tsx": {
+    "file": "assets/welcome-9-yduD4o.js",
+    "name": "welcome",
+    "src": "resources/js/pages/welcome.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.tsx",
+      "_AppShell-BiEUygvy.js"
+    ],
+    "css": [
+      "assets/app-CyTguJxf.css"
+    ]
+  }
+}

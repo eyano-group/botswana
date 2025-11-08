@@ -1,0 +1,6 @@
+import{c as m,a as i}from"./AppShell-BiEUygvy.js";import{j as s}from"./app-ptQlQEfw.js";/**
+ * @license lucide-react v0.475.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const d=[["path",{d:"m6 9 6 6 6-6",key:"qrunsl"}]],f=m("ChevronDown",d),p=r=>{const e=i.c(8),{subtitle:a,title:o}=r;let t;e[0]!==a?(t=s.jsx("p",{className:"text-sm font-bold text-[#0099cc] uppercase tracking-wider mb-3",children:a}),e[0]=a,e[1]=t):t=e[1];let c;e[2]!==o?(c=s.jsx("h2",{className:"text-3xl md:text-4xl font-bold text-slate-900",children:o}),e[2]=o,e[3]=c):c=e[3];let l;e[4]===Symbol.for("react.memo_cache_sentinel")?(l=s.jsxs("div",{className:"flex items-center justify-center mt-6",children:[s.jsx("span",{className:"h-0.5 w-16 bg-[#0099cc] rounded-full"}),s.jsx("span",{className:"w-2 h-2 bg-[#0099cc] rounded-full mx-2"}),s.jsx("span",{className:"w-2 h-2 bg-[#0099cc] rounded-full"}),s.jsx("span",{className:"w-2 h-2 bg-[#0099cc] rounded-full mr-2"}),s.jsx("span",{className:"h-0.5 w-16 bg-[#0099cc] rounded-full"})]}),e[4]=l):l=e[4];let n;return e[5]!==t||e[6]!==c?(n=s.jsxs("div",{className:"text-center mb-16",children:[t,c,l]}),e[5]=t,e[6]=c,e[7]=n):n=e[7],n};export{f as C,p as S};
