@@ -169,16 +169,16 @@ const ContactInfo: React.FC<ContactInfoProps> = React.memo(() => {
     <ul className="flex flex-wrap justify-center sm:justify-start gap-3 sm:gap-6 text-white text-xs sm:text-sm">
       <li className="flex items-center group">
         <i className="flaticon-home mr-2 text-base sm:text-lg group-hover:text-[#66d9ff] transition-all duration-300"></i>
-        <span className="hidden xs:inline">72 Main Drive, Calibry, FL</span>
-        <span className="xs:hidden">Calibry, FL</span>
+        <span className="hidden xs:inline">Private Bag 001, Gaborone, Botswana</span>
+        <span className="xs:hidden">Gaborone, Botswana</span>
       </li>
       <li className="flex items-center group">
         <i className="flaticon-open-email-message mr-2 text-base sm:text-lg group-hover:text-[#66d9ff] transition-all duration-300"></i>
         <a
-          href="mailto:inquiry@example.com"
+          href="mailto:bgcis@gov.bw"
           className="hover:text-[#66d9ff] transition-all duration-300"
         >
-          inquiry@example.com
+          bgcis@gov.bw
         </a>
       </li>
       <li className="flex items-center group">
@@ -193,7 +193,7 @@ const ContactInfo: React.FC<ContactInfoProps> = React.memo(() => {
 const Logo: React.FC<LogoProps> = React.memo(({ isScrolled }) => {
   return (
     <figure className="logo-box">
-      <Link href="/index.html">
+      <Link href="/">
         <img
           src="/assets/logo/logo.png"
           alt="Logo"
@@ -208,7 +208,7 @@ const AppointmentButton: React.FC<AppointmentButtonProps> = React.memo(() => {
   return (
     <div className="btn-box lg:ml-6 hidden sm:block">
       <Link
-        href="/index.html"
+        href="/contact"
         className="theme-btn-one inline-flex items-center px-4 sm:px-6 lg:px-8 py-2 sm:py-2.5 lg:py-3 rounded-md font-semibold transition-all duration-300 transform hover:scale-105 border-2 border-white text-white bg-transparent hover:bg-white hover:text-[#0099cc] shadow-lg relative overflow-hidden group"
       >
         <span className="relative z-10 transition-colors duration-300 flex items-center">

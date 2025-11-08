@@ -1048,3 +1048,151 @@ labourEmploymentForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'
 })
 
 labourEmployment.form = labourEmploymentForm
+
+/**
+* @see routes/web.php:53
+* @route '/land-construction-housing'
+*/
+export const landConstructionHousing = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: landConstructionHousing.url(options),
+    method: 'get',
+})
+
+landConstructionHousing.definition = {
+    methods: ["get","head"],
+    url: '/land-construction-housing',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see routes/web.php:53
+* @route '/land-construction-housing'
+*/
+landConstructionHousing.url = (options?: RouteQueryOptions) => {
+    return landConstructionHousing.definition.url + queryParams(options)
+}
+
+/**
+* @see routes/web.php:53
+* @route '/land-construction-housing'
+*/
+landConstructionHousing.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: landConstructionHousing.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:53
+* @route '/land-construction-housing'
+*/
+landConstructionHousing.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: landConstructionHousing.url(options),
+    method: 'head',
+})
+
+/**
+* @see routes/web.php:53
+* @route '/land-construction-housing'
+*/
+const landConstructionHousingForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: landConstructionHousing.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:53
+* @route '/land-construction-housing'
+*/
+landConstructionHousingForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: landConstructionHousing.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:53
+* @route '/land-construction-housing'
+*/
+landConstructionHousingForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: landConstructionHousing.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+landConstructionHousing.form = landConstructionHousingForm
+
+/**
+* @see routes/web.php:57
+* @route '/law-crime-Justice'
+*/
+export const lawCrimeJustice = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: lawCrimeJustice.url(options),
+    method: 'get',
+})
+
+lawCrimeJustice.definition = {
+    methods: ["get","head"],
+    url: '/law-crime-Justice',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see routes/web.php:57
+* @route '/law-crime-Justice'
+*/
+lawCrimeJustice.url = (options?: RouteQueryOptions) => {
+    return lawCrimeJustice.definition.url + queryParams(options)
+}
+
+/**
+* @see routes/web.php:57
+* @route '/law-crime-Justice'
+*/
+lawCrimeJustice.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: lawCrimeJustice.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:57
+* @route '/law-crime-Justice'
+*/
+lawCrimeJustice.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: lawCrimeJustice.url(options),
+    method: 'head',
+})
+
+/**
+* @see routes/web.php:57
+* @route '/law-crime-Justice'
+*/
+const lawCrimeJusticeForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: lawCrimeJustice.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:57
+* @route '/law-crime-Justice'
+*/
+lawCrimeJusticeForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: lawCrimeJustice.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:57
+* @route '/law-crime-Justice'
+*/
+lawCrimeJusticeForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: lawCrimeJustice.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+lawCrimeJustice.form = lawCrimeJusticeForm

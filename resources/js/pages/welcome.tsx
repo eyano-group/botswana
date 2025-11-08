@@ -18,19 +18,19 @@ export default function Welcome() {
     return (
         <AppShell>
             <HeroSection />
-            <AboutSection />
+            {/* <AboutSection /> */}
             <FeatureSection />
             <CtaSection />
             <ServiceSection />
             <ApplySection />
-            <FunFactSection />
-            <TrainingSection />
-            <ImmigrationSection />
-            <ChooseSection />
-            <TestimonialSection />
-            <InquirySection />
+            {/* <FunFactSection /> */}
+            {/* <TrainingSection /> */}
+            {/* <ImmigrationSection /> */}
+            {/* <ChooseSection /> */}
+            {/* <TestimonialSection /> */}
+            {/* <InquirySection /> */}
             <NewsSection />
-            <ClientsSection />
+            {/* <ClientsSection /> */}
         </AppShell>
     );
 }

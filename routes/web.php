@@ -50,3 +50,12 @@ Route::get('/labor-employment', function () {
     return Inertia::render('labour');
 })->name('labour-employment');
 
+Route::get('/land-construction-housing', function () {
+    return Inertia::render('land');
+})->name('land-construction-housing');
+
+Route::get('/law-crime-Justice', function () {
+    return Inertia::render('law');
+})->name('law-crime-justice');
+
+

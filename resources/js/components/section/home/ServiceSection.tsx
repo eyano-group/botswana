@@ -8,56 +8,88 @@ const ServiceSection = () => {
   const services = [
     {
       id: 1,
-      icon: 'flaticon-manager',
+      icon: (
+        <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      ),
       category: 'visa types',
       title: 'Working Visas',
       description: 'Nunc quam arc pretium quis lobortis sem consequat conse tetur diam nunc bibend.'
     },
     {
       id: 2,
-      icon: 'flaticon-flight',
+      icon: (
+        <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+        </svg>
+      ),
       category: 'visa types',
       title: 'Study Visas',
       description: 'Nunc quam arc pretium quis lobortis sem consequat conse tetur diam nunc bibend.'
     },
     {
       id: 3,
-      icon: 'flaticon-airport',
+      icon: (
+        <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      ),
       category: 'visa types',
       title: 'Business Visas',
       description: 'Nunc quam arc pretium quis lobortis sem consequat conse tetur diam nunc bibend.'
     },
     {
       id: 4,
-      icon: 'flaticon-bus-stop',
+      icon: (
+        <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      ),
       category: 'visa types',
       title: 'Tourist Visas',
       description: 'Nunc quam arc pretium quis lobortis sem consequat conse tetur diam nunc bibend.'
     },
     {
       id: 5,
-      icon: 'flaticon-manager',
+      icon: (
+        <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      ),
       category: 'visa types',
       title: 'Working Visas',
       description: 'Nunc quam arc pretium quis lobortis sem consequat conse tetur diam nunc bibend.'
     },
     {
       id: 6,
-      icon: 'flaticon-flight',
+      icon: (
+        <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+        </svg>
+      ),
       category: 'visa types',
       title: 'Study Visas',
       description: 'Nunc quam arc pretium quis lobortis sem consequat conse tetur diam nunc bibend.'
     },
     {
       id: 7,
-      icon: 'flaticon-airport',
+      icon: (
+        <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      ),
       category: 'visa types',
       title: 'Business Visas',
       description: 'Nunc quam arc pretium quis lobortis sem consequat conse tetur diam nunc bibend.'
     },
     {
       id: 8,
-      icon: 'flaticon-bus-stop',
+      icon: (
+        <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      ),
       category: 'visa types',
       title: 'Tourist Visas',
       description: 'Nunc quam arc pretium quis lobortis sem consequat conse tetur diam nunc bibend.'
@@ -150,8 +182,8 @@ const ServiceSection = () => {
                       <div className="absolute left-0 right-0 h-0.5 bg-[#0099cc] bottom-[-2px] transform scale-x-0 transition-transform duration-500 group-hover:scale-x-100"></div>
                       
                       {/* Icône */}
-                      <div className="icon-box relative block text-6xl lg:text-7xl text-[#0099cc] mb-6 transition-all duration-500">
-                        <i className={service.icon}></i>
+                      <div className="icon-box relative block w-16 h-16 lg:w-20 lg:h-20 text-[#0099cc] mb-6 mx-auto transition-all duration-500">
+                        {service.icon}
                       </div>
                       
                       {/* Catégorie */}
@@ -162,7 +194,7 @@ const ServiceSection = () => {
                       {/* Titre */}
                       <h3 className="mb-4">
                         <Link 
-                          to="/service-details.html" 
+                          href="/service-details.html" 
                           className="text-xl font-semibold text-gray-800 hover:text-[#0099cc] transition-colors duration-300"
                         >
                           {service.title}
@@ -177,10 +209,12 @@ const ServiceSection = () => {
                       {/* Lien avec animation */}
                       <div className="link absolute w-full text-center left-0 bottom-10 opacity-0 invisible transition-all duration-500 delay-150 group-hover:opacity-100 group-hover:visible">
                         <Link 
-                          to="/service-details.html" 
+                          href="/service-details.html" 
                           className="relative inline-block text-base text-[#0099cc] hover:text-[#0080b3] transition-colors duration-300"
                         >
-                          <i className="flaticon-send"></i>
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                          </svg>
                         </Link>
                       </div>
                     </div>
