@@ -29,3 +29,7 @@ Route::get('/agriculture', function () {
 Route::get('/benefits-payments', function () {
     return Inertia::render('benefits');
 })->name('benefits-payments');
+
+Route::get('/recreation', function () {
+    return Inertia::render('recreation');
+})->name('recreation');

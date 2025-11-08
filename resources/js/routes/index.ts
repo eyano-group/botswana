@@ -678,3 +678,77 @@ benefitsPaymentsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'
 })
 
 benefitsPayments.form = benefitsPaymentsForm
+
+/**
+* @see routes/web.php:33
+* @route '/recreation'
+*/
+export const recreation = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: recreation.url(options),
+    method: 'get',
+})
+
+recreation.definition = {
+    methods: ["get","head"],
+    url: '/recreation',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see routes/web.php:33
+* @route '/recreation'
+*/
+recreation.url = (options?: RouteQueryOptions) => {
+    return recreation.definition.url + queryParams(options)
+}
+
+/**
+* @see routes/web.php:33
+* @route '/recreation'
+*/
+recreation.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: recreation.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:33
+* @route '/recreation'
+*/
+recreation.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: recreation.url(options),
+    method: 'head',
+})
+
+/**
+* @see routes/web.php:33
+* @route '/recreation'
+*/
+const recreationForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: recreation.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:33
+* @route '/recreation'
+*/
+recreationForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: recreation.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:33
+* @route '/recreation'
+*/
+recreationForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: recreation.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+recreation.form = recreationForm
