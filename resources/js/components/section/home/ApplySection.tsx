@@ -107,7 +107,7 @@ const ApplySection = () => {
             
             {/* Bouton avec icône SVG et animation améliorée */}
             <Link 
-              href="/index.html" 
+              href="/immigration-civil-registration" 
               className={`theme-btn-one inline-flex items-center text-white border-2 border-white px-6 md:px-8 py-3 rounded-md transition-all duration-300 hover:bg-white hover:text-[#0099cc] transform hover:scale-105 shadow-lg group ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
               }`}

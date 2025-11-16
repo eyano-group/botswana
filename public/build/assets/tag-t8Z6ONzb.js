@@ -1,4 +1,4 @@
-import{c as o}from"./AppShell-BiEUygvy.js";/**
+import{c as o}from"./AppShell-3YlOj4yh.js";/**
  * @license lucide-react v0.475.0 - ISC
  *
  * This source code is licensed under the ISC license.

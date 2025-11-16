@@ -160,7 +160,7 @@ const SocialLinks: React.FC<SocialLinksProps> = React.memo(() => {
             style={{ transitionDelay: `${index * 50}ms` }}
           >
             <a
-              href="/index.html"
+              href="/"
               className="text-white hover:text-[#66d9ff] transition-all duration-300 flex items-center justify-center w-8 h-8 sm:w-auto sm:h-auto"
               aria-label={`Visit our ${social.name} page`}
             >
@@ -290,7 +290,7 @@ const SupportBox: React.FC<SupportBoxProps> = React.memo(() => {
   return (
     <div className="support-box px-2 sm:px-3 md:px-3 lg:px-4 xl:px-3 py-2 sm:py-2.5 md:py-3 lg:py-4 xl:py-3 relative">
       <div className="absolute left-2 sm:left-3 md:left-3 lg:left-4 xl:left-3 top-1/2 transform -translate-y-1/2 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 xl:w-8 xl:h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-        <Phone className="text-white w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 lg:w-5 lg:h-5 xl:w-4 xl:h-4" />
+        <Phone className="text-[#0099cc] w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 lg:w-5 lg:h-5 xl:w-4 xl:h-4" />
       </div>
       <div className="ml-8 sm:ml-9 md:ml-10 lg:ml-12 xl:ml-10">
         <p className="text-white text-xs sm:text-xs md:text-sm lg:text-sm xl:text-xs font-normal mb-1">
@@ -301,11 +301,11 @@ const SupportBox: React.FC<SupportBoxProps> = React.memo(() => {
         </p>
         <h3 className="text-white text-xs sm:text-xs md:text-sm lg:text-base xl:text-sm font-bold">
           <a
-            href="tel:12463330079"
+            href="tel:12463330791"
             className="hover:underline transition-all duration-300"
           >
-            <span className="hidden sm:inline">+1 (246) 333 0079</span>
-            <span className="inline sm:hidden">+12463330079</span>
+            <span className="hidden sm:inline">+1 (246) 333 0791</span>
+            <span className="inline sm:hidden">+12463330791</span>
           </a>
         </h3>
       </div>
@@ -394,7 +394,7 @@ const ServicesSubmenu: React.FC<ServicesSubmenuProps> = React.memo(() => {
               title="Law, Crime and Justice"
               subtitle="Legal Services"
             />
-            <ServiceLink
+            {/* <ServiceLink
               href="/living-botswana?txterm=148"
               icon="fa-map-marker"
               bgColor="cyan"
@@ -435,7 +435,7 @@ const ServicesSubmenu: React.FC<ServicesSubmenuProps> = React.memo(() => {
               bgColor="purple"
               title="Communications, Media & Radio Services"
               subtitle="Information & Technology"
-            />
+            /> */}
           </div>
         </div>
 
@@ -908,7 +908,7 @@ const StickyHeader: React.FC<StickyHeaderProps> = React.memo(
         <div className="container mx-auto px-3 sm:px-4">
           <div className="flex justify-between items-center py-1.5 sm:py-2">
             <div className="logo-box">
-              <Link href="/index.html">
+              <Link href="/">
                 <img
                   src="/assets/logo/logo.png"
                   alt="Logo"
@@ -1005,7 +1005,7 @@ const Header: React.FC = () => {
       },
       {
         name: "about",
-        href: "/about",
+        href: "/about/about-botswana",
       },
       {
         name: "news & events",
