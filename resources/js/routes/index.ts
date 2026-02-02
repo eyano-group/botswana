@@ -1196,3 +1196,77 @@ lawCrimeJusticeForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'g
 })
 
 lawCrimeJustice.form = lawCrimeJusticeForm
+
+/**
+* @see routes/web.php:71
+* @route '/check-status'
+*/
+export const checkStatus = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: checkStatus.url(options),
+    method: 'get',
+})
+
+checkStatus.definition = {
+    methods: ["get","head"],
+    url: '/check-status',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see routes/web.php:71
+* @route '/check-status'
+*/
+checkStatus.url = (options?: RouteQueryOptions) => {
+    return checkStatus.definition.url + queryParams(options)
+}
+
+/**
+* @see routes/web.php:71
+* @route '/check-status'
+*/
+checkStatus.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: checkStatus.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:71
+* @route '/check-status'
+*/
+checkStatus.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: checkStatus.url(options),
+    method: 'head',
+})
+
+/**
+* @see routes/web.php:71
+* @route '/check-status'
+*/
+const checkStatusForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: checkStatus.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:71
+* @route '/check-status'
+*/
+checkStatusForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: checkStatus.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:71
+* @route '/check-status'
+*/
+checkStatusForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: checkStatus.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+checkStatus.form = checkStatusForm

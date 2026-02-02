@@ -60,6 +60,13 @@ return [
             'report' => false,
         ],
 
+        'passports' => [
+            'driver' => 'local',
+            'root' => storage_path('app/passports'),
+            'throw' => true,
+            'visibility' => 'private',
+        ],
+
     ],
 
     /*

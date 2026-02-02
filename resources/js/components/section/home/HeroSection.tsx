@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "@inertiajs/react";
+import StatusCheckModal from "@/components/visa/StatusCheckModal";
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+
+  const [isStatusModalOpen, setIsStatusModalOpen] = useState(false);
   const intervalRef = useRef(null);
 
   const slides = [
@@ -37,7 +40,7 @@ const HeroSection = () => {
     intervalRef.current = setInterval(() => {
       handleNextSlide();
     }, 6000);
-    
+
     // Marquer le composant comme chargé pour déclencher les animations initiales
     setIsLoaded(true);
 
@@ -132,7 +135,7 @@ const HeroSection = () => {
                       )}
 
                       <div
-                        className={`btn-box ${index === currentSlide && isLoaded ? "animate-button" : ""}`}
+                        className={`btn-box flex flex-wrap items-center gap-4 ${index === currentSlide && isLoaded ? "animate-button" : ""}`}
                       >
                         <Link
                           href="/about/about-botswana"
@@ -140,6 +143,48 @@ const HeroSection = () => {
                         >
                           <i className="flaticon-send mr-2"></i>
                           Discover Solutions
+                        </Link>
+
+                        <Link
+                          href="/apply-visa"
+                          className="inline-flex items-center text-white bg-[#0099cc] border-2 border-[#0099cc] px-6 py-3 rounded-md hover:bg-[#0088bb] hover:border-[#0088bb] transition-all duration-300 transform hover:scale-105 shadow-lg"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-5 w-5 mr-2"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+                            />
+                          </svg>
+                          Apply for Visa
+                        </Link>
+
+                        <Link
+                          href="/check-status"
+                          className="inline-flex items-center text-white bg-transparent border-2 border-white/60 px-6 py-3 rounded-md hover:bg-white/10 hover:border-white transition-all duration-300 transform hover:scale-105"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-5 w-5 mr-2"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                            />
+                          </svg>
+                          Check Status
                         </Link>
                       </div>
                     </div>
@@ -272,6 +317,12 @@ const HeroSection = () => {
           transition-duration: 6000ms;
         }
       `}</style>
+
+      {/* Import Status Modal dynamically if needed, or normal import */}
+      <StatusCheckModal
+        isOpen={isStatusModalOpen}
+        onClose={() => setIsStatusModalOpen(false)}
+      />
     </section>
   );
 };

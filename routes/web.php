@@ -59,3 +59,23 @@ Route::get('/law-crime-Justice', function () {
 })->name('law-crime-justice');
 
 
+// Visa Application Routes
+use App\Http\Controllers\VisaApplicationController;
+
+Route::get('/apply-visa', [VisaApplicationController::class, 'index'])->name('visa.apply');
+Route::post('/apply-visa', [VisaApplicationController::class, 'store'])->name('visa.store');
+Route::post('/apply-visa/upload-passport', [VisaApplicationController::class, 'uploadPassport'])->name('visa.upload-passport');
+Route::post('/apply-visa/verify-passport', [VisaApplicationController::class, 'verifyPassportData'])->name('visa.verify-passport');
+Route::post('/apply-visa/check-status', [VisaApplicationController::class, 'checkStatus'])->name('visa.check-status');
+
+Route::get('/check-status', function () {
+    return Inertia::render('CheckStatus');
+})->name('check-status');
+Route::get('/apply-visa/{reference}/pdf', [VisaApplicationController::class, 'downloadPdf'])->name('visa.download-pdf');
+
+// Admin Routes
+Route::prefix('admin')->group(function () {
+    Route::get('/dashboard', [VisaApplicationController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/applications/{id}', [VisaApplicationController::class, 'show'])->name('admin.applications.show');
+    Route::post('/applications/{id}/status', [VisaApplicationController::class, 'updateStatus'])->name('admin.applications.update-status');
+});
