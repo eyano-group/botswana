@@ -106,7 +106,7 @@ export default function StatusCheckModal({
                   value={reference}
                   onChange={(e) => setReference(e.target.value)}
                   placeholder="e.g. BW-VISA-2026-XXXX"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#0099cc] focus:border-[#0099cc] outline-none transition-all uppercase placeholder:normal-case"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#0099cc] focus:border-[#0099cc] outline-none transition-all uppercase placeholder:normal-case bg-white text-gray-900 placeholder-gray-500"
                 />
               </div>
 
@@ -120,7 +120,7 @@ export default function StatusCheckModal({
                   value={passport}
                   onChange={(e) => setPassport(e.target.value)}
                   placeholder="Enter passport number"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#0099cc] focus:border-[#0099cc] outline-none transition-all uppercase placeholder:normal-case"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#0099cc] focus:border-[#0099cc] outline-none transition-all uppercase placeholder:normal-case bg-white text-gray-900 placeholder-gray-500"
                 />
               </div>
 

@@ -25,8 +25,8 @@ export default function PersonalInfoStep({
             type="text"
             value={data.first_name}
             onChange={(e) => setData("first_name", e.target.value)}
-            className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#0099cc] outline-none transition-all
-                            ${errors.first_name ? "border-red-500 bg-red-50" : "border-gray-200 focus:border-[#0099cc]"}
+            className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#0099cc] outline-none transition-all text-gray-900 placeholder-gray-500
+                            ${errors.first_name ? "border-red-500 bg-red-50" : "border-gray-200 focus:border-[#0099cc] bg-white"}
                         `}
             placeholder="e.g. John"
           />
@@ -44,7 +44,7 @@ export default function PersonalInfoStep({
             type="text"
             value={data.middle_name}
             onChange={(e) => setData("middle_name", e.target.value)}
-            className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#0099cc] focus:ring-2 focus:ring-[#0099cc] outline-none transition-all"
+            className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#0099cc] focus:ring-2 focus:ring-[#0099cc] outline-none transition-all bg-white text-gray-900 placeholder-gray-500"
             placeholder="e.g. David"
           />
         </div>
@@ -59,8 +59,8 @@ export default function PersonalInfoStep({
             type="text"
             value={data.last_name}
             onChange={(e) => setData("last_name", e.target.value)}
-            className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#0099cc] outline-none transition-all
-                            ${errors.last_name ? "border-red-500 bg-red-50" : "border-gray-200 focus:border-[#0099cc]"}
+            className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#0099cc] outline-none transition-all text-gray-900 placeholder-gray-500
+                            ${errors.last_name ? "border-red-500 bg-red-50" : "border-gray-200 focus:border-[#0099cc] bg-white"}
                         `}
             placeholder="e.g. Doe"
           />
@@ -79,8 +79,8 @@ export default function PersonalInfoStep({
             type="email"
             value={data.email}
             onChange={(e) => setData("email", e.target.value)}
-            className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#0099cc] outline-none transition-all
-                            ${errors.email ? "border-red-500 bg-red-50" : "border-gray-200 focus:border-[#0099cc]"}
+            className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#0099cc] outline-none transition-all text-gray-900 placeholder-gray-500
+                            ${errors.email ? "border-red-500 bg-red-50" : "border-gray-200 focus:border-[#0099cc] bg-white"}
                         `}
             placeholder="john.doe@example.com"
           />
@@ -99,8 +99,8 @@ export default function PersonalInfoStep({
             type="tel"
             value={data.phone}
             onChange={(e) => setData("phone", e.target.value)}
-            className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#0099cc] outline-none transition-all
-                            ${errors.phone ? "border-red-500 bg-red-50" : "border-gray-200 focus:border-[#0099cc]"}
+            className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#0099cc] outline-none transition-all text-gray-900 placeholder-gray-500
+                            ${errors.phone ? "border-red-500 bg-red-50" : "border-gray-200 focus:border-[#0099cc] bg-white"}
                         `}
             placeholder="+1 234 567 8900"
           />
@@ -118,7 +118,7 @@ export default function PersonalInfoStep({
           <select
             value={data.nationality}
             onChange={(e) => setData("nationality", e.target.value)}
-            className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#0099cc] outline-none transition-all bg-white
+            className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#0099cc] outline-none transition-all bg-white text-gray-900
                             ${errors.nationality ? "border-red-500 bg-red-50" : "border-gray-200 focus:border-[#0099cc]"}
                         `}
           >
@@ -150,8 +150,8 @@ export default function PersonalInfoStep({
             onChange={(e) =>
               setData("passport_number", e.target.value.toUpperCase())
             }
-            className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#0099cc] outline-none transition-all font-mono uppercase
-                            ${errors.passport_number ? "border-red-500 bg-red-50" : "border-gray-200 focus:border-[#0099cc]"}
+            className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#0099cc] outline-none transition-all font-mono uppercase text-gray-900 placeholder-gray-500
+                            ${errors.passport_number ? "border-red-500 bg-red-50" : "border-gray-200 focus:border-[#0099cc] bg-white"}
                         `}
             placeholder="A12345678"
           />
@@ -172,8 +172,8 @@ export default function PersonalInfoStep({
             type="date"
             value={data.date_of_birth}
             onChange={(e) => setData("date_of_birth", e.target.value)}
-            className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#0099cc] outline-none transition-all
-                            ${errors.date_of_birth ? "border-red-500 bg-red-50" : "border-gray-200 focus:border-[#0099cc]"}
+            className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#0099cc] outline-none transition-all text-gray-900 placeholder-gray-500
+                            ${errors.date_of_birth ? "border-red-500 bg-red-50" : "border-gray-200 focus:border-[#0099cc] bg-white"}
                         `}
           />
           {errors.date_of_birth && (

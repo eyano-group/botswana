@@ -29,7 +29,7 @@ export default function VisaDetailsStep({
                                 ${
                                   data.visa_type === type
                                     ? "border-[#0099cc] bg-sky-50 text-[#0099cc] shadow-md transform scale-105"
-                                    : "border-gray-200 text-gray-500 hover:border-[#0099cc] hover:bg-sky-50"
+                                    : "border-gray-200 text-gray-500 bg-white hover:border-[#0099cc] hover:bg-sky-50"
                                 }
                             `}
             >
@@ -53,8 +53,8 @@ export default function VisaDetailsStep({
             type="date"
             value={data.arrival_date}
             onChange={(e) => setData("arrival_date", e.target.value)}
-            className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#0099cc] outline-none transition-all
-                            ${errors.arrival_date ? "border-red-500 bg-red-50" : "border-gray-200 focus:border-[#0099cc]"}
+            className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#0099cc] outline-none transition-all text-gray-900 placeholder-gray-500
+                            ${errors.arrival_date ? "border-red-500 bg-red-50" : "border-gray-200 focus:border-[#0099cc] bg-white"}
                         `}
           />
           {errors.arrival_date && (
@@ -72,8 +72,8 @@ export default function VisaDetailsStep({
             type="date"
             value={data.departure_date}
             onChange={(e) => setData("departure_date", e.target.value)}
-            className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#0099cc] outline-none transition-all
-                            ${errors.departure_date ? "border-red-500 bg-red-50" : "border-gray-200 focus:border-[#0099cc]"}
+            className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#0099cc] outline-none transition-all text-gray-900 placeholder-gray-500
+                            ${errors.departure_date ? "border-red-500 bg-red-50" : "border-gray-200 focus:border-[#0099cc] bg-white"}
                         `}
           />
           {errors.departure_date && (
@@ -92,8 +92,8 @@ export default function VisaDetailsStep({
           value={data.purpose}
           onChange={(e) => setData("purpose", e.target.value)}
           rows={4}
-          className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#0099cc] outline-none transition-all
-                        ${errors.purpose ? "border-red-500 bg-red-50" : "border-gray-200 focus:border-[#0099cc]"}
+          className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#0099cc] outline-none transition-all text-gray-900 placeholder-gray-500
+                        ${errors.purpose ? "border-red-500 bg-red-50" : "border-gray-200 focus:border-[#0099cc] bg-white"}
                     `}
           placeholder="Please describe the purpose of your visit in detail..."
         ></textarea>
@@ -112,8 +112,8 @@ export default function VisaDetailsStep({
           value={data.accommodation}
           onChange={(e) => setData("accommodation", e.target.value)}
           rows={3}
-          className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#0099cc] outline-none transition-all
-                        ${errors.accommodation ? "border-red-500 bg-red-50" : "border-gray-200 focus:border-[#0099cc]"}
+          className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#0099cc] outline-none transition-all text-gray-900 placeholder-gray-500
+                        ${errors.accommodation ? "border-red-500 bg-red-50" : "border-gray-200 focus:border-[#0099cc] bg-white"}
                     `}
           placeholder="Hotel name and address, or host details..."
         ></textarea>
