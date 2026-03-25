@@ -10,7 +10,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class VisaApplicationSubmitted extends Mailable
+class VisaApplicationSubmitted extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
@@ -27,7 +27,11 @@ class VisaApplicationSubmitted extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Visa Application Received - ' . $this->application->reference_number,
+            from: new \Illuminate\Mail\Mailables\Address(
+                config('mail.from.address', 'evisa@gov.bw'),
+                'Botswana e-Visa Portal'
+            ),
+            subject: 'Application Received: ' . $this->application->reference_number . ' — Botswana e-Visa',
         );
     }
 
@@ -37,14 +41,15 @@ class VisaApplicationSubmitted extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'emails.visa.submitted',
+            view: 'emails.visa.submitted',
+            with: [
+                'application' => $this->application,
+            ],
         );
     }
 
     /**
      * Get the attachments for the message.
-     *
-     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
      */
     public function attachments(): array
     {

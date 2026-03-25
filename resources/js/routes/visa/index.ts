@@ -250,7 +250,7 @@ verifyPassport.form = verifyPassportForm
 
 /**
 * @see \App\Http\Controllers\VisaApplicationController::checkStatus
-* @see app/Http/Controllers/VisaApplicationController.php:162
+* @see app/Http/Controllers/VisaApplicationController.php:168
 * @route '/apply-visa/check-status'
 */
 export const checkStatus = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -265,7 +265,7 @@ checkStatus.definition = {
 
 /**
 * @see \App\Http\Controllers\VisaApplicationController::checkStatus
-* @see app/Http/Controllers/VisaApplicationController.php:162
+* @see app/Http/Controllers/VisaApplicationController.php:168
 * @route '/apply-visa/check-status'
 */
 checkStatus.url = (options?: RouteQueryOptions) => {
@@ -274,7 +274,7 @@ checkStatus.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\VisaApplicationController::checkStatus
-* @see app/Http/Controllers/VisaApplicationController.php:162
+* @see app/Http/Controllers/VisaApplicationController.php:168
 * @route '/apply-visa/check-status'
 */
 checkStatus.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -284,7 +284,7 @@ checkStatus.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\VisaApplicationController::checkStatus
-* @see app/Http/Controllers/VisaApplicationController.php:162
+* @see app/Http/Controllers/VisaApplicationController.php:168
 * @route '/apply-visa/check-status'
 */
 const checkStatusForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -294,7 +294,7 @@ const checkStatusForm = (options?: RouteQueryOptions): RouteFormDefinition<'post
 
 /**
 * @see \App\Http\Controllers\VisaApplicationController::checkStatus
-* @see app/Http/Controllers/VisaApplicationController.php:162
+* @see app/Http/Controllers/VisaApplicationController.php:168
 * @route '/apply-visa/check-status'
 */
 checkStatusForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -306,7 +306,7 @@ checkStatus.form = checkStatusForm
 
 /**
 * @see \App\Http\Controllers\VisaApplicationController::downloadPdf
-* @see app/Http/Controllers/VisaApplicationController.php:150
+* @see app/Http/Controllers/VisaApplicationController.php:156
 * @route '/apply-visa/{reference}/pdf'
 */
 export const downloadPdf = (args: { reference: string | number } | [reference: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -321,7 +321,7 @@ downloadPdf.definition = {
 
 /**
 * @see \App\Http\Controllers\VisaApplicationController::downloadPdf
-* @see app/Http/Controllers/VisaApplicationController.php:150
+* @see app/Http/Controllers/VisaApplicationController.php:156
 * @route '/apply-visa/{reference}/pdf'
 */
 downloadPdf.url = (args: { reference: string | number } | [reference: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -348,7 +348,7 @@ downloadPdf.url = (args: { reference: string | number } | [reference: string | n
 
 /**
 * @see \App\Http\Controllers\VisaApplicationController::downloadPdf
-* @see app/Http/Controllers/VisaApplicationController.php:150
+* @see app/Http/Controllers/VisaApplicationController.php:156
 * @route '/apply-visa/{reference}/pdf'
 */
 downloadPdf.get = (args: { reference: string | number } | [reference: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -358,7 +358,7 @@ downloadPdf.get = (args: { reference: string | number } | [reference: string | n
 
 /**
 * @see \App\Http\Controllers\VisaApplicationController::downloadPdf
-* @see app/Http/Controllers/VisaApplicationController.php:150
+* @see app/Http/Controllers/VisaApplicationController.php:156
 * @route '/apply-visa/{reference}/pdf'
 */
 downloadPdf.head = (args: { reference: string | number } | [reference: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -368,7 +368,7 @@ downloadPdf.head = (args: { reference: string | number } | [reference: string | 
 
 /**
 * @see \App\Http\Controllers\VisaApplicationController::downloadPdf
-* @see app/Http/Controllers/VisaApplicationController.php:150
+* @see app/Http/Controllers/VisaApplicationController.php:156
 * @route '/apply-visa/{reference}/pdf'
 */
 const downloadPdfForm = (args: { reference: string | number } | [reference: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -378,7 +378,7 @@ const downloadPdfForm = (args: { reference: string | number } | [reference: stri
 
 /**
 * @see \App\Http\Controllers\VisaApplicationController::downloadPdf
-* @see app/Http/Controllers/VisaApplicationController.php:150
+* @see app/Http/Controllers/VisaApplicationController.php:156
 * @route '/apply-visa/{reference}/pdf'
 */
 downloadPdfForm.get = (args: { reference: string | number } | [reference: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -388,7 +388,7 @@ downloadPdfForm.get = (args: { reference: string | number } | [reference: string
 
 /**
 * @see \App\Http\Controllers\VisaApplicationController::downloadPdf
-* @see app/Http/Controllers/VisaApplicationController.php:150
+* @see app/Http/Controllers/VisaApplicationController.php:156
 * @route '/apply-visa/{reference}/pdf'
 */
 downloadPdfForm.head = (args: { reference: string | number } | [reference: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

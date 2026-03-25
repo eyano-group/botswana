@@ -1,8 +1,147 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../wayfinder'
+import loginDf2c2a from './login'
 import applications from './applications'
+import users from './users'
 /**
-* @see \App\Http\Controllers\VisaApplicationController::dashboard
-* @see app/Http/Controllers/VisaApplicationController.php:193
+* @see \App\Http\Controllers\Admin\Auth\LoginController::login
+* @see app/Http/Controllers/Admin/Auth/LoginController.php:17
+* @route '/admin/login'
+*/
+export const login = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: login.url(options),
+    method: 'get',
+})
+
+login.definition = {
+    methods: ["get","head"],
+    url: '/admin/login',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Http\Controllers\Admin\Auth\LoginController::login
+* @see app/Http/Controllers/Admin/Auth/LoginController.php:17
+* @route '/admin/login'
+*/
+login.url = (options?: RouteQueryOptions) => {
+    return login.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\Admin\Auth\LoginController::login
+* @see app/Http/Controllers/Admin/Auth/LoginController.php:17
+* @route '/admin/login'
+*/
+login.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: login.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\Auth\LoginController::login
+* @see app/Http/Controllers/Admin/Auth/LoginController.php:17
+* @route '/admin/login'
+*/
+login.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: login.url(options),
+    method: 'head',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\Auth\LoginController::login
+* @see app/Http/Controllers/Admin/Auth/LoginController.php:17
+* @route '/admin/login'
+*/
+const loginForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: login.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\Auth\LoginController::login
+* @see app/Http/Controllers/Admin/Auth/LoginController.php:17
+* @route '/admin/login'
+*/
+loginForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: login.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\Auth\LoginController::login
+* @see app/Http/Controllers/Admin/Auth/LoginController.php:17
+* @route '/admin/login'
+*/
+loginForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: login.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+login.form = loginForm
+
+/**
+* @see \App\Http\Controllers\Admin\Auth\LoginController::logout
+* @see app/Http/Controllers/Admin/Auth/LoginController.php:59
+* @route '/admin/logout'
+*/
+export const logout = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: logout.url(options),
+    method: 'post',
+})
+
+logout.definition = {
+    methods: ["post"],
+    url: '/admin/logout',
+} satisfies RouteDefinition<["post"]>
+
+/**
+* @see \App\Http\Controllers\Admin\Auth\LoginController::logout
+* @see app/Http/Controllers/Admin/Auth/LoginController.php:59
+* @route '/admin/logout'
+*/
+logout.url = (options?: RouteQueryOptions) => {
+    return logout.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\Admin\Auth\LoginController::logout
+* @see app/Http/Controllers/Admin/Auth/LoginController.php:59
+* @route '/admin/logout'
+*/
+logout.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: logout.url(options),
+    method: 'post',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\Auth\LoginController::logout
+* @see app/Http/Controllers/Admin/Auth/LoginController.php:59
+* @route '/admin/logout'
+*/
+const logoutForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: logout.url(options),
+    method: 'post',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\Auth\LoginController::logout
+* @see app/Http/Controllers/Admin/Auth/LoginController.php:59
+* @route '/admin/logout'
+*/
+logoutForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: logout.url(options),
+    method: 'post',
+})
+
+logout.form = logoutForm
+
+/**
+* @see \App\Http\Controllers\Admin\DashboardController::dashboard
+* @see app/Http/Controllers/Admin/DashboardController.php:16
 * @route '/admin/dashboard'
 */
 export const dashboard = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,8 +155,8 @@ dashboard.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see \App\Http\Controllers\VisaApplicationController::dashboard
-* @see app/Http/Controllers/VisaApplicationController.php:193
+* @see \App\Http\Controllers\Admin\DashboardController::dashboard
+* @see app/Http/Controllers/Admin/DashboardController.php:16
 * @route '/admin/dashboard'
 */
 dashboard.url = (options?: RouteQueryOptions) => {
@@ -25,8 +164,8 @@ dashboard.url = (options?: RouteQueryOptions) => {
 }
 
 /**
-* @see \App\Http\Controllers\VisaApplicationController::dashboard
-* @see app/Http/Controllers/VisaApplicationController.php:193
+* @see \App\Http\Controllers\Admin\DashboardController::dashboard
+* @see app/Http/Controllers/Admin/DashboardController.php:16
 * @route '/admin/dashboard'
 */
 dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -35,8 +174,8 @@ dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 
 /**
-* @see \App\Http\Controllers\VisaApplicationController::dashboard
-* @see app/Http/Controllers/VisaApplicationController.php:193
+* @see \App\Http\Controllers\Admin\DashboardController::dashboard
+* @see app/Http/Controllers/Admin/DashboardController.php:16
 * @route '/admin/dashboard'
 */
 dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -45,8 +184,8 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
 /**
-* @see \App\Http\Controllers\VisaApplicationController::dashboard
-* @see app/Http/Controllers/VisaApplicationController.php:193
+* @see \App\Http\Controllers\Admin\DashboardController::dashboard
+* @see app/Http/Controllers/Admin/DashboardController.php:16
 * @route '/admin/dashboard'
 */
 const dashboardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -55,8 +194,8 @@ const dashboardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> 
 })
 
 /**
-* @see \App\Http\Controllers\VisaApplicationController::dashboard
-* @see app/Http/Controllers/VisaApplicationController.php:193
+* @see \App\Http\Controllers\Admin\DashboardController::dashboard
+* @see app/Http/Controllers/Admin/DashboardController.php:16
 * @route '/admin/dashboard'
 */
 dashboardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -65,8 +204,8 @@ dashboardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =>
 })
 
 /**
-* @see \App\Http\Controllers\VisaApplicationController::dashboard
-* @see app/Http/Controllers/VisaApplicationController.php:193
+* @see \App\Http\Controllers\Admin\DashboardController::dashboard
+* @see app/Http/Controllers/Admin/DashboardController.php:16
 * @route '/admin/dashboard'
 */
 dashboardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -82,8 +221,11 @@ dashboardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =
 dashboard.form = dashboardForm
 
 const admin = {
+    login: Object.assign(login, loginDf2c2a),
+    logout: Object.assign(logout, logout),
     dashboard: Object.assign(dashboard, dashboard),
     applications: Object.assign(applications, applications),
+    users: Object.assign(users, users),
 }
 
 export default admin

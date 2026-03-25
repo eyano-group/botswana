@@ -6,6 +6,11 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Http\\Controllers\\Admin\\ApplicationController' => $baseDir . '/app/Http/Controllers/Admin/ApplicationController.php',
+    'App\\Http\\Controllers\\Admin\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Admin/Auth/LoginController.php',
+    'App\\Http\\Controllers\\Admin\\DashboardController' => $baseDir . '/app/Http/Controllers/Admin/DashboardController.php',
+    'App\\Http\\Controllers\\Admin\\PaymentController' => $baseDir . '/app/Http/Controllers/Admin/PaymentController.php',
+    'App\\Http\\Controllers\\Admin\\UserController' => $baseDir . '/app/Http/Controllers/Admin/UserController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\VisaApplicationController' => $baseDir . '/app/Http/Controllers/VisaApplicationController.php',
     'App\\Http\\Middleware\\HandleAppearance' => $baseDir . '/app/Http/Middleware/HandleAppearance.php',
@@ -6861,6 +6866,15 @@ return array(
     'TheSeer\\Tokenizer\\TokenCollectionException' => $vendorDir . '/theseer/tokenizer/src/TokenCollectionException.php',
     'TheSeer\\Tokenizer\\Tokenizer' => $vendorDir . '/theseer/tokenizer/src/Tokenizer.php',
     'TheSeer\\Tokenizer\\XMLSerializer' => $vendorDir . '/theseer/tokenizer/src/XMLSerializer.php',
+    'Tighten\\Ziggy\\BladeRouteGenerator' => $vendorDir . '/tightenco/ziggy/src/BladeRouteGenerator.php',
+    'Tighten\\Ziggy\\CommandRouteGenerator' => $vendorDir . '/tightenco/ziggy/src/CommandRouteGenerator.php',
+    'Tighten\\Ziggy\\Output\\File' => $vendorDir . '/tightenco/ziggy/src/Output/File.php',
+    'Tighten\\Ziggy\\Output\\Json' => $vendorDir . '/tightenco/ziggy/src/Output/Json.php',
+    'Tighten\\Ziggy\\Output\\MergeScript' => $vendorDir . '/tightenco/ziggy/src/Output/MergeScript.php',
+    'Tighten\\Ziggy\\Output\\Script' => $vendorDir . '/tightenco/ziggy/src/Output/Script.php',
+    'Tighten\\Ziggy\\Output\\Types' => $vendorDir . '/tightenco/ziggy/src/Output/Types.php',
+    'Tighten\\Ziggy\\Ziggy' => $vendorDir . '/tightenco/ziggy/src/Ziggy.php',
+    'Tighten\\Ziggy\\ZiggyServiceProvider' => $vendorDir . '/tightenco/ziggy/src/ZiggyServiceProvider.php',
     'TijsVerkoyen\\CssToInlineStyles\\CssToInlineStyles' => $vendorDir . '/tijsverkoyen/css-to-inline-styles/src/CssToInlineStyles.php',
     'TijsVerkoyen\\CssToInlineStyles\\Css\\Processor' => $vendorDir . '/tijsverkoyen/css-to-inline-styles/src/Css/Processor.php',
     'TijsVerkoyen\\CssToInlineStyles\\Css\\Property\\Processor' => $vendorDir . '/tijsverkoyen/css-to-inline-styles/src/Css/Property/Processor.php',

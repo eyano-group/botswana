@@ -1,213 +1,146 @@
-import React from "react";
-import { User, Mail, Phone, Calendar, Globe, CreditCard } from "lucide-react";
+import React from 'react';
+import { User, Mail, Phone, Flag, CreditCard, Calendar } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
-interface PersonalInfoStepProps {
+interface Props {
   data: any;
   errors: any;
   setData: (field: string, value: any) => void;
 }
 
-export default function PersonalInfoStep({
-  data,
-  errors,
-  setData,
-}: PersonalInfoStepProps) {
+function Field({
+  label, icon: Icon, error, children
+}: {
+  label: string; icon?: any; error?: string; children: React.ReactNode
+}) {
   return (
-    <div className="space-y-6 animate-fade-in-up">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* First Name */}
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-[#0099cc] flex items-center">
-            <User className="w-4 h-4 mr-2 text-[#0099cc]" />
-            First Name <span className="text-red-500 ml-1">*</span>
-          </label>
-          <input
-            type="text"
-            value={data.first_name}
-            onChange={(e) => setData("first_name", e.target.value)}
-            className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#0099cc] outline-none transition-all text-gray-900 placeholder-gray-500
-                            ${errors.first_name ? "border-red-500 bg-red-50" : "border-gray-200 focus:border-[#0099cc] bg-white"}
-                        `}
-            placeholder="e.g. John"
-          />
-          {errors.first_name && (
-            <p className="text-xs text-red-500 mt-1">{errors.first_name}</p>
-          )}
-        </div>
+    <div className="space-y-1.5">
+      <label className="block text-sm font-medium text-gray-700 flex items-center gap-1.5">
+        {Icon && <Icon className="w-3.5 h-3.5 text-emerald-500" />}
+        {label} <span className="text-red-500">*</span>
+      </label>
+      {children}
+      {error && <p className="text-xs text-red-500 flex items-center gap-1">⚠ {error}</p>}
+    </div>
+  );
+}
 
-        {/* Middle Name */}
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-blue-900">
-            Middle Name (Optional)
-          </label>
-          <input
-            type="text"
-            value={data.middle_name}
-            onChange={(e) => setData("middle_name", e.target.value)}
-            className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#0099cc] focus:ring-2 focus:ring-[#0099cc] outline-none transition-all bg-white text-gray-900 placeholder-gray-500"
-            placeholder="e.g. David"
-          />
-        </div>
+function Input({ error, ...props }: React.InputHTMLAttributes<HTMLInputElement> & { error?: string }) {
+  return (
+    <input
+      {...props}
+      className={cn(
+        'w-full px-4 py-3 rounded-xl border text-sm text-gray-900 placeholder-gray-400 outline-none transition-all duration-200',
+        'focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100',
+        error ? 'border-red-300 bg-red-50' : 'border-gray-200 bg-white hover:border-gray-300'
+      )}
+    />
+  );
+}
 
-        {/* Last Name */}
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-[#0099cc] flex items-center">
-            <User className="w-4 h-4 mr-2 text-[#0099cc]" />
-            Last Name <span className="text-red-500 ml-1">*</span>
-          </label>
-          <input
-            type="text"
-            value={data.last_name}
-            onChange={(e) => setData("last_name", e.target.value)}
-            className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#0099cc] outline-none transition-all text-gray-900 placeholder-gray-500
-                            ${errors.last_name ? "border-red-500 bg-red-50" : "border-gray-200 focus:border-[#0099cc] bg-white"}
-                        `}
-            placeholder="e.g. Doe"
-          />
-          {errors.last_name && (
-            <p className="text-xs text-red-500 mt-1">{errors.last_name}</p>
-          )}
-        </div>
+const NATIONALITIES = [
+  'Afghan','Albanian','Algerian','American','Angolan','Argentine',
+  'Australian','Austrian','Bangladeshi','Belgian','Botswanan','Brazilian',
+  'British','Canadian','Chinese','Colombian','Congolese','Croatian',
+  'Danish','Dutch','Egyptian','Ethiopian','Finnish','French','German',
+  'Ghanaian','Greek','Hungarian','Indian','Indonesian','Iranian','Iraqi',
+  'Irish','Israeli','Italian','Japanese','Kenyan','Korean','Lebanese',
+  'Malawian','Malaysian','Mexican','Moroccan','Mozambican','Namibian',
+  'Nigerian','Norwegian','Pakistani','Peruvian','Philippine','Polish',
+  'Portuguese','Romanian','Russian','Saudi','Senegalese','South African',
+  'Spanish','Sri Lankan','Sudanese','Swedish','Swiss','Tanzanian',
+  'Thai','Tunisian','Turkish','Ugandan','Ukrainian','Zimbabwean',
+].sort();
 
-        {/* Email */}
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-[#0099cc] flex items-center">
-            <Mail className="w-4 h-4 mr-2 text-[#0099cc]" />
-            Email Address <span className="text-red-500 ml-1">*</span>
-          </label>
-          <input
-            type="email"
-            value={data.email}
-            onChange={(e) => setData("email", e.target.value)}
-            className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#0099cc] outline-none transition-all text-gray-900 placeholder-gray-500
-                            ${errors.email ? "border-red-500 bg-red-50" : "border-gray-200 focus:border-[#0099cc] bg-white"}
-                        `}
-            placeholder="john.doe@example.com"
-          />
-          {errors.email && (
-            <p className="text-xs text-red-500 mt-1">{errors.email}</p>
-          )}
+export default function PersonalInfoStep({ data, errors, setData }: Props) {
+  return (
+    <div className="space-y-6">
+      <div className="text-center pb-2">
+        <div className="inline-flex items-center justify-center w-12 h-12 bg-emerald-50 rounded-2xl mb-3">
+          <User className="w-6 h-6 text-emerald-600" />
         </div>
-
-        {/* Phone */}
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-[#0099cc] flex items-center">
-            <Phone className="w-4 h-4 mr-2 text-[#0099cc]" />
-            Phone Number <span className="text-red-500 ml-1">*</span>
-          </label>
-          <input
-            type="tel"
-            value={data.phone}
-            onChange={(e) => setData("phone", e.target.value)}
-            className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#0099cc] outline-none transition-all text-gray-900 placeholder-gray-500
-                            ${errors.phone ? "border-red-500 bg-red-50" : "border-gray-200 focus:border-[#0099cc] bg-white"}
-                        `}
-            placeholder="+1 234 567 8900"
-          />
-          {errors.phone && (
-            <p className="text-xs text-red-500 mt-1">{errors.phone}</p>
-          )}
-        </div>
-
-        {/* Nationality */}
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-[#0099cc] flex items-center">
-            <Globe className="w-4 h-4 mr-2 text-[#0099cc]" />
-            Nationality <span className="text-red-500 ml-1">*</span>
-          </label>
-          <select
-            value={data.nationality}
-            onChange={(e) => setData("nationality", e.target.value)}
-            className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#0099cc] outline-none transition-all bg-white text-gray-900
-                            ${errors.nationality ? "border-red-500 bg-red-50" : "border-gray-200 focus:border-[#0099cc]"}
-                        `}
-          >
-            <option value="">Select Country</option>
-            <option value="USA">United States</option>
-            <option value="UK">United Kingdom</option>
-            <option value="Canada">Canada</option>
-            <option value="France">France</option>
-            <option value="Germany">Germany</option>
-            <option value="China">China</option>
-            <option value="India">India</option>
-            <option value="South Africa">South Africa</option>
-            {/* Add more countries as needed */}
-          </select>
-          {errors.nationality && (
-            <p className="text-xs text-red-500 mt-1">{errors.nationality}</p>
-          )}
-        </div>
-
-        {/* Passport Number */}
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-[#0099cc] flex items-center">
-            <CreditCard className="w-4 h-4 mr-2 text-[#0099cc]" />
-            Passport Number <span className="text-red-500 ml-1">*</span>
-          </label>
-          <input
-            type="text"
-            value={data.passport_number}
-            onChange={(e) =>
-              setData("passport_number", e.target.value.toUpperCase())
-            }
-            className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#0099cc] outline-none transition-all font-mono uppercase text-gray-900 placeholder-gray-500
-                            ${errors.passport_number ? "border-red-500 bg-red-50" : "border-gray-200 focus:border-[#0099cc] bg-white"}
-                        `}
-            placeholder="A12345678"
-          />
-          {errors.passport_number && (
-            <p className="text-xs text-red-500 mt-1">
-              {errors.passport_number}
-            </p>
-          )}
-        </div>
-
-        {/* Date of Birth */}
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-[#0099cc] flex items-center">
-            <Calendar className="w-4 h-4 mr-2 text-[#0099cc]" />
-            Date of Birth <span className="text-red-500 ml-1">*</span>
-          </label>
-          <input
-            type="date"
-            value={data.date_of_birth}
-            onChange={(e) => setData("date_of_birth", e.target.value)}
-            className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#0099cc] outline-none transition-all text-gray-900 placeholder-gray-500
-                            ${errors.date_of_birth ? "border-red-500 bg-red-50" : "border-gray-200 focus:border-[#0099cc] bg-white"}
-                        `}
-          />
-          {errors.date_of_birth && (
-            <p className="text-xs text-red-500 mt-1">{errors.date_of_birth}</p>
-          )}
-        </div>
+        <h3 className="text-xl font-bold text-gray-900">Personal Information</h3>
+        <p className="text-sm text-gray-500 mt-1">Enter your details exactly as they appear on your travel document.</p>
       </div>
 
-      <div className="bg-sky-50 p-4 rounded-lg border border-sky-100 flex items-start">
-        <div className="p-1 bg-sky-100 rounded-full mr-3 text-[#0099cc]">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
-        </div>
-        <div>
-          <h4 className="text-sm font-semibold text-[#0099cc]">
-            Important Information
-          </h4>
-          <p className="text-xs text-[#0077aa] mt-1">
-            Please ensure all fields match your passport exactly. You will be
-            asked to upload your passport in the next step for verification.
-          </p>
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <Field label="First Name" icon={User} error={errors.first_name}>
+          <Input
+            type="text"
+            placeholder="John"
+            value={data.first_name}
+            onChange={e => setData('first_name', e.target.value)}
+            error={errors.first_name}
+          />
+        </Field>
+
+        <Field label="Middle Name (Optional)" icon={User}>
+          <Input
+            type="text"
+            placeholder="Michael"
+            value={data.middle_name}
+            onChange={e => setData('middle_name', e.target.value)}
+          />
+        </Field>
+
+        <Field label="Last Name" icon={User} error={errors.last_name}>
+          <Input
+            type="text"
+            placeholder="Doe"
+            value={data.last_name}
+            onChange={e => setData('last_name', e.target.value)}
+            error={errors.last_name}
+          />
+        </Field>
+
+        <Field label="Date of Birth" icon={Calendar} error={errors.date_of_birth}>
+          <Input
+            type="date"
+            value={data.date_of_birth}
+            onChange={e => setData('date_of_birth', e.target.value)}
+            error={errors.date_of_birth}
+          />
+        </Field>
+
+        <Field label="Email Address" icon={Mail} error={errors.email}>
+          <Input
+            type="email"
+            placeholder="john@example.com"
+            value={data.email}
+            onChange={e => setData('email', e.target.value)}
+            error={errors.email}
+          />
+        </Field>
+
+        <Field label="Phone Number" icon={Phone} error={errors.phone}>
+          <Input
+            type="tel"
+            placeholder="+267 71 234 567"
+            value={data.phone}
+            onChange={e => setData('phone', e.target.value)}
+            error={errors.phone}
+          />
+        </Field>
+      </div>
+
+      <Field label="Nationality" icon={Flag} error={errors.nationality}>
+        <select
+          value={data.nationality}
+          onChange={e => setData('nationality', e.target.value)}
+          className={cn(
+            'w-full px-4 py-3 rounded-xl border text-sm text-gray-900 outline-none transition-all duration-200',
+            'focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100',
+            errors.nationality ? 'border-red-300 bg-red-50' : 'border-gray-200 bg-white'
+          )}
+        >
+          <option value="">Select nationality...</option>
+          {NATIONALITIES.map(n => <option key={n} value={n}>{n}</option>)}
+        </select>
+      </Field>
+
+      <div className="rounded-xl bg-blue-50 border border-blue-100 p-4 flex gap-3">
+        <div className="text-blue-400 text-lg mt-0.5">ℹ</div>
+        <p className="text-sm text-blue-700">Names must match <strong>exactly</strong> as written in your passport. In the next step you'll enter your passport number and expiry date.</p>
       </div>
     </div>
   );

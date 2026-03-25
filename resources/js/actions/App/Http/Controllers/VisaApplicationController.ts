@@ -250,7 +250,7 @@ verifyPassportData.form = verifyPassportDataForm
 
 /**
 * @see \App\Http\Controllers\VisaApplicationController::checkStatus
-* @see app/Http/Controllers/VisaApplicationController.php:162
+* @see app/Http/Controllers/VisaApplicationController.php:168
 * @route '/apply-visa/check-status'
 */
 export const checkStatus = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -265,7 +265,7 @@ checkStatus.definition = {
 
 /**
 * @see \App\Http\Controllers\VisaApplicationController::checkStatus
-* @see app/Http/Controllers/VisaApplicationController.php:162
+* @see app/Http/Controllers/VisaApplicationController.php:168
 * @route '/apply-visa/check-status'
 */
 checkStatus.url = (options?: RouteQueryOptions) => {
@@ -274,7 +274,7 @@ checkStatus.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\VisaApplicationController::checkStatus
-* @see app/Http/Controllers/VisaApplicationController.php:162
+* @see app/Http/Controllers/VisaApplicationController.php:168
 * @route '/apply-visa/check-status'
 */
 checkStatus.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -284,7 +284,7 @@ checkStatus.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\VisaApplicationController::checkStatus
-* @see app/Http/Controllers/VisaApplicationController.php:162
+* @see app/Http/Controllers/VisaApplicationController.php:168
 * @route '/apply-visa/check-status'
 */
 const checkStatusForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -294,7 +294,7 @@ const checkStatusForm = (options?: RouteQueryOptions): RouteFormDefinition<'post
 
 /**
 * @see \App\Http\Controllers\VisaApplicationController::checkStatus
-* @see app/Http/Controllers/VisaApplicationController.php:162
+* @see app/Http/Controllers/VisaApplicationController.php:168
 * @route '/apply-visa/check-status'
 */
 checkStatusForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -306,7 +306,7 @@ checkStatus.form = checkStatusForm
 
 /**
 * @see \App\Http\Controllers\VisaApplicationController::downloadPdf
-* @see app/Http/Controllers/VisaApplicationController.php:150
+* @see app/Http/Controllers/VisaApplicationController.php:156
 * @route '/apply-visa/{reference}/pdf'
 */
 export const downloadPdf = (args: { reference: string | number } | [reference: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -321,7 +321,7 @@ downloadPdf.definition = {
 
 /**
 * @see \App\Http\Controllers\VisaApplicationController::downloadPdf
-* @see app/Http/Controllers/VisaApplicationController.php:150
+* @see app/Http/Controllers/VisaApplicationController.php:156
 * @route '/apply-visa/{reference}/pdf'
 */
 downloadPdf.url = (args: { reference: string | number } | [reference: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -348,7 +348,7 @@ downloadPdf.url = (args: { reference: string | number } | [reference: string | n
 
 /**
 * @see \App\Http\Controllers\VisaApplicationController::downloadPdf
-* @see app/Http/Controllers/VisaApplicationController.php:150
+* @see app/Http/Controllers/VisaApplicationController.php:156
 * @route '/apply-visa/{reference}/pdf'
 */
 downloadPdf.get = (args: { reference: string | number } | [reference: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -358,7 +358,7 @@ downloadPdf.get = (args: { reference: string | number } | [reference: string | n
 
 /**
 * @see \App\Http\Controllers\VisaApplicationController::downloadPdf
-* @see app/Http/Controllers/VisaApplicationController.php:150
+* @see app/Http/Controllers/VisaApplicationController.php:156
 * @route '/apply-visa/{reference}/pdf'
 */
 downloadPdf.head = (args: { reference: string | number } | [reference: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -368,7 +368,7 @@ downloadPdf.head = (args: { reference: string | number } | [reference: string | 
 
 /**
 * @see \App\Http\Controllers\VisaApplicationController::downloadPdf
-* @see app/Http/Controllers/VisaApplicationController.php:150
+* @see app/Http/Controllers/VisaApplicationController.php:156
 * @route '/apply-visa/{reference}/pdf'
 */
 const downloadPdfForm = (args: { reference: string | number } | [reference: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -378,7 +378,7 @@ const downloadPdfForm = (args: { reference: string | number } | [reference: stri
 
 /**
 * @see \App\Http\Controllers\VisaApplicationController::downloadPdf
-* @see app/Http/Controllers/VisaApplicationController.php:150
+* @see app/Http/Controllers/VisaApplicationController.php:156
 * @route '/apply-visa/{reference}/pdf'
 */
 downloadPdfForm.get = (args: { reference: string | number } | [reference: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -388,7 +388,7 @@ downloadPdfForm.get = (args: { reference: string | number } | [reference: string
 
 /**
 * @see \App\Http\Controllers\VisaApplicationController::downloadPdf
-* @see app/Http/Controllers/VisaApplicationController.php:150
+* @see app/Http/Controllers/VisaApplicationController.php:156
 * @route '/apply-visa/{reference}/pdf'
 */
 downloadPdfForm.head = (args: { reference: string | number } | [reference: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -403,260 +403,6 @@ downloadPdfForm.head = (args: { reference: string | number } | [reference: strin
 
 downloadPdf.form = downloadPdfForm
 
-/**
-* @see \App\Http\Controllers\VisaApplicationController::dashboard
-* @see app/Http/Controllers/VisaApplicationController.php:193
-* @route '/admin/dashboard'
-*/
-export const dashboard = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: dashboard.url(options),
-    method: 'get',
-})
-
-dashboard.definition = {
-    methods: ["get","head"],
-    url: '/admin/dashboard',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \App\Http\Controllers\VisaApplicationController::dashboard
-* @see app/Http/Controllers/VisaApplicationController.php:193
-* @route '/admin/dashboard'
-*/
-dashboard.url = (options?: RouteQueryOptions) => {
-    return dashboard.definition.url + queryParams(options)
-}
-
-/**
-* @see \App\Http\Controllers\VisaApplicationController::dashboard
-* @see app/Http/Controllers/VisaApplicationController.php:193
-* @route '/admin/dashboard'
-*/
-dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: dashboard.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Http\Controllers\VisaApplicationController::dashboard
-* @see app/Http/Controllers/VisaApplicationController.php:193
-* @route '/admin/dashboard'
-*/
-dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: dashboard.url(options),
-    method: 'head',
-})
-
-/**
-* @see \App\Http\Controllers\VisaApplicationController::dashboard
-* @see app/Http/Controllers/VisaApplicationController.php:193
-* @route '/admin/dashboard'
-*/
-const dashboardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: dashboard.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Http\Controllers\VisaApplicationController::dashboard
-* @see app/Http/Controllers/VisaApplicationController.php:193
-* @route '/admin/dashboard'
-*/
-dashboardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: dashboard.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Http\Controllers\VisaApplicationController::dashboard
-* @see app/Http/Controllers/VisaApplicationController.php:193
-* @route '/admin/dashboard'
-*/
-dashboardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: dashboard.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-dashboard.form = dashboardForm
-
-/**
-* @see \App\Http\Controllers\VisaApplicationController::show
-* @see app/Http/Controllers/VisaApplicationController.php:232
-* @route '/admin/applications/{id}'
-*/
-export const show = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: show.url(args, options),
-    method: 'get',
-})
-
-show.definition = {
-    methods: ["get","head"],
-    url: '/admin/applications/{id}',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \App\Http\Controllers\VisaApplicationController::show
-* @see app/Http/Controllers/VisaApplicationController.php:232
-* @route '/admin/applications/{id}'
-*/
-show.url = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions) => {
-    if (typeof args === 'string' || typeof args === 'number') {
-        args = { id: args }
-    }
-
-    if (Array.isArray(args)) {
-        args = {
-            id: args[0],
-        }
-    }
-
-    args = applyUrlDefaults(args)
-
-    const parsedArgs = {
-        id: args.id,
-    }
-
-    return show.definition.url
-            .replace('{id}', parsedArgs.id.toString())
-            .replace(/\/+$/, '') + queryParams(options)
-}
-
-/**
-* @see \App\Http\Controllers\VisaApplicationController::show
-* @see app/Http/Controllers/VisaApplicationController.php:232
-* @route '/admin/applications/{id}'
-*/
-show.get = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: show.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \App\Http\Controllers\VisaApplicationController::show
-* @see app/Http/Controllers/VisaApplicationController.php:232
-* @route '/admin/applications/{id}'
-*/
-show.head = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: show.url(args, options),
-    method: 'head',
-})
-
-/**
-* @see \App\Http\Controllers\VisaApplicationController::show
-* @see app/Http/Controllers/VisaApplicationController.php:232
-* @route '/admin/applications/{id}'
-*/
-const showForm = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: show.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \App\Http\Controllers\VisaApplicationController::show
-* @see app/Http/Controllers/VisaApplicationController.php:232
-* @route '/admin/applications/{id}'
-*/
-showForm.get = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: show.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \App\Http\Controllers\VisaApplicationController::show
-* @see app/Http/Controllers/VisaApplicationController.php:232
-* @route '/admin/applications/{id}'
-*/
-showForm.head = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: show.url(args, {
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-show.form = showForm
-
-/**
-* @see \App\Http\Controllers\VisaApplicationController::updateStatus
-* @see app/Http/Controllers/VisaApplicationController.php:244
-* @route '/admin/applications/{id}/status'
-*/
-export const updateStatus = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
-    url: updateStatus.url(args, options),
-    method: 'post',
-})
-
-updateStatus.definition = {
-    methods: ["post"],
-    url: '/admin/applications/{id}/status',
-} satisfies RouteDefinition<["post"]>
-
-/**
-* @see \App\Http\Controllers\VisaApplicationController::updateStatus
-* @see app/Http/Controllers/VisaApplicationController.php:244
-* @route '/admin/applications/{id}/status'
-*/
-updateStatus.url = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions) => {
-    if (typeof args === 'string' || typeof args === 'number') {
-        args = { id: args }
-    }
-
-    if (Array.isArray(args)) {
-        args = {
-            id: args[0],
-        }
-    }
-
-    args = applyUrlDefaults(args)
-
-    const parsedArgs = {
-        id: args.id,
-    }
-
-    return updateStatus.definition.url
-            .replace('{id}', parsedArgs.id.toString())
-            .replace(/\/+$/, '') + queryParams(options)
-}
-
-/**
-* @see \App\Http\Controllers\VisaApplicationController::updateStatus
-* @see app/Http/Controllers/VisaApplicationController.php:244
-* @route '/admin/applications/{id}/status'
-*/
-updateStatus.post = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
-    url: updateStatus.url(args, options),
-    method: 'post',
-})
-
-/**
-* @see \App\Http\Controllers\VisaApplicationController::updateStatus
-* @see app/Http/Controllers/VisaApplicationController.php:244
-* @route '/admin/applications/{id}/status'
-*/
-const updateStatusForm = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: updateStatus.url(args, options),
-    method: 'post',
-})
-
-/**
-* @see \App\Http\Controllers\VisaApplicationController::updateStatus
-* @see app/Http/Controllers/VisaApplicationController.php:244
-* @route '/admin/applications/{id}/status'
-*/
-updateStatusForm.post = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: updateStatus.url(args, options),
-    method: 'post',
-})
-
-updateStatus.form = updateStatusForm
-
-const VisaApplicationController = { index, store, uploadPassport, verifyPassportData, checkStatus, downloadPdf, dashboard, show, updateStatus }
+const VisaApplicationController = { index, store, uploadPassport, verifyPassportData, checkStatus, downloadPdf }
 
 export default VisaApplicationController

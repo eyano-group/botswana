@@ -1,7 +1,88 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../wayfinder'
 /**
-* @see \App\Http\Controllers\VisaApplicationController::show
-* @see app/Http/Controllers/VisaApplicationController.php:232
+* @see \App\Http\Controllers\Admin\ApplicationController::index
+* @see app/Http/Controllers/Admin/ApplicationController.php:16
+* @route '/admin/applications'
+*/
+export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: index.url(options),
+    method: 'get',
+})
+
+index.definition = {
+    methods: ["get","head"],
+    url: '/admin/applications',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Http\Controllers\Admin\ApplicationController::index
+* @see app/Http/Controllers/Admin/ApplicationController.php:16
+* @route '/admin/applications'
+*/
+index.url = (options?: RouteQueryOptions) => {
+    return index.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\Admin\ApplicationController::index
+* @see app/Http/Controllers/Admin/ApplicationController.php:16
+* @route '/admin/applications'
+*/
+index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: index.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\ApplicationController::index
+* @see app/Http/Controllers/Admin/ApplicationController.php:16
+* @route '/admin/applications'
+*/
+index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: index.url(options),
+    method: 'head',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\ApplicationController::index
+* @see app/Http/Controllers/Admin/ApplicationController.php:16
+* @route '/admin/applications'
+*/
+const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: index.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\ApplicationController::index
+* @see app/Http/Controllers/Admin/ApplicationController.php:16
+* @route '/admin/applications'
+*/
+indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: index.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\ApplicationController::index
+* @see app/Http/Controllers/Admin/ApplicationController.php:16
+* @route '/admin/applications'
+*/
+indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: index.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+index.form = indexForm
+
+/**
+* @see \App\Http\Controllers\Admin\ApplicationController::show
+* @see app/Http/Controllers/Admin/ApplicationController.php:50
 * @route '/admin/applications/{id}'
 */
 export const show = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -15,8 +96,8 @@ show.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see \App\Http\Controllers\VisaApplicationController::show
-* @see app/Http/Controllers/VisaApplicationController.php:232
+* @see \App\Http\Controllers\Admin\ApplicationController::show
+* @see app/Http/Controllers/Admin/ApplicationController.php:50
 * @route '/admin/applications/{id}'
 */
 show.url = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -42,8 +123,8 @@ show.url = (args: { id: string | number } | [id: string | number ] | string | nu
 }
 
 /**
-* @see \App\Http\Controllers\VisaApplicationController::show
-* @see app/Http/Controllers/VisaApplicationController.php:232
+* @see \App\Http\Controllers\Admin\ApplicationController::show
+* @see app/Http/Controllers/Admin/ApplicationController.php:50
 * @route '/admin/applications/{id}'
 */
 show.get = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -52,8 +133,8 @@ show.get = (args: { id: string | number } | [id: string | number ] | string | nu
 })
 
 /**
-* @see \App\Http\Controllers\VisaApplicationController::show
-* @see app/Http/Controllers/VisaApplicationController.php:232
+* @see \App\Http\Controllers\Admin\ApplicationController::show
+* @see app/Http/Controllers/Admin/ApplicationController.php:50
 * @route '/admin/applications/{id}'
 */
 show.head = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -62,8 +143,8 @@ show.head = (args: { id: string | number } | [id: string | number ] | string | n
 })
 
 /**
-* @see \App\Http\Controllers\VisaApplicationController::show
-* @see app/Http/Controllers/VisaApplicationController.php:232
+* @see \App\Http\Controllers\Admin\ApplicationController::show
+* @see app/Http/Controllers/Admin/ApplicationController.php:50
 * @route '/admin/applications/{id}'
 */
 const showForm = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -72,8 +153,8 @@ const showForm = (args: { id: string | number } | [id: string | number ] | strin
 })
 
 /**
-* @see \App\Http\Controllers\VisaApplicationController::show
-* @see app/Http/Controllers/VisaApplicationController.php:232
+* @see \App\Http\Controllers\Admin\ApplicationController::show
+* @see app/Http/Controllers/Admin/ApplicationController.php:50
 * @route '/admin/applications/{id}'
 */
 showForm.get = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -82,8 +163,8 @@ showForm.get = (args: { id: string | number } | [id: string | number ] | string 
 })
 
 /**
-* @see \App\Http\Controllers\VisaApplicationController::show
-* @see app/Http/Controllers/VisaApplicationController.php:232
+* @see \App\Http\Controllers\Admin\ApplicationController::show
+* @see app/Http/Controllers/Admin/ApplicationController.php:50
 * @route '/admin/applications/{id}'
 */
 showForm.head = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -99,8 +180,8 @@ showForm.head = (args: { id: string | number } | [id: string | number ] | string
 show.form = showForm
 
 /**
-* @see \App\Http\Controllers\VisaApplicationController::updateStatus
-* @see app/Http/Controllers/VisaApplicationController.php:244
+* @see \App\Http\Controllers\Admin\ApplicationController::updateStatus
+* @see app/Http/Controllers/Admin/ApplicationController.php:63
 * @route '/admin/applications/{id}/status'
 */
 export const updateStatus = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -114,8 +195,8 @@ updateStatus.definition = {
 } satisfies RouteDefinition<["post"]>
 
 /**
-* @see \App\Http\Controllers\VisaApplicationController::updateStatus
-* @see app/Http/Controllers/VisaApplicationController.php:244
+* @see \App\Http\Controllers\Admin\ApplicationController::updateStatus
+* @see app/Http/Controllers/Admin/ApplicationController.php:63
 * @route '/admin/applications/{id}/status'
 */
 updateStatus.url = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -141,8 +222,8 @@ updateStatus.url = (args: { id: string | number } | [id: string | number ] | str
 }
 
 /**
-* @see \App\Http\Controllers\VisaApplicationController::updateStatus
-* @see app/Http/Controllers/VisaApplicationController.php:244
+* @see \App\Http\Controllers\Admin\ApplicationController::updateStatus
+* @see app/Http/Controllers/Admin/ApplicationController.php:63
 * @route '/admin/applications/{id}/status'
 */
 updateStatus.post = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -151,8 +232,8 @@ updateStatus.post = (args: { id: string | number } | [id: string | number ] | st
 })
 
 /**
-* @see \App\Http\Controllers\VisaApplicationController::updateStatus
-* @see app/Http/Controllers/VisaApplicationController.php:244
+* @see \App\Http\Controllers\Admin\ApplicationController::updateStatus
+* @see app/Http/Controllers/Admin/ApplicationController.php:63
 * @route '/admin/applications/{id}/status'
 */
 const updateStatusForm = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -161,8 +242,8 @@ const updateStatusForm = (args: { id: string | number } | [id: string | number ]
 })
 
 /**
-* @see \App\Http\Controllers\VisaApplicationController::updateStatus
-* @see app/Http/Controllers/VisaApplicationController.php:244
+* @see \App\Http\Controllers\Admin\ApplicationController::updateStatus
+* @see app/Http/Controllers/Admin/ApplicationController.php:63
 * @route '/admin/applications/{id}/status'
 */
 updateStatusForm.post = (args: { id: string | number } | [id: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -173,6 +254,7 @@ updateStatusForm.post = (args: { id: string | number } | [id: string | number ] 
 updateStatus.form = updateStatusForm
 
 const applications = {
+    index: Object.assign(index, index),
     show: Object.assign(show, show),
     updateStatus: Object.assign(updateStatus, updateStatus),
 }

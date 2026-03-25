@@ -32,7 +32,10 @@ class StoreVisaApplicationRequest extends FormRequest
             'email' => ['required', 'email', 'max:255'],
             'phone' => ['required', 'string', 'max:50'], // Frontend handles country code
             'nationality' => ['required', 'string', 'max:100'],
-            'passport_number' => ['required', 'string', 'min:6', 'max:20'], // Allow variations
+            'passport_number' => ['required', 'string', 'min:6', 'max:20'],
+            'issuing_country' => ['required', 'string', 'max:100'],
+            'issue_date' => ['required', 'date', 'before:today'],
+            'expiry_date' => ['required', 'date', 'after:today'],
             'date_of_birth' => ['required', 'date', 'before:today'],
             
             // Visa Details
@@ -43,8 +46,8 @@ class StoreVisaApplicationRequest extends FormRequest
             'accommodation' => ['required', 'string', 'max:1000'],
             
             // Files & Verification
-            'passport_file_path' => ['required', 'string'], // Path received from upload step
-            'ocr_data' => ['required', 'array'], // Extracted data from previous step
+            'passport_file_path' => ['required', 'string'],
+            'ocr_data' => ['required', 'array'],
         ];
     }
     

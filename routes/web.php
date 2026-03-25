@@ -73,9 +73,31 @@ Route::get('/check-status', function () {
 })->name('check-status');
 Route::get('/apply-visa/{reference}/pdf', [VisaApplicationController::class, 'downloadPdf'])->name('visa.download-pdf');
 
+use App\Http\Controllers\Admin\Auth\LoginController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ApplicationController;
+use App\Http\Controllers\Admin\UserController;
+
 // Admin Routes
-Route::prefix('admin')->group(function () {
-    Route::get('/dashboard', [VisaApplicationController::class, 'dashboard'])->name('admin.dashboard');
-    Route::get('/applications/{id}', [VisaApplicationController::class, 'show'])->name('admin.applications.show');
-    Route::post('/applications/{id}/status', [VisaApplicationController::class, 'updateStatus'])->name('admin.applications.update-status');
+Route::prefix('admin')->name('admin.')->group(function () {
+    // Auth Routes
+    Route::middleware('guest:admin')->group(function () {
+        Route::get('login', [LoginController::class, 'create'])->name('login');
+        Route::post('login', [LoginController::class, 'store'])->name('login.store');
+    });
+
+    // Protected Routes
+    Route::middleware('auth:admin')->group(function () {
+        Route::post('logout', [LoginController::class, 'destroy'])->name('logout');
+        
+        Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        
+        Route::get('applications', [ApplicationController::class, 'index'])->name('applications.index');
+        Route::get('applications/{id}', [ApplicationController::class, 'show'])->name('applications.show');
+        Route::post('applications/{id}/status', [ApplicationController::class, 'update'])->name('applications.update-status');
+
+        Route::get('users', [UserController::class, 'index'])->name('users.index');
+        Route::post('users/{id}', [UserController::class, 'update'])->name('users.update');
+    });
 });
+

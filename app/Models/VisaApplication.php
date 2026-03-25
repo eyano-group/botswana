@@ -21,6 +21,9 @@ class VisaApplication extends Model
         'phone',
         'nationality',
         'passport_number',
+        'issuing_country',
+        'issue_date',
+        'expiry_date',
         'date_of_birth',
         'visa_type',
         'arrival_date',
@@ -42,6 +45,8 @@ class VisaApplication extends Model
      */
     protected $casts = [
         'date_of_birth' => 'date',
+        'issue_date' => 'date',
+        'expiry_date' => 'date',
         'arrival_date' => 'date',
         'departure_date' => 'date',
         'ocr_data' => 'array',

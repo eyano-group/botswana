@@ -1,95 +1,105 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef } from 'react';
 import {
-  Upload,
-  X,
-  Check,
-  FileText,
-  AlertTriangle,
-  RefreshCw,
-  PenTool,
-} from "lucide-react";
-import axios from "axios";
+  Upload, X, CheckCircle2, AlertTriangle, XCircle,
+  FileText, RotateCcw, ShieldCheck, ScanLine, Zap
+} from 'lucide-react';
+import axios from 'axios';
+import { cn } from '@/lib/utils';
 
-interface PassportUploadStepProps {
+interface Props {
   data: any;
   setData: (field: string, value: any) => void;
   onVerificationComplete: (isValid: boolean) => void;
 }
 
-export default function PassportUploadStep({
-  data,
-  setData,
-  onVerificationComplete,
-}: PassportUploadStepProps) {
+type VerifStatus = 'idle' | 'uploading' | 'processing' | 'verified' | 'manual_review' | 'failed';
+
+function ConfidenceRing({ score }: { score: number }) {
+  const pct = Math.round(score * 100);
+  const r = 40;
+  const circ = 2 * Math.PI * r;
+  const dash = (pct / 100) * circ;
+  const color = pct >= 90 ? '#10b981' : pct >= 70 ? '#f59e0b' : '#ef4444';
+
+  return (
+    <div className="flex flex-col items-center">
+      <svg width="100" height="100" className="-rotate-90">
+        <circle cx="50" cy="50" r={r} fill="none" stroke="#e5e7eb" strokeWidth="8" />
+        <circle
+          cx="50" cy="50" r={r} fill="none"
+          stroke={color} strokeWidth="8"
+          strokeDasharray={`${dash} ${circ}`}
+          strokeLinecap="round"
+          style={{ transition: 'stroke-dasharray 1s ease' }}
+        />
+      </svg>
+      <div className="-mt-16 flex flex-col items-center">
+        <span className="text-2xl font-bold" style={{ color }}>{pct}%</span>
+        <span className="text-xs text-gray-500 mt-0.5">Confidence</span>
+      </div>
+    </div>
+  );
+}
+
+function MatchRow({ label, formVal, ocrVal, matched }: {
+  label: string; formVal: string; ocrVal: string; matched: boolean;
+}) {
+  return (
+    <div className="grid grid-cols-3 gap-2 py-2.5 border-b border-gray-100 last:border-0 text-sm">
+      <span className="text-gray-500 font-medium">{label}</span>
+      <span className={cn('font-mono text-center', matched ? 'text-gray-700' : 'text-red-600 line-through')}>{formVal || '—'}</span>
+      <span className={cn('font-mono text-center', matched ? 'text-emerald-700' : 'text-emerald-600')}>{ocrVal || '—'}</span>
+    </div>
+  );
+}
+
+export default function PassportUploadStep({ data, setData, onVerificationComplete }: Props) {
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
-  const [isUploading, setIsUploading] = useState(false);
-  const [uploadProgress, setUploadProgress] = useState(0);
-  const [verificationStatus, setVerificationStatus] = useState<
-    "idle" | "processing" | "success" | "failed" | "manual_review" | "verified"
-  >("idle");
-  const [verificationResult, setVerificationResult] = useState<any>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [status, setStatus] = useState<VerifStatus>('idle');
+  const [progress, setProgress] = useState(0);
+  const [result, setResult] = useState<any>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [scanPhase, setScanPhase] = useState('');
+  const fileRef = useRef<HTMLInputElement>(null);
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      const selectedFile = e.target.files[0];
-      processFile(selectedFile);
-    }
-  };
-
-  const processFile = async (selectedFile: File) => {
-    // Validate file type and size
-    if (selectedFile.size > 5 * 1024 * 1024) {
-      alert("File size exceeds 5MB limit");
-      return;
-    }
-
-    setFile(selectedFile);
-
-    // Create preview
+  const processFile = async (f: File) => {
+    if (f.size > 5 * 1024 * 1024) { alert('Max file size is 5 MB'); return; }
+    setFile(f);
     const reader = new FileReader();
-    reader.onloadend = () => {
-      setPreview(reader.result as string);
-    };
-    reader.readAsDataURL(selectedFile);
-
-    // Upload and verify
-    await uploadAndVerify(selectedFile);
+    reader.onloadend = () => setPreview(reader.result as string);
+    reader.readAsDataURL(f);
+    await runVerification(f);
   };
 
-  const uploadAndVerify = async (fileToUpload: File) => {
-    setIsUploading(true);
-    setVerificationStatus("processing");
-    setUploadProgress(0);
+  const runVerification = async (f: File) => {
+    setStatus('uploading');
+    setProgress(0);
+    const phases = ['Uploading document...', 'Scanning with AI...', 'Extracting data fields...', 'Comparing with form data...'];
+    let phase = 0;
 
-    const formData = new FormData();
-    formData.append("passport", fileToUpload);
+    const phaseTimer = setInterval(() => {
+      setScanPhase(phases[phase % phases.length]);
+      phase++;
+    }, 900);
+
+    const fd = new FormData();
+    fd.append('passport', f);
 
     try {
-      // 1. Upload Passport
-      const uploadResponse = await axios.post(
-        "/apply-visa/upload-passport",
-        formData,
-        {
-          headers: { "Content-Type": "multipart/form-data" },
-          onUploadProgress: (progressEvent) => {
-            const percentCompleted = Math.round(
-              (progressEvent.loaded * 100) / (progressEvent.total || 100),
-            );
-            setUploadProgress(percentCompleted);
-          },
+      const uploadRes = await axios.post('/apply-visa/upload-passport', fd, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+        onUploadProgress: e => {
+          setProgress(Math.round((e.loaded * 100) / (e.total || 100)));
+          setStatus('processing');
         },
-      );
+      });
 
-      // Store temp path
-      const { temp_path, extracted_data } = uploadResponse.data;
-      console.log("🔍 Debug - Extracted OCR Data:", extracted_data);
-      setData("passport_file_path", temp_path);
-      setData("ocr_data", extracted_data);
+      const { temp_path, extracted_data } = uploadRes.data;
+      setData('passport_file_path', temp_path);
+      setData('ocr_data', extracted_data);
 
-      // 2. Verify Data
-      const verifyPayload = {
+      const verifyRes = await axios.post('/apply-visa/verify-passport', {
         form_data: {
           first_name: data.first_name,
           last_name: data.last_name,
@@ -98,262 +108,169 @@ export default function PassportUploadStep({
           nationality: data.nationality,
         },
         ocr_data: extracted_data,
-      };
-
-      const verifyResponse = await axios.post(
-        "/apply-visa/verify-passport",
-        verifyPayload,
-      );
-      const result = verifyResponse.data;
-
-      setVerificationResult(result);
-      setVerificationStatus(result.status);
-
-      // Notify parent component
-      if (result.status === "verified" || result.status === "manual_review") {
-        onVerificationComplete(true);
-      } else {
-        onVerificationComplete(false);
-      }
-    } catch (error) {
-      console.error("Upload failed", error);
-      setVerificationStatus("failed");
-      setVerificationResult({
-        message: "Failed to process document. Please try again.",
       });
+
+      clearInterval(phaseTimer);
+      setResult(verifyRes.data);
+      setStatus(verifyRes.data.status);
+      onVerificationComplete(verifyRes.data.status === 'verified' || verifyRes.data.status === 'manual_review');
+    } catch (err) {
+      clearInterval(phaseTimer);
+      setStatus('failed');
+      setResult({ message: 'Failed to process document. Please use a clearer image.' });
       onVerificationComplete(false);
-    } finally {
-      setIsUploading(false);
     }
   };
 
-  const handleDragOver = (e: React.DragEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
+  const reset = () => {
+    setFile(null); setPreview(null); setStatus('idle'); setResult(null);
+    setData('passport_file_path', '');
+    setData('ocr_data', null);
+    if (fileRef.current) fileRef.current.value = '';
   };
 
-  const handleDrop = (e: React.DragEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-
-    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-      processFile(e.dataTransfer.files[0]);
-    }
-  };
-
-  const resetUpload = () => {
-    setFile(null);
-    setPreview(null);
-    setVerificationStatus("idle");
-    setVerificationResult(null);
-    setData("passport_file_path", "");
-    setData("ocr_data", null);
-    if (fileInputRef.current) fileInputRef.current.value = "";
-  };
+  const statusConfig = {
+    verified:      { color: 'emerald', Icon: CheckCircle2, label: 'Verified',        bg: 'bg-emerald-50 border-emerald-200' },
+    manual_review: { color: 'amber',   Icon: AlertTriangle, label: 'Manual Review',  bg: 'bg-amber-50 border-amber-200' },
+    failed:        { color: 'red',     Icon: XCircle,       label: 'Failed',         bg: 'bg-red-50 border-red-200' },
+  }[status as 'verified' | 'manual_review' | 'failed'];
 
   return (
-    <div className="space-y-8 animate-fade-in-up">
-      <div className="text-center space-y-2">
-        <h3 className="text-lg font-semibold text-[#0099cc]">
-          Step 2: Passport Verification
-        </h3>
-        <p className="text-sm text-gray-500">
-          Upload a clear copy of your passport bio-page for automatic
-          verification.
-        </p>
+    <div className="space-y-6">
+      <div className="text-center pb-2">
+        <div className="inline-flex items-center justify-center w-12 h-12 bg-emerald-50 rounded-2xl mb-3">
+          <ScanLine className="w-6 h-6 text-emerald-600" />
+        </div>
+        <h3 className="text-xl font-bold text-gray-900">AI Identity Verification</h3>
+        <p className="text-sm text-gray-500 mt-1">Upload your passport bio-page — our AI will extract and verify your data.</p>
       </div>
 
       {!file ? (
         <div
-          className="border-2 border-dashed border-sky-200 rounded-xl p-10 text-center hover:bg-sky-50 transition-colors cursor-pointer group"
-          onDragOver={handleDragOver}
-          onDrop={handleDrop}
-          onClick={() => fileInputRef.current?.click()}
+          onDragOver={e => { e.preventDefault(); setIsDragging(true); }}
+          onDragLeave={() => setIsDragging(false)}
+          onDrop={e => { e.preventDefault(); setIsDragging(false); if (e.dataTransfer.files[0]) processFile(e.dataTransfer.files[0]); }}
+          onClick={() => fileRef.current?.click()}
+          className={cn(
+            'border-2 border-dashed rounded-2xl p-12 text-center cursor-pointer transition-all duration-200',
+            isDragging
+              ? 'border-emerald-500 bg-emerald-50 scale-[1.01]'
+              : 'border-gray-300 bg-gray-50 hover:border-emerald-400 hover:bg-emerald-50/50'
+          )}
         >
-          <input
-            type="file"
-            ref={fileInputRef}
-            className="hidden"
-            accept=".jpg,.jpeg,.png,.pdf"
-            onChange={handleFileChange}
-          />
-          <div className="w-16 h-16 bg-sky-100 text-[#0099cc] rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+          <input ref={fileRef} type="file" className="hidden" accept=".jpg,.jpeg,.png,.pdf" onChange={e => e.target.files?.[0] && processFile(e.target.files[0])} />
+          <div className="w-16 h-16 bg-emerald-100 text-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
             <Upload className="w-8 h-8" />
           </div>
-          <h4 className="text-lg font-medium text-[#0099cc]">
-            Drag your passport here or click to browse
-          </h4>
-          <p className="text-sm text-gray-500 mt-2">
-            Accepted formats: JPEG, PNG, PDF (max 5MB)
-          </p>
+          <h4 className="text-base font-semibold text-gray-800">Drop your passport here</h4>
+          <p className="text-sm text-gray-500 mt-1">or <span className="text-emerald-600 font-medium">browse files</span></p>
+          <p className="text-xs text-gray-400 mt-3">JPEG, PNG or PDF · Max 5 MB · Clear, well-lit photo required</p>
+          <div className="flex justify-center gap-4 mt-5 text-xs text-gray-400">
+            <span className="flex items-center gap-1"><Zap className="w-3 h-3 text-emerald-400" /> Instant extraction</span>
+            <span className="flex items-center gap-1"><ShieldCheck className="w-3 h-3 text-emerald-400" /> Encrypted transfer</span>
+          </div>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-          {/* Preview Side */}
-          <div className="bg-gray-100 rounded-xl p-4 relative group">
-            {file.type.includes("image") ? (
-              <img
-                src={preview!}
-                alt="Passport Preview"
-                className="w-full h-auto rounded-lg shadow-sm"
-              />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Left — image + progress */}
+          <div className="relative rounded-2xl overflow-hidden bg-gray-100 group">
+            {file.type.includes('image') ? (
+              <img src={preview!} alt="Passport" className="w-full object-cover rounded-2xl" />
             ) : (
-              <div className="h-64 flex flex-col items-center justify-center text-gray-400">
-                <FileText className="w-16 h-16 mb-4" />
-                <span>PDF Document</span>
+              <div className="h-52 flex flex-col items-center justify-center text-gray-400">
+                <FileText className="w-16 h-16 mb-2" />
+                <span className="text-sm">PDF Document</span>
               </div>
             )}
-
-            <button
-              onClick={resetUpload}
-              className="absolute top-2 right-2 p-2 bg-white/90 text-red-500 rounded-full shadow-md hover:bg-red-50 transition-colors"
-            >
-              <X className="w-5 h-5" />
+            <button onClick={reset} className="absolute top-3 right-3 p-2 bg-white/90 text-red-500 rounded-full shadow hover:bg-red-50 transition-colors">
+              <X className="w-4 h-4" />
             </button>
 
-            {/* Loading Overlay */}
-            {isUploading && (
-              <div className="absolute inset-0 bg-white/80 backdrop-blur-sm flex flex-col items-center justify-center rounded-xl z-10">
-                <RefreshCw className="w-12 h-12 text-[#0099cc] animate-spin mb-4" />
-                <p className="text-[#0099cc] font-medium">
-                  Processing with AI...
-                </p>
-                <div className="w-48 h-2 bg-gray-200 rounded-full mt-4 overflow-hidden">
-                  <div
-                    className="h-full bg-gold-500 transition-all duration-300"
-                    style={{ width: `${uploadProgress}%` }}
-                  ></div>
+            {/* Scanning overlay */}
+            {(status === 'uploading' || status === 'processing') && (
+              <div className="absolute inset-0 bg-white/80 backdrop-blur-sm flex flex-col items-center justify-center rounded-2xl z-10 gap-4">
+                {/* animated scan line */}
+                <div className="relative w-16 h-16">
+                  <div className="absolute inset-0 rounded-full border-4 border-emerald-200 animate-ping opacity-50" />
+                  <div className="absolute inset-0 rounded-full border-4 border-t-emerald-500 animate-spin" />
+                  <ScanLine className="absolute inset-0 m-auto w-7 h-7 text-emerald-600" />
+                </div>
+                <div className="text-center">
+                  <p className="text-sm font-semibold text-gray-800">{scanPhase}</p>
+                  <div className="w-48 h-2 bg-gray-200 rounded-full mt-3 mx-auto overflow-hidden">
+                    <div
+                      className="h-full bg-emerald-500 rounded-full transition-all duration-500"
+                      style={{ width: `${progress}%` }}
+                    />
+                  </div>
                 </div>
               </div>
             )}
           </div>
 
-          {/* Verification Result Side */}
-          <div className="space-y-6">
-            {verificationStatus === "idle" ||
-            verificationStatus === "processing" ? (
-              <div className="h-full flex flex-col items-center justify-center text-center p-8 border-2 border-dashed border-gray-200 rounded-xl">
-                <div className="animate-pulse space-y-4 w-full">
-                  <div className="h-4 bg-gray-200 rounded w-3/4 mx-auto"></div>
-                  <div className="h-4 bg-gray-200 rounded w-1/2 mx-auto"></div>
-                </div>
-                <p className="text-gray-400 mt-6">
-                  Waiting for processing results...
-                </p>
-              </div>
-            ) : verificationStatus === "verified" ? (
-              <div className="bg-green-50 border border-green-200 rounded-xl p-6 text-center animate-fade-in-up">
-                <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Check className="w-8 h-8" />
-                </div>
-                <h4 className="text-xl font-bold text-green-800 mb-2">
-                  Verification Successful!
-                </h4>
-                <p className="text-green-700 text-sm mb-6">
-                  {verificationResult?.message}
-                </p>
-
-                <div className="bg-white rounded-lg p-4 shadow-sm text-left text-sm space-y-2">
-                  <div className="flex justify-between">
-                    <span className="text-gray-500">Name Match</span>
-                    <span className="text-green-600 font-medium flex items-center">
-                      <Check className="w-3 h-3 mr-1" /> Verified
-                    </span>
+          {/* Right — result */}
+          <div>
+            {(status === 'verified' || status === 'manual_review' || status === 'failed') && statusConfig && result && (
+              <div className={cn('rounded-2xl border p-5 space-y-5', statusConfig.bg)}>
+                {/* Header */}
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <statusConfig.Icon className={cn('w-5 h-5', `text-${statusConfig.color}-600`)} />
+                    <span className={cn('font-bold', `text-${statusConfig.color}-800`)}>{statusConfig.label}</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-500">Passport Number</span>
-                    <span className="text-green-600 font-medium flex items-center">
-                      <Check className="w-3 h-3 mr-1" /> Verified
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-500">DOB Match</span>
-                    <span className="text-green-600 font-medium flex items-center">
-                      <Check className="w-3 h-3 mr-1" /> Verified
-                    </span>
-                  </div>
+                  <ConfidenceRing score={result.confidence ?? 1} />
                 </div>
 
-                <button
-                  onClick={() => onVerificationComplete(true)}
-                  className="mt-6 w-full py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-bold shadow-md transition-colors animate-pulse"
-                >
-                  Continue to Next Step
-                </button>
-              </div>
-            ) : (
-              <div
-                className={`rounded-xl p-6 text-center animate-fade-in-up ${verificationStatus === "manual_review" ? "bg-orange-50 border border-orange-200" : "bg-red-50 border border-red-200"}`}
-              >
-                <div
-                  className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 ${verificationStatus === "manual_review" ? "bg-orange-100 text-orange-600" : "bg-red-100 text-red-600"}`}
-                >
-                  <AlertTriangle className="w-8 h-8" />
-                </div>
-                <h4
-                  className={`text-xl font-bold mb-2 ${verificationStatus === "manual_review" ? "text-orange-800" : "text-red-800"}`}
-                >
-                  {verificationStatus === "manual_review"
-                    ? "Manual Review Required"
-                    : "Verification Failed"}
-                </h4>
-                <p
-                  className={`text-sm mb-6 ${verificationStatus === "manual_review" ? "text-orange-700" : "text-red-700"}`}
-                >
-                  {verificationResult?.message}
-                </p>
+                <p className={cn('text-sm', `text-${statusConfig.color}-700`)}>{result.message}</p>
 
-                {/* Mismatches Display */}
-                {verificationResult?.mismatches &&
-                  verificationResult.mismatches.length > 0 && (
-                    <div className="bg-white rounded-lg p-4 shadow-sm text-left text-sm space-y-3 mb-6">
-                      <h5 className="font-semibold text-gray-700 border-b pb-2">
-                        Discrepancies Found:
-                      </h5>
-                      {verificationResult.mismatches.map(
-                        (field: string, idx: number) => {
-                          const matchData = verificationResult.matches[field];
-                          return (
-                            <div
-                              key={idx}
-                              className="grid grid-cols-2 gap-2 text-xs"
-                            >
-                              <div>
-                                <span className="text-gray-500 block">
-                                  Form Input:
-                                </span>
-                                <span className="font-medium text-red-600">
-                                  {matchData?.form_value || "N/A"}
-                                </span>
-                              </div>
-                              <div>
-                                <span className="text-gray-500 block">
-                                  Passport Data:
-                                </span>
-                                <span className="font-medium text-green-600">
-                                  {matchData?.ocr_value || "N/A"}
-                                </span>
-                              </div>
-                            </div>
-                          );
-                        },
-                      )}
+                {/* Match table */}
+                {result.matches && Object.keys(result.matches).length > 0 && !result.is_demo && (
+                  <div className="bg-white rounded-xl p-4 shadow-sm">
+                    <div className="grid grid-cols-3 text-xs font-bold text-gray-400 mb-2 uppercase tracking-wide">
+                      <span>Field</span><span className="text-center">You entered</span><span className="text-center">Passport read</span>
                     </div>
-                  )}
+                    {Object.entries(result.matches).map(([key, m]: [string, any]) => (
+                      <MatchRow
+                        key={key}
+                        label={key.replace('_', ' ')}
+                        formVal={m.form_value}
+                        ocrVal={m.ocr_value}
+                        matched={m.match}
+                      />
+                    ))}
+                  </div>
+                )}
 
-                <div className="flex flex-col gap-3">
+                {/* Demo mode indicator */}
+                {result.is_demo && (
+                  <div className="bg-white/60 rounded-xl p-3 text-xs text-gray-500 text-center">
+                    🧪 Demo mode — all fields auto-verified
+                  </div>
+                )}
+
+                {/* Actions */}
+                <div className="flex gap-3">
+                  {status === 'verified' && (
+                    <button
+                      onClick={() => onVerificationComplete(true)}
+                      className="flex-1 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-sm font-semibold transition-colors"
+                    >
+                      Continue →
+                    </button>
+                  )}
+                  {status === 'manual_review' && (
+                    <button
+                      onClick={() => onVerificationComplete(true)}
+                      className="flex-1 py-2.5 bg-amber-500 hover:bg-amber-600 text-white rounded-xl text-sm font-semibold transition-colors"
+                    >
+                      Continue with Manual Review
+                    </button>
+                  )}
                   <button
-                    onClick={resetUpload}
-                    className="w-full py-2 bg-white border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 font-medium transition-colors"
+                    onClick={reset}
+                    className="px-4 py-2.5 border border-gray-300 text-gray-600 rounded-xl text-sm font-medium hover:bg-gray-50 transition-colors flex items-center gap-1.5"
                   >
-                    Upload Different Passport
-                  </button>
-                  <button
-                    onClick={() => onVerificationComplete(false)} // This effectively asks them to go back to edit
-                    className="w-full py-2 bg-[#0099cc] text-white rounded-lg hover:bg-[#0088bb] font-medium transition-colors flex items-center justify-center"
-                  >
-                    <PenTool className="w-4 h-4 mr-2" />
-                    Edit Personal Info
+                    <RotateCcw className="w-3.5 h-3.5" /> Retry
                   </button>
                 </div>
               </div>
